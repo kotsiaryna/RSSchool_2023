@@ -1,0 +1,35 @@
+$color-beige: #F1CDB3;
+$color-white:#FFFFFF;
+$color-dark-s: #CDCDCD;
+$color-light-s: #FAFAFA;
+
+
+%cont {
+  width: 1200px;
+  margin: 0 auto;
+ }
+
+
+@mixin font-h2 ($color) {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 130%;
+  color: $color;
+}
+
+@mixin text ($color) {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+  color: $color;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
