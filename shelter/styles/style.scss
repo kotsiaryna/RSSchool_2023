@@ -46,16 +46,34 @@
 }
 
 
-// .about {
+.about {
+  background-color: $color-white;
+  @extend %paddings;
 
-//   &__inner {}
+  &__inner {
+    @extend %cont;
+    padding: 0 175px;
+    @include flex;
+    gap: 120px;
+  }
 
-//   &__img {}
+  // &__img {}
 
-//   &__cont {}
+  &__cont {
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
 
-//   &__heading {}
+  &__heading {
+    width: 360px;
+    @include font-h2($color-dark-l);
+  }
 
-//   &__text {}
-// }
+  &__text {
+    @include text($color-dark-xl);
+  }
+}
 
