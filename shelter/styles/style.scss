@@ -77,3 +77,80 @@
   }
 }
 
+.pets {
+  background-color: $color-light-l;
+  @extend %paddings;
+
+  &__inner {
+    @extend %cont;
+    @include flex;
+    flex-direction: column;
+    gap: 60px;
+
+  }
+
+  &__heading {
+    width: 400px;
+    @include font-h2($color-dark-l);
+    text-align: center;
+
+  }
+
+  &__button {
+    @include button(261px);
+  }
+}
+
+.arrow {
+  width: 52px;
+  height: 52px;
+  border: 2px solid $color-beige;
+  border-radius: 100px;
+  background-color: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+
+
+  &_right{
+    top: calc(50% - 26px);
+    right: 0;
+    background-image: url('../assets/icons/Arrow-right.svg');  
+  }
+
+  &_left{
+    top: calc(50% - 26px);
+    left: 0;
+    background-image: url('../assets/icons/Arrow-left.svg');  
+  }
+}
+
+.slider {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 90px;
+  position: relative;
+}
+.card {
+  width: 270px;
+  height: 435px;
+  background-color: $color-light-s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  &__img {}
+
+  &__heading {
+    @extend %h3;
+  }
+
+  &__btn {
+    @include button(187px);
+    background-color: inherit;
+    border: 2px solid $color-beige;
+  }
+}

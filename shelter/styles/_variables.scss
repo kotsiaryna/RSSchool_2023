@@ -2,6 +2,7 @@ $color-beige: #F1CDB3;
 $color-white:#FFFFFF;
 $color-dark-s: #CDCDCD;
 $color-light-s: #FAFAFA;
+$color-light-l: #F6F6F6;
 $color-dark-l: #545454;
 $color-dark-xl: #4C4C4C;
 
@@ -23,6 +24,16 @@ $color-dark-xl: #4C4C4C;
   font-size: 44px;
   line-height: 130%;
  }
+ %h3 {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: $color-dark-l;
+}
 
 @mixin font-h2 ($color) {
   font-family: 'Georgia';
