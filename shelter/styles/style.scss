@@ -5,6 +5,7 @@
 
 
 .start {
+  margin-top: -90px;
   background: url(../assets/background/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 
   padding-top: 90px + 60px + 30px;
@@ -44,7 +45,6 @@
   //   // height: 728px;
   // }
 }
-
 
 .about {
   background-color: $color-white;
@@ -285,4 +285,64 @@
   line-height: 150%;
   color: $color-dark-m;
  }
+}
+// pets
+.gallery {
+  @extend %paddings;
+  background-color: $color-light-l;
+
+  &__heading {
+    width: 400px;
+    margin: 0 auto;
+
+    @include font-h2($color-dark-l);
+    text-align: center;
+  }
+
+  &__inner {
+    width: 1200px;
+    margin: 45px auto;
+    padding: 15px 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-template-rows: repeat(2, 435px);
+    gap: 30px 40px;
+  }
+
+  &__btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 100px;
+    background-color: inherit;
+    text-align: center;
+  }
+
+  &__btn-cont {
+    width: 340px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    @extend %h4;
+  
+    .start-btn {
+      border: 2px solid $color-dark-s;
+      color: $color-dark-s;
+    }
+    .prev-btn {
+      border: 2px solid $color-dark-s;
+      color: $color-dark-s;
+    }
+    .number-btn {
+      background-color: $color-beige;
+    }
+    .next-btn { 
+      border: 2PX SOLID $color-beige;
+    } 
+    .end-btn {
+      border: 2PX SOLID $color-beige;
+    }
+  }
+
 }
