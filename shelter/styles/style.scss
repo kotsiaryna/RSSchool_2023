@@ -222,8 +222,6 @@
     &:nth-child(9) {
       background-image: url('../assets/icons/sleeping-area.svg');
     }
-    
-
   }
 
   &__text {
@@ -231,3 +229,62 @@
     color: $color-dark-l;
   }
 }
+
+.donat {
+  @extend %paddings;
+  background-color: $color-light-l;
+
+  &__inner {
+    @extend %cont;
+    padding: 0 143px;
+    @include flex;
+    gap: 30px;
+  }
+
+  &__img {}
+
+  &__cont {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__heading {
+    @include font-h2($color-dark-l);
+    width: 300px;
+  }
+
+  &__subheading {
+    width: 100%;
+   font: 400 15px 'Georgia', serif;
+   line-height: 110%;
+   letter-spacing: 0.06em;
+   color: $color-dark-l;
+  }
+
+  &__credit {
+    width: 350px;
+    height: 43px;
+    padding: 10px 15px;
+    border-radius: 9px;
+    text-align: right;
+
+    background: 15px center no-repeat url('../assets/icons/credit-card.svg');
+    background-color: $color-beige;
+    
+    @extend %h4;
+    color: $color-dark-l;
+  }
+
+  &__text {
+ font-family: 'Arial';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: $color-dark-m;
+}
+}
+
+
