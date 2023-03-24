@@ -1,0 +1,98 @@
+$color-beige: #F1CDB3;
+$color-beige-l:#FDDCC4;
+$color-white:#FFFFFF;
+$color-dark-s: #CDCDCD;
+$color-dark-m:#B2B2B2;
+$color-light-s: #FAFAFA;
+$color-light-l: #F6F6F6;
+$color-dark-l: #545454;
+$color-dark-xl: #4C4C4C;
+$color-dark-3xl:#292929;
+
+$trans: 0.5s;
+
+
+%cont {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+ %paddings {
+  padding-top: 80px;
+  padding-bottom: 100px;
+ }
+
+ %heading {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 130%;
+ }
+ %h3 {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: $color-dark-l;
+}
+
+%h4 {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+@mixin font-h2 ($color) {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $color;
+}
+
+@mixin text ($color) {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+  color: $color;
+}
+
+@mixin button ($width) {
+  width: $width;
+  height: 52px;
+  border-radius: 100px;
+  background-color: $color-beige;
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+
+  &:hover {
+    background-color: $color-beige-l;
+    border-color: $color-beige-l;
+    transition: 0.3s;
+    cursor: pointer;
+
+  }
+  
+ }
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

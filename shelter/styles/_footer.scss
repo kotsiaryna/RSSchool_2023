@@ -1,0 +1,72 @@
+.footer {
+  background: url(../assets/background/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+  padding-top: 40px;
+
+  &__inner {
+    @extend %cont;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__block {
+    height: 234px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  &__heading {
+    width: 280px;
+    @include font-h2($color-white);
+  }
+
+  .contacts {
+    max-width: 302px;
+    min-height: 32px;
+    display: flex;
+    // align-items: flex-end;
+  
+    @extend %h4;
+    color: $color-beige;
+
+    background-position: left center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      color: $color-beige-l;
+      transform: scale(1.1);
+      transition: $trans;
+    }
+    a {
+      justify-content: flex-end;
+    }
+    }
+
+  &__mail {
+    background-image: url('../assets/icons/icon-email.svg');
+    width: 251px;
+    
+  }
+
+  &__tel {
+    background-image: url('../assets/icons/icon-phone.svg');
+    width: 239px;
+  }
+
+  &__location {
+    background-image: url('../assets/icons/icon-marker.svg');
+
+    &:nth-child(2) {
+      width: 302px;
+    }
+
+    &:nth-child(3) {
+      width: 230px + 20px + 20px;
+    }
+    
+  }
+}
+
+
