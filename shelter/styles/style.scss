@@ -266,7 +266,7 @@
   &__credit {
     width: 350px;
     height: 43px;
-    padding: 10px 15px;
+    padding-right:15px;
     border-radius: 9px;
     text-align: right;
 
@@ -275,6 +275,9 @@
     
     @extend %h4;
     color: $color-dark-l;
+    a{
+      justify-content: flex-end;
+    }
   }
 
   &__text {

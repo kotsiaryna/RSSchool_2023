@@ -26,29 +26,44 @@
     max-width: 302px;
     min-height: 32px;
     display: flex;
-    align-items: center;
+    // align-items: flex-end;
   
     @extend %h4;
     color: $color-beige;
 
     background-position: left center;
     background-repeat: no-repeat;
+
+    a {
+      justify-content: flex-end;
+    }
+
+    
+       
     }
 
   &__mail {
     background-image: url('../assets/icons/icon-email.svg');
-    padding-left: 56px;
+    width: 251px;
+    
   }
 
   &__tel {
     background-image: url('../assets/icons/icon-phone.svg');
-    padding-left: 56px;
+    width: 239px;
   }
 
   &__location {
     background-image: url('../assets/icons/icon-marker.svg');
-    padding-left: 40px;
-    text-align: left;
+
+    &:nth-child(2) {
+      width: 302px;
+    }
+
+    &:nth-child(3) {
+      width: 230px + 20px + 20px;
+    }
+    
   }
 }
 
