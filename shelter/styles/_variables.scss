@@ -1,4 +1,5 @@
 $color-beige: #F1CDB3;
+$color-beige-l:#FDDCC4;
 $color-white:#FFFFFF;
 $color-dark-s: #CDCDCD;
 $color-dark-m:#B2B2B2;
@@ -6,6 +7,9 @@ $color-light-s: #FAFAFA;
 $color-light-l: #F6F6F6;
 $color-dark-l: #545454;
 $color-dark-xl: #4C4C4C;
+$color-dark-3xl:#292929;
+
+$trans: 0.5s;
 
 
 %cont {
@@ -76,6 +80,14 @@ $color-dark-xl: #4C4C4C;
   font-size: 17px;
   line-height: 130%;
   letter-spacing: 0.06em;
+
+  &:hover {
+    background-color: $color-beige-l;
+    border-color: $color-beige-l;
+    transition: 0.3s;
+    cursor: pointer;
+
+  }
   
  }
 
