@@ -56,7 +56,7 @@ button {
   color: #545454;
 }
 
-.gallery__btn-cont, .donat__credit, .help__text, .footer .contacts {
+.gallery__btn, .gallery__btn-cont, .donat__credit, .help__text, .footer .contacts {
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
@@ -95,7 +95,7 @@ button {
   color: #545454;
 }
 
-.gallery__btn-cont, .donat__credit, .help__text, .footer .contacts {
+.gallery__btn, .gallery__btn-cont, .donat__credit, .help__text, .footer .contacts {
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
@@ -144,6 +144,7 @@ button {
   line-height: 160%;
   color: #FFFFFF;
   font-size: 13px;
+  text-align: right;
   letter-spacing: 0.1em;
 }
 
