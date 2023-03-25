@@ -38,8 +38,9 @@
 		&__text {
       @include text($color-white);
       font-size: 13px;
+      text-align: right;
       letter-spacing: 0.1em;
-    }
+     }
 }
 .nav {
    ul {

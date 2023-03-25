@@ -367,6 +367,7 @@
     background-color: inherit;
     text-align: center;
     cursor: pointer;
+    @extend %h4;
 
     &:hover {
       background-color: $color-beige-l;
@@ -380,10 +381,4 @@
       cursor: default;
     }
   }
-
- 
-
-
-
-
 }
