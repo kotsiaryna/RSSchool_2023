@@ -198,6 +198,7 @@ button {
 .footer__inner {
   display: flex;
   justify-content: space-between;
+  gap: 160px;
   align-items: flex-start;
 }
 .footer__block {
@@ -206,6 +207,9 @@ button {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+}
+.footer__block:nth-child(2) {
+  margin-left: -10px;
 }
 .footer__heading {
   width: 280px;
@@ -218,7 +222,7 @@ button {
   color: #FFFFFF;
 }
 .footer .contacts {
-  max-width: 302px;
+  max-width: 320px;
   min-height: 32px;
   display: flex;
   color: #F1CDB3;
@@ -245,7 +249,7 @@ button {
   background-image: url("../assets/icons/icon-marker.svg");
 }
 .footer__location:nth-child(2) {
-  width: 302px;
+  width: 292px;
 }
 .footer__location:nth-child(3) {
   width: 270px;

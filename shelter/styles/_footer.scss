@@ -6,6 +6,7 @@
     @extend %cont;
     display: flex;
     justify-content: space-between;
+    gap: 160px;
     align-items: flex-start;
   }
 
@@ -15,6 +16,9 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    &:nth-child(2) {
+      margin-left: -10px;
+    }
   }
 
   &__heading {
@@ -23,7 +27,7 @@
   }
 
   .contacts {
-    max-width: 302px;
+    max-width: 320px;
     min-height: 32px;
     display: flex;
     // align-items: flex-end;
@@ -59,7 +63,7 @@
     background-image: url('../assets/icons/icon-marker.svg');
 
     &:nth-child(2) {
-      width: 302px;
+      width: 292px;
     }
 
     &:nth-child(3) {
