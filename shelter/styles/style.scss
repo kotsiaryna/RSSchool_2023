@@ -1,4 +1,5 @@
 @import "_normalize";
+@import "_fonts";
 @import "_variables";
 @import "_header";
 @import "_footer";
@@ -375,6 +376,10 @@
       transition: $trans;
     }
 
+    &:active {
+      background-color: $color-beige;
+    }
+
     &:disabled {
       background-color: inherit;
       border-color: $color-dark-s;
@@ -382,3 +387,4 @@
     }
   }
 }
+
