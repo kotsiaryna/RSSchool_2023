@@ -58,6 +58,16 @@
         transition: $trans;
       }
 
+      &:active {
+        &:after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 3px;
+          background-color: $color-beige;  
+        }
+      }
+
       &_active {
         color: $color-light-s;
 
