@@ -1,29 +1,70 @@
 .footer {
   background: url(../assets/background/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
   padding-top: 40px;
+  
+  @media screen and (max-width:$tablet) {
+    padding-top: 15px;
+  }
 
   &__inner {
     @extend %cont;
     display: flex;
     justify-content: space-between;
-    gap: 160px;
+    gap: 65px 10px;
     align-items: flex-start;
+    flex-wrap: wrap;
+
+    @media screen and (max-width:$tablet) and (min-width:$mobile) {
+      padding: 0 65px;
+    }
+    @media screen and (max-width:$mobile) {
+      justify-content: center;
+      gap: 25px;
+    }
+
+  }
+  &__img {
+    @media screen and (max-width:$tablet) {
+      // row-gap: 65px;
+      width: 100%;
+      height: 310px;
+      object-fit: contain;
+    }
+    @media screen and (max-width:$mobile) {
+      margin-top: 15px;
+      height: 269px;
+    }
   }
 
   &__block {
-    height: 234px;
+    // height: 234px;
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    gap: 40px;
     &:nth-child(2) {
       margin-left: -10px;
+      @media screen and (max-width:$tablet) and (min-width:$mobile) {
+        margin-left: 0;
+        margin-right: 10px;
+      }
     }
+
+    @media screen and (max-width:$tablet) {
+      align-items: center;
+    }
+
+   
   }
 
   &__heading {
     width: 280px;
     @include font-h2($color-white);
+    @media screen and (max-width:$mobile) {
+     text-align: center;
+    }
+
   }
 
   .contacts {
@@ -33,6 +74,12 @@
     // align-items: flex-end;
   
     @extend %h4;
+
+    @media screen and (max-width:$mobile) {
+      font-size: 20px;
+      line-height: 115%;
+      align-items: center;
+    }
     color: $color-beige;
 
     background-position: left center;
@@ -46,6 +93,8 @@
     a {
       justify-content: flex-end;
     }
+
+    
     }
 
   &__mail {
@@ -68,6 +117,10 @@
 
     &:nth-child(3) {
       width: 230px + 20px + 20px;
+      @media screen and (max-width:$mobile) {
+      //  width: 272px;
+       align-self: start;
+      }
     }
     
   }
