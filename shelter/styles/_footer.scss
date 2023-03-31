@@ -15,10 +15,12 @@
     flex-wrap: wrap;
 
     @media screen and (max-width:$tablet) and (min-width:$mobile) {
-      padding: 0 65px;
+     width: 90%;
+     
     }
     @media screen and (max-width:$mobile) {
       justify-content: center;
+      align-items: center;
       gap: 25px;
     }
 
@@ -37,7 +39,7 @@
   }
 
   &__block {
-    // height: 234px;
+    max-height: 234px;
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
@@ -45,14 +47,13 @@
     gap: 40px;
     &:nth-child(2) {
       margin-left: -10px;
-      @media screen and (max-width:$tablet) and (min-width:$mobile) {
+      @media screen and (max-width:$tablet) {
         margin-left: 0;
-        margin-right: 10px;
-      }
+       }
     }
 
-    @media screen and (max-width:$tablet) {
-      align-items: center;
+    @media screen and (max-width:$mobile) {
+    align-items: center;
     }
 
    
@@ -71,7 +72,7 @@
     max-width: 320px;
     min-height: 32px;
     display: flex;
-    // align-items: flex-end;
+    align-items: center;
   
     @extend %h4;
 
@@ -79,6 +80,7 @@
       font-size: 20px;
       line-height: 115%;
       align-items: center;
+      margin-left: -8px;
     }
     color: $color-beige;
 
@@ -113,12 +115,15 @@
 
     &:nth-child(2) {
       width: 292px;
+      // @media screen and (max-width:$mobile) {
+      //   width: 300px;
+      // }
     }
 
     &:nth-child(3) {
       width: 230px + 20px + 20px;
       @media screen and (max-width:$mobile) {
-      //  width: 272px;
+      //  width: 300px;
        align-self: start;
       }
     }
