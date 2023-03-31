@@ -11,15 +11,31 @@ $color-dark-3xl:#292929;
 
 $trans: 0.5s;
 
+$tablet: 1100px;
+$mobile:720px;
+
 
 %cont {
-  width: 1200px;
+  max-width: 1280px;
+  padding: 0 40px;
   margin: 0 auto;
+  @media screen and (max-width:$tablet) {
+    padding: 0 30px;
+  }
+  @media screen and (max-width:$mobile) {
+    padding: 0 10px;
+  }
+
 }
 
  %paddings {
   padding-top: 80px;
   padding-bottom: 100px;
+
+  @media screen and (max-width:$mobile) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+   }
  }
 
  %heading {
@@ -28,6 +44,10 @@ $trans: 0.5s;
   font-weight: 400;
   font-size: 44px;
   line-height: 130%;
+  @media screen and (max-width:$mobile) {
+    font-size: 25px;
+    letter-spacing: 0.06em;
+  }
  }
  %h3 {
   font-family: 'Georgia';
@@ -48,6 +68,11 @@ $trans: 0.5s;
   line-height: 115%;
   text-align: center;
   letter-spacing: 0.06em;
+
+  @media screen and (max-width:$mobile) {
+    font-size: 15px;
+    line-height: 110%;
+  }
 }
 
 @mixin font-h2 ($color) {
@@ -58,6 +83,10 @@ $trans: 0.5s;
   line-height: 130%;
   letter-spacing: 0.06em;
   color: $color;
+  @media screen and (max-width:$mobile) {
+   font-size: 25px;    
+  }
+
 }
 
 @mixin text ($color) {
