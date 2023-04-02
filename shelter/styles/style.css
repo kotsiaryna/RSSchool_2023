@@ -9,6 +9,10 @@ html {
   transition: all 0.3s;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 a {
   display: flex;
   justify-content: center;
@@ -159,6 +163,48 @@ button {
   }
 }
 
+.menu {
+  position: fixed;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  right: -320px;
+  background-color: #292929;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  z-index: 2;
+}
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+.menu__item {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 160%;
+  color: #CDCDCD;
+}
+.menu__item:hover {
+  color: #FFFFFF;
+  transition: 0.3s;
+}
+.menu__item_active {
+  border-bottom: 3px solid #F1CDB3;
+}
+.menu_open {
+  right: 0;
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
 .donat__inner, .help__inner, .pets__inner, .about__inner, .start__inner, .footer__inner, .header__inner {
   max-width: 1280px;
   padding: 0 40px;
@@ -230,6 +276,7 @@ button {
 .header {
   padding-top: 30px;
   padding-bottom: 30px;
+  position: relative;
 }
 .header__inner {
   height: 60px;
@@ -292,6 +339,7 @@ button {
   height: 22px;
   flex-direction: column;
   gap: 8px;
+  transition: 0.2s;
 }
 .nav .burger__line {
   display: block;
@@ -305,7 +353,15 @@ button {
 @media screen and (max-width: 767px) {
   .nav .burger {
     display: flex;
+    position: relative;
+    z-index: 3;
   }
+}
+.nav .burger_transformed {
+  transform: rotate(90deg);
+}
+.nav .burger:hover {
+  cursor: pointer;
 }
 .nav__item {
   font-family: "Arial";
@@ -338,6 +394,19 @@ button {
 }
 .nav__item_active a:hover {
   cursor: default;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  background-color: rgba(41, 41, 41, 0.6);
+}
+.background_visible {
+  display: block;
 }
 
 .pet {
