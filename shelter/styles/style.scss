@@ -203,7 +203,7 @@
   }
 
   &__heading {
-    width: 400px;
+    max-width: 400px;
     @include font-h2($color-dark-l);
     text-align: center;
 
@@ -570,7 +570,7 @@
   &__inner {
     max-width: 1200px;
     margin: 45px auto;
-    padding: 15px;
+    padding: 15px 0;
 
     display: grid;
     grid-template-columns: repeat(4, 270px);
