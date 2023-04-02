@@ -51,7 +51,7 @@
     flex-direction: row;
     align-items: center;
     gap: 35px;
-    @media screen and (max-width:$mobile) {
+    @media screen and (max-width:$burger) {
       display: none;
     }
    }
@@ -73,7 +73,7 @@
         background-color: black;
       }
     }
-    @media screen and (max-width:$mobile) {
+    @media screen and (max-width:$burger) {
       display: flex;
     }
    }

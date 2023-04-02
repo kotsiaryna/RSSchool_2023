@@ -281,7 +281,7 @@ button {
   align-items: center;
   gap: 35px;
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 767px) {
   .nav ul {
     display: none;
   }
@@ -302,7 +302,7 @@ button {
 .nav .burger__line_dark {
   background-color: black;
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 767px) {
   .nav .burger {
     display: flex;
   }
@@ -727,7 +727,7 @@ button {
   }
 }
 .pets__heading {
-  width: 400px;
+  max-width: 400px;
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
@@ -1167,7 +1167,7 @@ button {
 .gallery__inner {
   max-width: 1200px;
   margin: 45px auto;
-  padding: 15px;
+  padding: 15px 0;
   display: grid;
   grid-template-columns: repeat(4, 270px);
   grid-template-rows: repeat(2, 435px);
