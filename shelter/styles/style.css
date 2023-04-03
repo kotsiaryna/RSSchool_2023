@@ -942,6 +942,10 @@ button {
 @media screen and (max-width: 720px) {
   .help__list {
     gap: 30px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .help__list {
     justify-content: flex-start;
   }
 }

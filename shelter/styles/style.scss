@@ -367,8 +367,14 @@
     }
     @media screen and (max-width:$mobile) {
       gap: 30px;
+      // justify-content: flex-start;
+    }
+    @media screen and (max-width:340px) {
+      // gap: 30px;
       justify-content: flex-start;
     }
+
+
 
   }
 
@@ -389,6 +395,7 @@
       width: 130px;
       background-size: 50px;
       gap: 20px;
+     
     }
 
     background-repeat: no-repeat;
@@ -420,7 +427,8 @@
     }
     &:nth-child(9) {
       background-image: url('../assets/icons/sleeping-area.svg');
-    }
+     }
+    
   }
 
   &__text {
