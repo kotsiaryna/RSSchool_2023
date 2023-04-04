@@ -839,6 +839,7 @@ button {
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
+  z-index: 5;
   top: calc(50% - 26px + 21px);
 }
 @media screen and (max-width: 720px) {
@@ -883,22 +884,120 @@ button {
 }
 
 .slider {
-  width: calc(100% - 210px);
+  width: 990px;
+  overflow: hidden;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
 }
 @media screen and (max-width: 1100px) {
   .slider {
-    width: calc(100% - 128px);
+    width: 580px;
   }
 }
 @media screen and (max-width: 720px) {
   .slider {
-    justify-content: center;
     margin-bottom: 72px;
+    width: 290px;
   }
+}
+.slider__inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 90px;
+  position: relative;
+  left: -1080px;
+}
+@media screen and (max-width: 1100px) {
+  .slider__inner {
+    gap: 40px;
+    left: -620px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .slider__inner {
+    gap: 20px;
+    left: -280px;
+  }
+}
+.slider__inner .items {
+  width: 990px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1100px) {
+  .slider__inner .items {
+    width: 580px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .slider__inner .items {
+    width: 270px;
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  @keyframes moveLeft {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -1240px;
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  @keyframes moveLeft {
+    from {
+      left: -280px;
+    }
+    to {
+      left: -570px;
+    }
+  }
+}
+@keyframes moveRight {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0;
+  }
+}
+@media screen and (max-width: 1100px) {
+  @keyframes moveRight {
+    from {
+      left: -600px;
+    }
+    to {
+      left: 0;
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  @keyframes moveRight {
+    from {
+      left: -280px;
+    }
+    to {
+      left: 10px;
+    }
+  }
+}
+.move_left {
+  animation: moveLeft 5s;
+}
+
+.move_right {
+  animation: moveRight 5s;
 }
 
 .card {
@@ -939,17 +1038,6 @@ button {
   border-color: #FDDCC4;
   transition: 0.3s;
   cursor: pointer;
-}
-
-@media screen and (max-width: 1100px) {
-  .main__card:nth-child(3) {
-    display: none;
-  }
-}
-@media screen and (max-width: 720px) {
-  .main__card:nth-child(2) {
-    display: none;
-  }
 }
 
 .help {
