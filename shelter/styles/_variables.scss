@@ -76,6 +76,14 @@ $burger:767px;
   }
 }
 
+%h5 {
+  font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+}
+
 @mixin font-h2 ($color) {
   font-family: 'Georgia';
   font-style: normal;
