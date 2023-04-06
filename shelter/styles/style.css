@@ -569,6 +569,7 @@ button {
 
 .popup {
   position: fixed;
+  z-index: 8;
   top: 0;
   left: 0;
   width: 100vw;
@@ -581,7 +582,7 @@ button {
 .popup__window {
   position: relative;
   width: 900px;
-  height: 500px;
+  min-height: 500px;
   background-color: #FAFAFA;
   border-radius: 10px;
   display: flex;
@@ -590,13 +591,13 @@ button {
 @media screen and (max-width: 1180px) {
   .popup__window {
     width: 630px;
-    height: 350px;
+    min-height: 350px;
   }
 }
 @media screen and (max-width: 760px) {
   .popup__window {
     width: 240px;
-    height: 341px;
+    min-height: 341px;
   }
 }
 .popup__btn {
@@ -609,14 +610,27 @@ button {
   top: -52px;
   right: -42px;
 }
+.popup__btn:hover {
+  cursor: pointer;
+  background-color: #F1CDB3;
+  transition: 0.3s;
+}
 @media screen and (max-width: 760px) {
   .popup__btn {
     right: -30px;
   }
 }
 .popup__img {
-  border-radius: 10px;
-  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 500px;
+  height: 500px;
+}
+@media screen and (max-width: 1180px) {
+  .popup__img {
+    width: 350px;
+    height: 350px;
+  }
 }
 @media screen and (max-width: 760px) {
   .popup__img {
@@ -701,6 +715,10 @@ button {
 
 .bold {
   font-weight: 700;
+}
+
+.hidden {
+  display: none;
 }
 
 .start {
