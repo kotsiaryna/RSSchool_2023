@@ -11,9 +11,9 @@ const activeItems = document.querySelector('.items_active')
 // number of cards in slider
 let cardsNumber
 
-const mediaQueryDesktop = window.matchMedia('(min-width:1101px)')
-const mediaQueryTablet = window.matchMedia('(min-width:721px) and (max-width:1100px)')
-const mediaQueryMobile = window.matchMedia('(max-width:720px)')
+const mediaQueryDesktop = window.matchMedia('(min-width:1181px)')
+const mediaQueryTablet = window.matchMedia('(min-width:761px) and (max-width:1180px)')
+const mediaQueryMobile = window.matchMedia('(max-width:760px)')
 
 
 if(mediaQueryDesktop.matches) {
