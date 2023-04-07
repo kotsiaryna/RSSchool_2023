@@ -710,23 +710,10 @@
 
     @extend %h4;
   
-    .start-btn {
-      border: 2px solid $color-dark-s;
-      color: $color-dark-s;
-    }
-    .prev-btn {
-      border: 2px solid $color-dark-s;
-      color: $color-dark-s;
-    }
-    .number-btn {
+        .number-btn {
       background-color: $color-beige;
     }
-    .next-btn { 
-      border: 2PX SOLID $color-beige;
-    } 
-    .end-btn {
-      border: 2PX SOLID $color-beige;
-    }
+    
   }
 
 
@@ -738,6 +725,8 @@
     text-align: center;
     cursor: pointer;
     @extend %h4;
+
+    border: 2PX SOLID $color-beige;
 
     &:hover {
       background-color: $color-beige-l;
@@ -757,16 +746,4 @@
   }
 }
 
-.pets__card {
-  @media screen and (max-width:$tablet) {
-    &:nth-child(7), &:nth-child(8) {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 740px) {
-    &:nth-child(4), &:nth-child(5), &:nth-child(6) {
-      display: none;
-    }
-  }
-}
 

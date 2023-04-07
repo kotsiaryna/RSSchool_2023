@@ -1545,22 +1545,8 @@ button {
     padding: 0 10px;
   }
 }
-.gallery__btn-cont .start-btn {
-  border: 2px solid #CDCDCD;
-  color: #CDCDCD;
-}
-.gallery__btn-cont .prev-btn {
-  border: 2px solid #CDCDCD;
-  color: #CDCDCD;
-}
 .gallery__btn-cont .number-btn {
   background-color: #F1CDB3;
-}
-.gallery__btn-cont .next-btn {
-  border: 2PX SOLID #F1CDB3;
-}
-.gallery__btn-cont .end-btn {
-  border: 2PX SOLID #F1CDB3;
 }
 .gallery__btn {
   width: 52px;
@@ -1569,6 +1555,7 @@ button {
   background-color: inherit;
   text-align: center;
   cursor: pointer;
+  border: 2PX SOLID #F1CDB3;
 }
 .gallery__btn:hover {
   background-color: #FDDCC4;
@@ -1582,15 +1569,4 @@ button {
   background-color: inherit;
   border-color: #CDCDCD;
   cursor: default;
-}
-
-@media screen and (max-width: 1180px) {
-  .pets__card:nth-child(7), .pets__card:nth-child(8) {
-    display: none;
-  }
-}
-@media screen and (max-width: 740px) {
-  .pets__card:nth-child(4), .pets__card:nth-child(5), .pets__card:nth-child(6) {
-    display: none;
-  }
 }/*# sourceMappingURL=style.css.map */
