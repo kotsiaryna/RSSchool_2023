@@ -6,10 +6,6 @@ const popupWindow = document.querySelector('.popup__window')
 const body = document.querySelector('body')
 const closeBtn = document.querySelector('.popup__btn')
 
-console.log(cont)
-
-
-
 const openPopup = (event) => {
   let target = event.target;
   let id
