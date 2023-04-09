@@ -52,8 +52,6 @@ for(let i = 0; i < 6; i++) {
       break;
   }
 }
-console.log(arr)
- 
 
 // media queries
 const mediaQueryDesktop = window.matchMedia('(min-width:1121px)')
@@ -74,7 +72,6 @@ if(mediaQueryMobile.matches) {
 
 mediaQueryDesktop.addEventListener('change', (e)=> {
   if(e.matches) {
-    console.log('desktop!!!')
     cardsNumber = 8
     gallery.innerHTML = ""
     pageBtn.textContent = +pageBtn.textContent > 6 ? 6 : +pageBtn.textContent
@@ -110,7 +107,6 @@ mediaQueryMobile.addEventListener('change', (e)=> {
 function fillGallery (n, page = 1) {
   for(let i = n* (page-1); i < n*page; i++) {
     gallery.append(createCard(arr[i])) 
-    console.log(i)
   }
 }
 
