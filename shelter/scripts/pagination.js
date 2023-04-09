@@ -28,10 +28,30 @@ const getRandomSlot = () => {
 }
 
 for(let i = 0; i < 6; i++) {
-  arr.push(...getRandomSlot())
+  let slot6
+  let slot8
+  switch (i)  {
+    case 0:
+    case 3:
+      arr.push(...getRandomSlot());
+      break;
+    case 1: 
+    case 4: 
+      do {
+        slot8 = getRandomSlot()
+        slot6 = new Set( [...arr.slice(i*8-2, i*8), ...slot8.slice(0,4)])
+      } while (slot6.size !== 6)
+      arr.push(...slot8)
+      break;
+    case 2: case 5:
+      do {
+        slot8 = getRandomSlot()
+        slot6 = new Set([...arr.slice(i*8-4,i*8), ...slot8.slice(0,2)])
+      } while(slot6.size !== 6)
+        arr.push(...slot8);
+      break;
+  }
 }
-console.log(arr)
-// 
 
 // media queries
 const mediaQueryDesktop = window.matchMedia('(min-width:1121px)')
@@ -52,12 +72,10 @@ if(mediaQueryMobile.matches) {
 
 mediaQueryDesktop.addEventListener('change', (e)=> {
   if(e.matches) {
-    console.log('desktop!!!')
     cardsNumber = 8
     gallery.innerHTML = ""
     pageBtn.textContent = +pageBtn.textContent > 6 ? 6 : +pageBtn.textContent
     fillGallery(cardsNumber, +pageBtn.textContent)
-    
   }
  })
 
@@ -83,23 +101,16 @@ mediaQueryMobile.addEventListener('change', (e)=> {
       endBtn.disabled = false
       nextBtn.disabled = false
     }
-
-  }
-
+ }
 })
-
-
-
 
 function fillGallery (n, page = 1) {
   for(let i = n* (page-1); i < n*page; i++) {
     gallery.append(createCard(arr[i])) 
-    console.log(i)
   }
 }
 
 fillGallery(cardsNumber)
-
 
 // хорошо бы запихнуть в модуль куда
 function createCard (num) {
@@ -170,5 +181,3 @@ endBtn.addEventListener('click', () => {
   startBtn.disabled = false
 
 })
-
-
