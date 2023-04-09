@@ -1,8 +1,12 @@
 @import "_normalize";
 @import "_fonts";
 @import "_variables";
+@import "_menu";
 @import "_header";
 @import "_footer";
+@import "_popup";
+
+
 
 
 .start {
@@ -223,6 +227,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
+  z-index: 5;
   top: calc(50% - 26px + 21px);
 
   @media screen and (max-width:$mobile) {
@@ -261,21 +266,120 @@
 }
 
 .slider {
-  width: calc(100% - 210px);
+  width:990px;
+  overflow: hidden;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  // gap: 90px;
-  position: relative;
 
   @media screen and (max-width:$tablet) {
-    width: calc(100% - 128px);
+    width: 580px;
+  }
+
+  @media screen and (max-width:$mobile) {
+    // justify-content: center;
+    margin-bottom: 72px;
+    width: 290px;
+   }
+   
+  &__inner{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 90px;
+  position: relative;
+  left: -1080px;
+   
+  @media screen and (max-width:$tablet) {
+    gap: 40px;
+    left: -620px ;
   }
   @media screen and (max-width:$mobile) {
-   justify-content: center;
-   margin-bottom: 72px;
+    gap: 20px;
+    left: -280px ;
+  }
+ 
+  .items {
+    width: 990px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media screen and (max-width:$tablet) {
+      width: 580px;
+    }
+    @media screen and (max-width:$mobile) {
+      width: 270px;
+    }
+   }
   }
 }
+// slider animation
+@keyframes moveLeft {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+ @media screen and (max-width:$tablet) {
+  @keyframes moveLeft {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -1240px;
+    }
+  }
+ }
+ @media screen and (max-width:$mobile) {
+  @keyframes moveLeft {
+    from {
+      left: -280px;
+    }
+    to {
+      left: -570px;
+    }
+  }
+ }
+
+@keyframes moveRight {
+  from {
+    left: -1080px;
+  } 
+  to {
+    left: 0;
+  }
+}
+
+@media screen and (max-width:$tablet) {
+  @keyframes moveRight {
+    from {
+      left: -600px;
+    } 
+    to {
+      left: 0;
+    }
+  }
+}
+@media screen and (max-width:$mobile) {
+  @keyframes moveRight {
+    from {
+      left: -280px;
+    } 
+    to {
+      left: 10px;
+    }
+  }
+}
+
+.move_left {
+  animation: moveLeft 5s;
+}
+.move_right {
+  animation: moveRight 5s;
+}
+
+
 .card {
   width: 270px;
   height: 435px;
@@ -309,19 +413,6 @@
     background-color: inherit;
     border: 2px solid $color-beige;
   }
-}
-.main__card {
-  @media screen and (max-width:$tablet) {
-    &:nth-child(3) {
-      display: none;
-    }
-  }
-  @media screen and (max-width:$mobile) {
-    &:nth-child(2) {
-      display: none;
-    }
-  }
-
 }
 
 .help {
@@ -627,23 +718,10 @@
 
     @extend %h4;
   
-    .start-btn {
-      border: 2px solid $color-dark-s;
-      color: $color-dark-s;
-    }
-    .prev-btn {
-      border: 2px solid $color-dark-s;
-      color: $color-dark-s;
-    }
-    .number-btn {
+        .number-btn {
       background-color: $color-beige;
     }
-    .next-btn { 
-      border: 2PX SOLID $color-beige;
-    } 
-    .end-btn {
-      border: 2PX SOLID $color-beige;
-    }
+    
   }
 
 
@@ -655,6 +733,8 @@
     text-align: center;
     cursor: pointer;
     @extend %h4;
+
+    border: 2PX SOLID $color-beige;
 
     &:hover {
       background-color: $color-beige-l;
@@ -674,16 +754,4 @@
   }
 }
 
-.pets__card {
-  @media screen and (max-width:$tablet) {
-    &:nth-child(7), &:nth-child(8) {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 740px) {
-    &:nth-child(4), &:nth-child(5), &:nth-child(6) {
-      display: none;
-    }
-  }
-}
 
