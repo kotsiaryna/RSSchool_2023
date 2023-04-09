@@ -31,8 +31,29 @@
       transition: 0.3s;
     }
 
+    &:active {
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: $color-beige;  
+      }
+      
+    }
+
     &_active {
-      border-bottom: 3px solid $color-beige;
+        &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: $color-beige;  
+      }
+      color: white;
+      a:hover {
+        cursor:default;
+       }
     }
   }
 
