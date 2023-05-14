@@ -1,0 +1,18 @@
+.game {
+  width: 500px;
+  height: 500px;
+  margin: 10vh auto;
+  padding: 2px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10,1fr);
+  gap: 2px;
+
+  background-color: rgb(240, 238, 238);
+  border: 0.5px solid rgb(77, 72, 72);
+
+  &__cell {
+    border: 0.5px solid rgb(77, 72, 72);
+    border-radius: 5%;
+  }
+}
