@@ -24,7 +24,7 @@ export const cells = [...document.querySelectorAll('.cell')]
 gameField.addEventListener('click', (e) => placeMines(e), {once:true})
 
 gameField.addEventListener('click', (e) => {
-  if(e.target.classList.contains('cell')) {
+  if(e.target.classList.contains('cell') && !e.target.classList.contains('flagged')) {
     openCell(e, size)
   }
 })

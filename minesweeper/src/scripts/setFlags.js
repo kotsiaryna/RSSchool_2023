@@ -6,6 +6,8 @@ let mineNumber = +mineNumberEl.textContent
 
 function setFlag(event) {
   event.preventDefault()
+  if(event.target.classList.contains('opened')) return;
+
   const isFlagged = event.target.classList.contains('flagged')
   event.target.classList.toggle('flagged')
 
