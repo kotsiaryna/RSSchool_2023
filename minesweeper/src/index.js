@@ -1,6 +1,7 @@
 import Header from './header/index'
 import Game from './game/index'
 import Footer from './footer/index'
+import Counters from './counters/index'
 
 import placeMines from './scripts/placeMines'
 import openCell from './scripts/openCells'
@@ -9,7 +10,7 @@ import { size } from './game/index'
 import setFlag from './scripts/setFlags'
 
 
-document.body.append(Header, Game, Footer)
+document.body.append(Header, Counters, Game, Footer)
 console.log('body is ready')
 
 const gameField = document.querySelector('.game')
