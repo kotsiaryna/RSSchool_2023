@@ -6,6 +6,8 @@ import placeMines from './scripts/placeMines'
 import openCell from './scripts/openCells'
 import { size } from './game/index'
 
+import setFlag from './scripts/setFlags'
+
 
 document.body.append(Header, Game, Footer)
 console.log('body is ready')
@@ -19,3 +21,8 @@ gameField.addEventListener('click', (e) => {
     openCell(e, size)
   }
 })
+
+gameField.addEventListener('contextmenu', (e) => {
+  if(e.target.classList.contains('cell')) {
+    setFlag(e)
+  }})
