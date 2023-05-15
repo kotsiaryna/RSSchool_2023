@@ -1,0 +1,20 @@
+.game-over {
+  position: absolute;
+  top: 30vh;
+  left:calc(50vw - 250px) ;
+ 
+
+  width: 500px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid black;
+  border-radius: 10px;
+
+  background-color: beige;
+    
+  font-size: 24px;
+  font-weight: bold;
+}

@@ -1,10 +1,17 @@
 import { size } from "../game/index";
+import gameOver from "./gameOver";
+
+let openedCellsCounter = 0
 
 function openCell(event, size) {
   let target = event.target
-  target.classList.add('opened')
+  target.classList.add('opened');
+  openedCellsCounter++ 
 
-  if(target.classList.contains('mined')) return
+  if(target.classList.contains('mined')) {
+    gameOver(false)
+    return
+  } 
 
   const cells = [...document.querySelectorAll('.cell')]
   let index = cells.indexOf(target)
@@ -40,11 +47,11 @@ function openCell(event, size) {
   if(cells[index + size + 1] && (index % size !== size -1) && cells[index + size + 1].classList.contains('mined')) {
     counter++
   }
-
-  
   colorize(counter, target)
   target.textContent = counter ? counter : ''
-
+  if(openedCellsCounter === size * (size-1)) {
+    gameOver(true)
+  }
 }
 
 function colorize (n, target) {
