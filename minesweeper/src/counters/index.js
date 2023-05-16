@@ -19,8 +19,12 @@ const timeText = createElement('div', 'time__img')
 export const timeValue = createElement('span', 'time__value', '00 : 00')
 timeCounter.append(timeText, timeValue)
 
+const clickCounter = createElement('div', 'click')
+const clickImg = createElement('div', 'click__img')
+export const clickNumber = createElement('span', 'click__value', '0')
+clickCounter.append(clickImg, clickNumber)
 
-Counters.append(mineCounter, flagCounter, timeCounter)
+Counters.append(mineCounter, flagCounter, timeCounter, clickCounter)
 
 export default Counters
 
