@@ -5,12 +5,12 @@ import placeMines from './placeMines';
 
 
 function restartGame () { 
-  console.log(cells[0])
+  
   cells.forEach(cell => {
     cell.className = 'cell';
     cell.textContent = ''
   })
-
+  window.end = 0
   mineNumberEl.textContent = size;
   flagNumberEl.textContent = 0;
 

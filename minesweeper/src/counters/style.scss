@@ -30,3 +30,16 @@
     background-size: contain;
   }
 }
+.time {
+  display: flex;
+  width: 150px;
+  gap: 20px;
+  
+  &__img {
+    
+      width: 23px;
+      background-image: url(../assets/icons/clock3.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+   }
+}

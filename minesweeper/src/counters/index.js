@@ -14,7 +14,13 @@ const flagImg = createElement('div', 'flag__img')
 export const flagNumberEl = createElement('span', 'flag__number', '0')
 flagCounter.append(flagImg, flagNumberEl)
 
-Counters.append(mineCounter, flagCounter)
+const timeCounter = createElement('div', 'time')
+const timeText = createElement('div', 'time__img')
+export const timeValue = createElement('span', 'time__value', '00 : 00')
+timeCounter.append(timeText, timeValue)
+
+
+Counters.append(mineCounter, flagCounter, timeCounter)
 
 export default Counters
 
