@@ -1,0 +1,31 @@
+.tumble {
+  width: 400px;
+  height: 50px;
+  margin: 5vh auto;
+  display: flex;
+}
+.sound {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__img {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+    &_on {
+      background-image: url('../assets/icons/sound-on.png');
+    }
+    &_off {
+      background-image: url('../assets/icons/sound-off.png');
+    }
+  }
+}
+
