@@ -1,5 +1,5 @@
 import { cells, gameField } from '../index'
-import { mineNumberEl, flagNumberEl } from '../counters';
+import { mineNumberEl, flagNumberEl, timeValue } from '../counters';
 import { size } from '../game/index'
 import placeMines from './placeMines';
 import GameOverMessage from '../gameover';
@@ -14,9 +14,9 @@ function restartGame () {
   window.end = 0
   mineNumberEl.textContent = size;
   flagNumberEl.textContent = 0;
-  GameOverMessage.remove()
+  GameOverMessage.textContent = ''
   clickNumber.textContent = 0
-
+  timeValue.textContent = '00 : 00'
   gameField.addEventListener('click', (e) => placeMines(e), {once:true})
 }
 
