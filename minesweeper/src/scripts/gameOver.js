@@ -1,18 +1,27 @@
 import GameOverMessage from "../gameover/index"
 import { winSound, looseSound } from "./sound"
-import {timerID} from "../index"
+import {timerID, newID} from "../index"
 import Tumblers from "../tumblers"
+import savetoLocal from "./saveResults"
 
 function gameOver(isWin) {
  Tumblers.after(GameOverMessage)
   GameOverMessage.textContent = isWin ? 'Hoorray!!! Your are winner!!!' : 'Ooops! You are exposed. Game over.'
   GameOverMessage.style.color = isWin ? 'green' : 'red'
+
+  savetoLocal(isWin)
+
   if(isWin) {
     winSound.play()
   } else {
     looseSound.play()
   }
-  clearInterval(timerID)
+  if(newID) {
+    clearInterval(newID)
+  } else {
+    clearInterval(timerID)
+  }
+  
 }
 
 export default gameOver
