@@ -1,1 +1,13 @@
 @import '_reset.scss';
+
+* {
+  transition: transform 0.3s;
+}
+
+
+
+.dark {
+  background-color: black;
+  color: white;
+  border-color: white;
+}

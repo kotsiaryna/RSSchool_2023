@@ -20,7 +20,14 @@ import clickCounter from './scripts/clickCounter'
 import { clickSound, toggleSound } from './scripts/sound'
 import { soundImg } from './tumblers'
 
-document.body.append(Header, Buttons, Tumblers, Counters, Game, Footer)
+import { themeImg } from './tumblers'
+
+import changeTheme from './scripts/theme'
+
+export const BODY = document.querySelector('body')
+
+BODY.append(Header, Buttons, Tumblers, Counters, Game, Footer)
+// BODY.classList.add('light')
 console.log('body is ready')
 
 // global
@@ -55,3 +62,5 @@ soundImg.addEventListener('click', () => {
   toggleSound(soundIsOn)
   soundIsOn = !soundIsOn
 } )
+
+themeImg.addEventListener('click', changeTheme)
