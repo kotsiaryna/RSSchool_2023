@@ -12,10 +12,10 @@ function getResults (isWin) {
 function savetoLocal (isWin) {
   let jsonResults = localStorage.getItem('result')
   let results = jsonResults ? JSON.parse(jsonResults) : []
-    // if(results.length >= 10) {
-  //   results.shift() 
-  // }
-  console.log(results)
+    if(results.length >= 10) {
+    results.shift() 
+  }
+ 
   results.push(getResults(isWin))
   localStorage.setItem('result', JSON.stringify(results))
 }

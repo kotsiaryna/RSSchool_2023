@@ -1,4 +1,4 @@
-import { noResultMessage, resultList } from "../Results"
+import { resultList } from "../Results"
 import ResultButton from "../Results"
 import createElement from "../utils/createElement"
 
@@ -13,17 +13,33 @@ function getResults () {
 }
 
 export function appendResults () {
+  resultList.innerHTML = ''
   let results = getResults()
   
   if(!results) {
-    ResultButton.after(noResultMessage)
+    resultList.textContent = 'No results'
+    ResultButton.after(resultList)
   } else {
+    resultList.textContent = ''
     ResultButton.after(resultList)
     for(let i = 0; i < results.length; i++) {
       let result = createElement('li', 'result__item', `${results.length - i}. ${results[i]}`)
       resultList.prepend(result)
     }
   }
-  ResultButton.removeEventListener('click', appendResults)
+  
+}
 
+function hideResults () {
+  ResultButton.textContent = 'Show results'
+  resultList.innerHTML = ''
+}
+
+export function toggleResultButton () {
+  if(ResultButton.textContent === 'Show results') {
+    ResultButton.textContent = 'Hide results'
+    appendResults()
+  } else {
+    hideResults()
+  }
 }
