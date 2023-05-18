@@ -1,7 +1,6 @@
-import { cells } from '../index'
+import { cells, open, flag } from '../index'
 import { mineNumberEl, flagNumberEl, timeValue } from '../counters';
 import { size } from '../game/index'
-import placeMines from './placeMines';
 import GameOverMessage from '../gameover';
 import { clickNumber } from '../counters';
 import Game from '../game/index';
@@ -10,10 +9,10 @@ import {num } from './setFlags';
 
 
 function restartGame () { 
-  //  const cells = [...document.querySelectorAll('.cell')]
-   cells.forEach(cell => {
+    cells.forEach(cell => {
     cell.className = 'cell';
-    cell.textContent = ''
+    cell.textContent = '';
+    cell.removeAttribute('style')
    
   })
   window.end = 1
@@ -22,7 +21,7 @@ function restartGame () {
   GameOverMessage.textContent = ''
   clickNumber.textContent = 0
   timeValue.textContent = '00 : 00'
-  Game.addEventListener('click', (e) => placeMines(e), {once:true})
+  
   localStorage.setItem('clicks', 0)
   localStorage.removeItem('counters')
   localStorage.removeItem('game')
@@ -31,6 +30,9 @@ function restartGame () {
   openedCellsCounter.n = 0
   num.flags = 0
   num.mines = 10
+
+  Game.removeEventListener('click', open)
+  Game.removeEventListener('contextmenu', flag)
  
 }
 

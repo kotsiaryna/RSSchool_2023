@@ -31,17 +31,15 @@ import {saveGame, getGameState} from './scripts/saveGame'
 export const BODY = document.querySelector('body')
 
 BODY.append(Header, Buttons, Tumblers, GameOverMessage, Counters, Game, ResultButton)
-// BODY.classList.add('light')
+
 console.log('body is ready')
 
 document.addEventListener('DOMContentLoaded', getGameState)
 
 // global
-// export const gameField = document.querySelector('.game')
 export const cells = [...document.querySelectorAll('.cell')]
 export const start = 0
 window.end = 0
-
 //
  
 if(!localStorage.getItem('game')) {
@@ -62,9 +60,7 @@ export const open = (e) => {
 
 Game.addEventListener('click', open)
 
-// 
 export const flag = (e) => setFlag(e)
-
 Game.addEventListener('contextmenu', flag)
 
 export let timerID = setInterval(timer, 1000)
@@ -74,9 +70,9 @@ restartButton.addEventListener('click', () => {
   restartGame()
   clearInterval(timerID)
   newID = setInterval(timer, 1000)
+  Game.addEventListener('click', (e) => placeMines(e), {once:true})
   Game.addEventListener('contextmenu', flag)
   Game.addEventListener('click', open)
-
 } )
 
 let soundIsOn = true

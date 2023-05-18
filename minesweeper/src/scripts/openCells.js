@@ -122,7 +122,5 @@ function colorize (n, target) {
   }
 }
 
-
-
 export default openCell
 export {openedCellsCounter}
