@@ -5,6 +5,9 @@ import Tumblers from "../tumblers"
 import savetoLocal from "./saveResults"
 import { appendResults } from "./showResults"
 import { clickNumber, timeValue } from "../counters"
+import Game from "../game"
+import { open, flag } from "../index"
+
 
 function gameOver(isWin) {
  Tumblers.after(GameOverMessage)
@@ -13,7 +16,6 @@ function gameOver(isWin) {
 
   savetoLocal(isWin)
   appendResults()
-
 
   if(isWin) {
     winSound.play()
@@ -25,7 +27,9 @@ function gameOver(isWin) {
   } else {
     clearInterval(timerID)
   }
-  
+  Game.removeEventListener('click', open)
+  Game.removeEventListener('contextmenu', flag)
+
 }
 
 export default gameOver

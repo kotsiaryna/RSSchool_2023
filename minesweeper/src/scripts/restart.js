@@ -6,7 +6,7 @@ import GameOverMessage from '../gameover';
 import { clickNumber } from '../counters';
 import Game from '../game/index';
 import { openedCellsCounter } from './openCells';
-import { num } from './setFlags';
+import {num } from './setFlags';
 
 
 function restartGame () { 
@@ -31,7 +31,7 @@ function restartGame () {
   openedCellsCounter.n = 0
   num.flags = 0
   num.mines = 10
-  
+ 
 }
 
 export default restartGame

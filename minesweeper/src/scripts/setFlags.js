@@ -7,7 +7,8 @@ export let num = {
   mines: JSON.parse(localStorage.getItem('num'))?.mines ?? 10 
 }
 
-function setFlag(event) {
+export function setFlag (event) {
+  if(!event.target.classList.contains('cell')) return
   event.preventDefault()
   if(event.target.classList.contains('opened')) return;
 
@@ -25,4 +26,3 @@ function setFlag(event) {
   flagNumberEl.textContent = num.flags
 }
 
-export default setFlag

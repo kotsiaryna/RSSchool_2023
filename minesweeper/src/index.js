@@ -10,7 +10,7 @@ import placeMines from './scripts/placeMines'
 import openCell, { openedCellsCounter } from './scripts/openCells'
 import { size } from './game/index'
 
-import setFlag, { num } from './scripts/setFlags'
+import {setFlag, num } from './scripts/setFlags'
 
 import restartGame from './scripts/restart'
 
@@ -52,19 +52,20 @@ if(!localStorage.getItem('game')) {
   } , {once:true})
 }
 
-
-Game.addEventListener('click', (e) => {
-  if(e.target.classList.contains('cell') && !e.target.classList.contains('flagged')) {
+export const open = (e) => {
+ if(e.target.classList.contains('cell') && !e.target.classList.contains('flagged')) {
     clickCounter()
     openCell(e.target, size)
     clickSound.play()
   }
-})
+}
 
-Game.addEventListener('contextmenu', (e) => {
-  if(e.target.classList.contains('cell')) {
-    setFlag(e)
-  }})
+Game.addEventListener('click', open)
+
+// 
+export const flag = (e) => setFlag(e)
+
+Game.addEventListener('contextmenu', flag)
 
 export let timerID = setInterval(timer, 1000)
 
@@ -73,6 +74,8 @@ restartButton.addEventListener('click', () => {
   restartGame()
   clearInterval(timerID)
   newID = setInterval(timer, 1000)
+  Game.addEventListener('contextmenu', flag)
+  Game.addEventListener('click', open)
 
 } )
 
