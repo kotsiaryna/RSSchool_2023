@@ -1,19 +1,25 @@
+import { clickNumber } from "../counters";
 import { size } from "../game/index";
 import gameOver from "./gameOver";
 
-let openedCellsCounter = 0
 
-function openCell(event, size) {
-  let target = event.target
+let openedCellsCounter = {}
+openedCellsCounter.n = localStorage.getItem('clicks') ?? 0
+
+
+function openCell(target, size) {
+  
   target.classList.add('opened');
-  openedCellsCounter++ 
+  openedCellsCounter.n++ 
 
   if(target.classList.contains('mined')) {
     gameOver(false)
+    openedCellsCounter.n = 0
     return
   } 
 
   const cells = [...document.querySelectorAll('.cell')]
+
   let index = cells.indexOf(target)
   let counter = 0;
 
@@ -47,10 +53,33 @@ function openCell(event, size) {
   if(cells[index + size + 1] && (index % size !== size -1) && cells[index + size + 1].classList.contains('mined')) {
     counter++
   }
-  colorize(counter, target)
-  target.textContent = counter ? counter : ''
-  if(openedCellsCounter === size * (size-1)) {
+  if(!counter) {
+   
+    // if(cells[index-1] && index % size) {
+    //   openCell(cells[index-1], size)
+    // }
+    // уходит в бесконечную рекурсию, когда оба условия включены
+    // if(cells[index+1]) {
+    //   console.log(`${index}  next`)
+    //   openCell(cells[index+1], size)
+    // }
+
+    
+    // openCell(target.nextElementSibling, size)
+    // openCell(cells[index - size], size)
+    // openCell(cells[index - size -1], size)
+    // openCell(cells[index - size +1], size)
+    // openCell(cells[index + size], size)
+    // openCell(cells[index + size - 1], size)
+    // openCell(cells[index + size + 1], size)
+  } else {
+    colorize(counter, target)
+    target.textContent = counter;
+  }
+  console.log(openedCellsCounter.n)
+  if (openedCellsCounter.n === size * (size-1)) {
     gameOver(true)
+    openedCellsCounter.n = 0
   }
 }
 
@@ -79,3 +108,4 @@ function colorize (n, target) {
 
 
 export default openCell
+export {openedCellsCounter}

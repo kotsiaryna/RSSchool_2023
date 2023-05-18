@@ -1,8 +1,11 @@
 import { size } from "../game/index"
 import { flagNumberEl, mineNumberEl } from "../counters/index"
 
-let flagNumber = +flagNumberEl.textContent
-let mineNumber = +mineNumberEl.textContent
+
+export let num = {
+  flags: JSON.parse(localStorage.getItem('num'))?.flags ?? 0 ,
+  mines: JSON.parse(localStorage.getItem('num'))?.mines ?? 10 
+}
 
 function setFlag(event) {
   event.preventDefault()
@@ -12,14 +15,14 @@ function setFlag(event) {
   event.target.classList.toggle('flagged')
 
   if(isFlagged) {
-    flagNumber--
-    mineNumber++
+    num.flags--
+    num.mines++
   } else {
-    flagNumber++
-    mineNumber--
+    num.flags++
+    num.mines--
   }
-  mineNumberEl.textContent = mineNumber
-  flagNumberEl.textContent = flagNumber
+  mineNumberEl.textContent = num.mines
+  flagNumberEl.textContent = num.flags
 }
 
 export default setFlag
