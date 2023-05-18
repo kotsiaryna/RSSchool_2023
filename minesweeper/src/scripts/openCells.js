@@ -8,10 +8,12 @@ openedCellsCounter.n = localStorage.getItem('clicks') ?? 0
 
 
 function openCell(target, size) {
-  
-  target.classList.add('opened');
-  openedCellsCounter.n++ 
 
+  if(!target.classList.contains('opened')) {
+    target.classList.add('opened');
+    openedCellsCounter.n++ 
+  }
+ 
   if(target.classList.contains('mined')) {
     gameOver(false)
     openedCellsCounter.n = 0
