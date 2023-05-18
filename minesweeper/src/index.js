@@ -68,7 +68,12 @@ export let timerID = setInterval(timer, 1000)
 let newID
 restartButton.addEventListener('click', () => {
   restartGame()
-  clearInterval(timerID)
+  if(newID) {
+    clearInterval(newID)
+  } else {
+    clearInterval(timerID)
+  }
+  
   newID = setInterval(timer, 1000)
   Game.addEventListener('click', (e) => placeMines(e), {once:true})
   Game.addEventListener('contextmenu', flag)
