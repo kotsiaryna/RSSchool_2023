@@ -58,35 +58,35 @@ function openCell(target, size) {
   console.log(`counter: ${counter}`)
   if(!counter) {
     // prev
-    if(cells[index-1] && index % size && !cells[index-1].classList.contains('opened')) {
+    if(cells[index-1] && index % size && !cells[index-1].classList.contains('opened') && !cells[index-1].classList.contains('flagged')) {
       openCell(cells[index-1], size)
     }
     // next
-    if(cells[index+1] && index % size !== size-1 && !cells[index+1].classList.contains('opened')) {
+    if(cells[index+1] && index % size !== size-1 && !cells[index+1].classList.contains('opened') && !cells[index+1].classList.contains('flagged')) {
      openCell(cells[index+1], size)
     }
     // top
-    if(cells[index-size] && !cells[index-size].classList.contains('opened')) {
+    if(cells[index-size] && !cells[index-size].classList.contains('opened') && !cells[index-size].classList.contains('flagged')) {
       openCell(cells[index-size], size)
     }
     // top left
-    if(cells[index-size -1] && index % size && !cells[index-size -1].classList.contains('opened')) {
+    if(cells[index-size -1] && index % size && !cells[index-size -1].classList.contains('opened') && !cells[index-size -1].classList.contains('flagged')) {
       openCell(cells[index-size -1], size)
     }
     // top right
-    if(cells[index-size + 1] && index % size !== size-1 && !cells[index-size +1].classList.contains('opened')) {
+    if(cells[index-size + 1] && index % size !== size-1 && !cells[index-size +1].classList.contains('opened') && !cells[index- size +1].classList.contains('flagged')) {
       openCell(cells[index-size+1], size)
     }
     // bottom
-    if(cells[index+size] && !cells[index+size].classList.contains('opened')) {
+    if(cells[index+size] && !cells[index+size].classList.contains('opened') && !cells[index+size].classList.contains('flagged')) {
       openCell(cells[index+size], size)
     }
     // bottom left
-    if(cells[index + size - 1] && index % size && !cells[index + size - 1].classList.contains('opened')) {
+    if(cells[index + size - 1] && index % size && !cells[index + size - 1].classList.contains('opened') && !cells[index + size - 1].classList.contains('flagged')) {
       openCell(cells[index+size -1], size)
     }
     // bottom right
-    if(cells[index + size + 1] && index % size !== size-1 && !cells[index + size + 1].classList.contains('opened')) {
+    if(cells[index + size + 1] && index % size !== size-1 && !cells[index + size + 1].classList.contains('opened')&& !cells[index + size +1].classList.contains('flagged')) {
       openCell(cells[index+size + 1], size)
     }
   } else {
