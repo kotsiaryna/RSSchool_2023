@@ -55,25 +55,40 @@ function openCell(target, size) {
   if(cells[index + size + 1] && (index % size !== size -1) && cells[index + size + 1].classList.contains('mined')) {
     counter++
   }
+  console.log(`counter: ${counter}`)
   if(!counter) {
-   
-    // if(cells[index-1] && index % size) {
-    //   openCell(cells[index-1], size)
-    // }
-    // уходит в бесконечную рекурсию, когда оба условия включены
-    // if(cells[index+1]) {
-    //   console.log(`${index}  next`)
-    //   openCell(cells[index+1], size)
-    // }
-
-    
-    // openCell(target.nextElementSibling, size)
-    // openCell(cells[index - size], size)
-    // openCell(cells[index - size -1], size)
-    // openCell(cells[index - size +1], size)
-    // openCell(cells[index + size], size)
-    // openCell(cells[index + size - 1], size)
-    // openCell(cells[index + size + 1], size)
+    // prev
+    if(cells[index-1] && index % size && !cells[index-1].classList.contains('opened')) {
+      openCell(cells[index-1], size)
+    }
+    // next
+    if(cells[index+1] && index % size !== size-1 && !cells[index+1].classList.contains('opened')) {
+     openCell(cells[index+1], size)
+    }
+    // top
+    if(cells[index-size] && !cells[index-size].classList.contains('opened')) {
+      openCell(cells[index-size], size)
+    }
+    // top left
+    if(cells[index-size -1] && index % size && !cells[index-size -1].classList.contains('opened')) {
+      openCell(cells[index-size -1], size)
+    }
+    // top right
+    if(cells[index-size + 1] && index % size !== size-1 && !cells[index-size +1].classList.contains('opened')) {
+      openCell(cells[index-size+1], size)
+    }
+    // bottom
+    if(cells[index+size] && !cells[index+size].classList.contains('opened')) {
+      openCell(cells[index+size], size)
+    }
+    // bottom left
+    if(cells[index + size - 1] && index % size && !cells[index + size - 1].classList.contains('opened')) {
+      openCell(cells[index+size -1], size)
+    }
+    // bottom right
+    if(cells[index + size + 1] && index % size !== size-1 && !cells[index + size + 1].classList.contains('opened')) {
+      openCell(cells[index+size + 1], size)
+    }
   } else {
     colorize(counter, target)
     target.textContent = counter;
