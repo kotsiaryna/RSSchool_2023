@@ -1,6 +1,6 @@
 import { cells, open, flag } from '../index'
 import { mineNumberEl, flagNumberEl, timeValue } from '../counters';
-import { size } from '../game/index'
+import { options, size } from '../game/index'
 import GameOverMessage from '../gameover';
 import { clickNumber } from '../counters';
 import Game from '../game/index';
@@ -9,6 +9,7 @@ import {num } from './setFlags';
 
 
 function restartGame () { 
+  const cells =[...document.querySelectorAll('.cell')] 
     cells.forEach(cell => {
     cell.className = 'cell';
     cell.textContent = '';

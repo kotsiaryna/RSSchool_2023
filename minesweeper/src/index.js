@@ -1,5 +1,7 @@
+
+import Choice, { mineInput, sizeSelect } from './choice'
 import Header from './header/index'
-import Game from './game/index'
+import Game, { fillGameField, options } from './game/index'
 import Footer from './footer/index'
 import Counters from './counters/index'
 import Buttons, { saveButton, restartButton } from './buttons/index'
@@ -28,9 +30,10 @@ import GameOverMessage from './gameover'
 import {toggleResultButton } from './scripts/showResults'
 import {saveGame, getGameState} from './scripts/saveGame'
 
+
 export const BODY = document.querySelector('body')
 
-BODY.append(Header, Buttons, Tumblers, GameOverMessage, Counters, Game, ResultButton)
+BODY.append(Header, Buttons, Tumblers, GameOverMessage, Counters, Game, Choice, ResultButton)
 
 console.log('body is ready')
 
@@ -40,14 +43,11 @@ document.addEventListener('DOMContentLoaded', getGameState)
 export const cells = [...document.querySelectorAll('.cell')]
 export const start = 0
 window.end = 0
+
 //
  
 if(!localStorage.getItem('game')) {
-  Game.addEventListener('click', (e) => {
-    if(e.target.classList.contains('cell')) {
-      placeMines(e)
-    }
-  } , {once:true})
+  Game.addEventListener('click', placeMines, {once:true})
 }
 
 export const open = (e) => {
@@ -93,3 +93,36 @@ ResultButton.addEventListener('click', toggleResultButton)
 saveButton.addEventListener('click', saveGame)
 
 export {newID} 
+
+// выбор размера поля
+
+sizeSelect.addEventListener('change', (e) => {
+  options.size = e.target.value
+  console.log(options.size)
+  Game.innerHTML = ''
+  fillGameField()
+  Game.className = `game game_${options.size}`
+  restartGame()
+  
+  Game.removeEventListener('contextmenu', flag)
+  Game.removeEventListener('click', open)
+  Game.removeEventListener('click', placeMines, {once:true})
+
+  Game.addEventListener('click', placeMines, {once:true})
+  Game.addEventListener('contextmenu', flag)
+  Game.addEventListener('click', open)
+})
+
+// выбор количества мин
+mineInput.addEventListener('change', (e) => {
+  e.target.previousSibling.textContent = e.target.previousSibling.textContent.replace(/[\d]+/, e.target.value)
+  options.mines = e.target.value
+  restartGame()
+  Game.removeEventListener('contextmenu', flag)
+  Game.removeEventListener('click', open)
+  Game.removeEventListener('click', placeMines, {once:true})
+
+  Game.addEventListener('click', (e) => placeMines(e), {once:true})
+  Game.addEventListener('contextmenu', flag)
+  Game.addEventListener('click', open)
+})

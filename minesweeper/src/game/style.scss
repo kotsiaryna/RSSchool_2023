@@ -1,20 +1,32 @@
 .game {
   width: 500px;
   height: 500px;
-  margin: 2vh auto 10vh;
+  margin: 2vh auto;
   padding: 2px;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10,1fr);
-  gap: 2px;
-
+ 
   background-color: rgb(240, 238, 238);
   border: 0.5px solid rgb(77, 72, 72);
 
-  
+   &_10 {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10,1fr);
+    gap: 2px;
+   }
+   &_15 {
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15,1fr);
+    gap: 1px;
+   }
+   &_25 {
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(25,1fr);
+    gap: 0;
+   }
 }
+
 .cell {
-    border: 0.5px solid rgb(77, 72, 72);
+    border: 0.01px solid rgb(77, 72, 72);
     border-radius: 5%;
     display: flex;
     justify-content: center;

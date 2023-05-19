@@ -1,0 +1,24 @@
+.choice {
+  width: 480px;
+  margin: 2vh auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.size {
+  display: flex;
+  width: 200px;
+  gap: 20px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.mines {
+  display:flex;
+  width: 200px;
+  flex-direction: column;
+  align-items: center;
+  &__input {
+    width: 200px;
+  }
+}
