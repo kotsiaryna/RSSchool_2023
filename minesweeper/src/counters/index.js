@@ -1,12 +1,12 @@
 import './style.scss'
 import createElement from '../utils/createElement'
-import { size } from '../game/index'
+import { options } from '../game/index'
 
 const Counters = createElement('div', 'count__wrapper')
 
 const mineCounter = createElement('div', 'mine')
 const mineImg = createElement('div', 'mine__img')
-export const mineNumberEl = createElement('span', 'mine__number', size)
+export const mineNumberEl = createElement('span', 'mine__number', options.size)
 mineCounter.append(mineImg, mineNumberEl)
 
 const flagCounter = createElement('div', 'flag')

@@ -17,7 +17,7 @@ function restartGame () {
    
   })
   window.end = 1
-  mineNumberEl.textContent = size;
+  mineNumberEl.textContent = options.mines;
   flagNumberEl.textContent = 0;
   GameOverMessage.textContent = ''
   clickNumber.textContent = 0
@@ -30,7 +30,7 @@ function restartGame () {
   
   openedCellsCounter.n = 0
   num.flags = 0
-  num.mines = 10
+  num.mines = options.mines
 
   Game.removeEventListener('click', open)
   Game.removeEventListener('contextmenu', flag)

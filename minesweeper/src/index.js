@@ -3,7 +3,7 @@ import Choice, { mineInput, sizeSelect } from './choice'
 import Header from './header/index'
 import Game, { fillGameField, options } from './game/index'
 import Footer from './footer/index'
-import Counters from './counters/index'
+import Counters, { mineNumberEl } from './counters/index'
 import Buttons, { saveButton, restartButton } from './buttons/index'
 import Tumblers from './tumblers'
 import ResultButton from './Results'
@@ -97,7 +97,7 @@ export {newID}
 // выбор размера поля
 
 sizeSelect.addEventListener('change', (e) => {
-  options.size = e.target.value
+  options.size = +e.target.value
   console.log(options.size)
   Game.innerHTML = ''
   fillGameField()
@@ -117,6 +117,9 @@ sizeSelect.addEventListener('change', (e) => {
 mineInput.addEventListener('change', (e) => {
   e.target.previousSibling.textContent = e.target.previousSibling.textContent.replace(/[\d]+/, e.target.value)
   options.mines = e.target.value
+  // console.log(mineNumberEl.textContent)
+  // mineNumberEl.textContent = e.target.value
+  // console.log(mineNumberEl.textContent)
   restartGame()
   Game.removeEventListener('contextmenu', flag)
   Game.removeEventListener('click', open)

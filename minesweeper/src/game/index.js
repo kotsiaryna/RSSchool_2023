@@ -6,8 +6,8 @@ import { mineInput, sizeSelect } from '../choice';
 const Game = createElement('div', 'game game_10')
 
 export const options = {
-  size: sizeSelect.value,
-  mines: mineInput.value
+  size: +sizeSelect.value,
+  mines: +mineInput.value
 }
 
 export let size = 10; // удалить, когда все поменяю
