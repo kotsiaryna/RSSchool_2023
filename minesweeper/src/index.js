@@ -111,12 +111,19 @@ sizeSelect.addEventListener('change', (e) => {
   Game.addEventListener('click', placeMines, {once:true})
   Game.addEventListener('contextmenu', flag)
   Game.addEventListener('click', open)
+  if(newID) {
+    clearInterval(newID)
+  } else {
+    clearInterval(timerID)
+  }
+  
+  newID = setInterval(timer, 1000)
 })
 
 // выбор количества мин
 mineInput.addEventListener('change', (e) => {
   e.target.previousSibling.textContent = e.target.previousSibling.textContent.replace(/[\d]+/, e.target.value)
-  options.mines = e.target.value
+  options.mines = +e.target.value
   // console.log(mineNumberEl.textContent)
   // mineNumberEl.textContent = e.target.value
   // console.log(mineNumberEl.textContent)
@@ -125,7 +132,14 @@ mineInput.addEventListener('change', (e) => {
   Game.removeEventListener('click', open)
   Game.removeEventListener('click', placeMines, {once:true})
 
-  Game.addEventListener('click', (e) => placeMines(e), {once:true})
+  Game.addEventListener('click', placeMines, {once:true})
   Game.addEventListener('contextmenu', flag)
   Game.addEventListener('click', open)
+  if(newID) {
+    clearInterval(newID)
+  } else {
+    clearInterval(timerID)
+  }
+  
+  newID = setInterval(timer, 1000)
 })
