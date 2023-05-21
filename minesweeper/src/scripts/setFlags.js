@@ -4,7 +4,7 @@ import { flagNumberEl, mineNumberEl } from "../counters/index"
 
 export let num = {
   flags: JSON.parse(localStorage.getItem('num'))?.flags ?? 0 ,
-  mines: JSON.parse(localStorage.getItem('num'))?.mines ?? 10 
+  mines: JSON.parse(localStorage.getItem('num'))?.mines ?? 10
 }
 
 export function setFlag (event) {

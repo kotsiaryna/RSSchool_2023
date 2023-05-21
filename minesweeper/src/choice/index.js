@@ -18,7 +18,7 @@ for(let i = 0; i < 3; i++) {
   opt.value = sizes[i].slice(0,2)
   sizeSelect.append(opt)
 }
-console.dir(sizeSelect.value)
+
 sizeWrapper.append(sizeLabel, sizeSelect)
 
 const mineWrapper = createElement('div', 'mines')

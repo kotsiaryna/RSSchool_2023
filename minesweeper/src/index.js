@@ -2,17 +2,15 @@
 import Choice, { mineInput, sizeSelect } from './choice'
 import Header from './header/index'
 import Game, { fillGameField, options } from './game/index'
-import Footer from './footer/index'
-import Counters, { mineNumberEl } from './counters/index'
+import Counters from './counters/index'
 import Buttons, { saveButton, restartButton } from './buttons/index'
 import Tumblers from './tumblers'
 import ResultButton from './Results'
 
 import placeMines from './scripts/placeMines'
-import openCell, { openedCellsCounter } from './scripts/openCells'
+import openCell from './scripts/openCells'
 
-
-import {setFlag, num } from './scripts/setFlags'
+import {setFlag} from './scripts/setFlags'
 
 import restartGame from './scripts/restart'
 
@@ -30,12 +28,9 @@ import GameOverMessage from './gameover'
 import {toggleResultButton } from './scripts/showResults'
 import {saveGame, getGameState} from './scripts/saveGame'
 
-
 export const BODY = document.querySelector('body')
 
-BODY.append(Header, Buttons, Tumblers, GameOverMessage, Counters, Game, Choice, ResultButton)
-
-console.log('body is ready')
+BODY.append( Header, Buttons, Tumblers, GameOverMessage, Counters, Game, Choice, ResultButton)
 
 document.addEventListener('DOMContentLoaded', getGameState)
 
@@ -43,7 +38,6 @@ document.addEventListener('DOMContentLoaded', getGameState)
 export const cells = [...document.querySelectorAll('.cell')]
 export const start = 0
 window.end = 0
-
 //
  
 if(!localStorage.getItem('game')) {
@@ -98,7 +92,6 @@ export {newID}
 
 sizeSelect.addEventListener('change', (e) => {
   options.size = +e.target.value
-  console.log(options.size)
   Game.innerHTML = ''
   fillGameField()
   Game.className = `game game_${options.size}`
@@ -124,9 +117,6 @@ sizeSelect.addEventListener('change', (e) => {
 mineInput.addEventListener('change', (e) => {
   e.target.previousSibling.textContent = e.target.previousSibling.textContent.replace(/[\d]+/, e.target.value)
   options.mines = +e.target.value
-  // console.log(mineNumberEl.textContent)
-  // mineNumberEl.textContent = e.target.value
-  // console.log(mineNumberEl.textContent)
   restartGame()
   Game.removeEventListener('contextmenu', flag)
   Game.removeEventListener('click', open)

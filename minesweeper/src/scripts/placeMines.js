@@ -1,5 +1,4 @@
-import { options, size } from "../game/index";
-console.log('script starts')
+import { options} from "../game/index";
 
 function getRandomNumber(n) {
   return Math.floor(Math.random()*n)

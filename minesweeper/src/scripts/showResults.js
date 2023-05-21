@@ -8,7 +8,6 @@ function getResults () {
   if(results) {
     results = JSON.parse(results).map(el => `Time: ${el.time}. Clicks: ${el.clicks}. ${el.win ? 'win' : 'loose'}`)
   } 
-  console.log(results)
   return results
 }
 

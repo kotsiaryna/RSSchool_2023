@@ -23,5 +23,4 @@ export const fillGameField = () => {
 }
 fillGameField()
 
-console.log('game done')
 export default Game
