@@ -1,0 +1,757 @@
+@import "_normalize";
+@import "_fonts";
+@import "_variables";
+@import "_menu";
+@import "_header";
+@import "_footer";
+@import "_popup";
+
+
+
+
+.start {
+  margin-top: -120px;
+  background: url(../assets/background/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+
+  padding-top: 90px + 60px + 30px;
+
+  @media screen and (max-width:$tablet) {
+     padding-top: 90px + 60px;
+  }
+ 
+  &__inner {
+    @extend %cont;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media screen and (max-width:$tablet) {
+      flex-direction: column;
+      gap: 100px;
+    }
+    @media screen and (max-width:$mobile) {
+      gap: 105px;
+    }
+  }
+
+  &__cont {
+    margin-top: 163px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 42px;
+
+    @media screen and (max-width:$tablet) {
+      min-width: 460px;
+      width: 65%;
+      align-self: center;
+      margin-top: 0;
+    }
+    @media screen and (max-width:$mobile) {
+      align-items: center;
+      min-width: 100%;
+    }
+  }
+
+  &__heading {
+    max-width: 310px;
+    @extend %heading;
+    color: $color-white;
+
+    @media screen and (max-width:$tablet) {
+      max-width: 67.4%;
+    }
+
+    @media screen and (max-width:$mobile) {
+      text-align: center;
+    }
+   }
+
+  &__text {
+    max-width: 460px;
+    @include text($color-dark-s);
+    @media screen and (max-width:$tablet) {
+      max-width: unset;
+    }
+
+    @media screen and (max-width:$mobile) {
+      text-align: center;
+    }
+  }
+
+  &__button {
+    @include button(207px);
+    @media  screen and (max-width:$tablet) {
+      align-self: center;
+    }
+  }
+
+  &__img {
+    width: 698px;
+    height: 728px;
+    background: bottom no-repeat url('../assets/images/start-screen-puppy.png');
+    background-size: contain;
+   
+    @media screen and (max-width:$tablet) {
+      width: 569px;
+      height: 593px;
+      align-self: flex-end;
+    }
+    @media screen and (max-width:$mobile) {
+      max-width: 100%;
+      height: unset;
+      min-height: 272px;
+      max-height: 593px;
+      align-self: flex-end;
+      margin-right: -10px;
+    }
+  }
+}
+
+.about {
+  background-color: $color-white;
+  @extend %paddings;
+
+  &__inner {
+    @extend %cont;
+     @include flex;
+    gap: 120px;
+    justify-content: center;
+
+    @media screen and (max-width:$tablet) {
+      flex-direction: column-reverse;
+      gap: 80px;
+      padding:unset;
+    }
+
+    @media screen and (max-width:$mobile) {
+      padding: 0 25px;
+      gap: 42px;
+     }
+  }
+
+  &__img {
+    width:300px;
+    height: 408px;
+    background: bottom no-repeat url('../assets/images/about-pets.png');
+    background-size: contain;
+    @media screen and (max-width:$mobile) {
+      width: 260px;
+      height: 354px;
+     }
+
+  }
+
+  &__cont {
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+
+    @media screen and (max-width:$tablet) {
+      width: 56%;
+    }
+
+    @media screen and (max-width:$mobile) {
+      min-width: 270px;
+      width: 100%;
+      gap: 25px;
+    }
+  }
+
+  &__heading {
+    max-width: 360px;
+    @include font-h2($color-dark-l);
+
+    @media screen and (max-width:$tablet) {
+      max-width: 80%;
+    }
+    @media screen and (max-width:$mobile) {
+      max-width: 100%;
+    }
+
+    @media screen and (max-width:$mobile) {
+      // max-width: 280px;
+      text-align: center;
+     }
+  }
+
+  &__text {
+    @include text($color-dark-xl);
+
+
+    @media screen and (max-width:$mobile) {
+      text-align: justify;
+    }
+        &:nth-child(3) {
+          margin-top: -4px;
+        }
+      }
+}
+
+.pets {
+  background-color: $color-light-l;
+  @extend %paddings;
+
+  &__inner {
+    @extend %cont;
+    @include flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+    @media screen and (max-width:$mobile) {
+      gap: 40px;
+    }
+
+  }
+
+  &__heading {
+    max-width: 400px;
+    @include font-h2($color-dark-l);
+    text-align: center;
+
+  }
+
+  &__button {
+    @include button(261px);
+  }
+}
+
+.arrow {
+  width: 52px;
+  height: 52px;
+  border: 2px solid $color-beige;
+  border-radius: 100px;
+  background-color: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 5;
+  top: calc(50% - 26px + 21px);
+
+  @media screen and (max-width:$mobile) {
+    bottom: 94px;
+    top: unset;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-beige-l;
+    border-color: $color-beige-l;
+    transition: $trans;
+  }
+
+  &_right{
+    right: 40px;
+    background-image: url('../assets/icons/Arrow-right.svg');  
+    @media screen and (max-width:$tablet) {
+      right: 30px;
+    }
+    @media screen and (max-width:$mobile) {
+      right: calc(50% - 92px);
+    }
+  }
+
+  &_left{
+    left: 40px;
+    background-image: url('../assets/icons/Arrow-left.svg');  
+    @media screen and (max-width:$tablet) {
+      left: 30px;
+    }
+    @media screen and (max-width:$mobile) {
+      left: calc(50% - 92px);
+    }
+  }
+}
+
+.slider {
+  width:990px;
+  overflow: hidden;
+  display: flex;
+
+  @media screen and (max-width:$tablet) {
+    width: 580px;
+  }
+
+  @media screen and (max-width:$mobile) {
+    // justify-content: center;
+    margin-bottom: 72px;
+    width: 290px;
+   }
+   
+  &__inner{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 90px;
+  position: relative;
+  left: -1080px;
+   
+  @media screen and (max-width:$tablet) {
+    gap: 40px;
+    left: -620px ;
+  }
+  @media screen and (max-width:$mobile) {
+    gap: 20px;
+    left: -280px ;
+  }
+ 
+  .items {
+    width: 990px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media screen and (max-width:$tablet) {
+      width: 580px;
+    }
+    @media screen and (max-width:$mobile) {
+      width: 270px;
+    }
+   }
+  }
+}
+// slider animation
+@keyframes moveLeft {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+ @media screen and (max-width:$tablet) {
+  @keyframes moveLeft {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -1240px;
+    }
+  }
+ }
+ @media screen and (max-width:$mobile) {
+  @keyframes moveLeft {
+    from {
+      left: -280px;
+    }
+    to {
+      left: -570px;
+    }
+  }
+ }
+
+@keyframes moveRight {
+  from {
+    left: -1080px;
+  } 
+  to {
+    left: 0;
+  }
+}
+
+@media screen and (max-width:$tablet) {
+  @keyframes moveRight {
+    from {
+      left: -600px;
+    } 
+    to {
+      left: 0;
+    }
+  }
+}
+@media screen and (max-width:$mobile) {
+  @keyframes moveRight {
+    from {
+      left: -280px;
+    } 
+    to {
+      left: 10px;
+    }
+  }
+}
+
+.move_left {
+  animation: moveLeft 5s;
+}
+.move_right {
+  animation: moveRight 5s;
+}
+
+
+.card {
+  width: 270px;
+  height: 435px;
+  background-color: $color-light-s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  
+  
+  &:hover {
+    cursor: pointer;
+    background-color: $color-white;
+    transition: $trans;
+  }
+  &:hover &__btn {
+    background-color: $color-beige-l;
+    border-color: $color-beige-l;
+    transition: $trans;
+  }
+
+  &__img {}
+
+  &__heading {
+    @extend %h3;
+  }
+
+  &__btn {
+    @include button(187px);
+    background-color: inherit;
+    border: 2px solid $color-beige;
+  }
+}
+
+.help {
+  @extend %paddings;
+  background-color: $color-white;
+
+  &__inner {
+    @extend %cont;
+    // padding: 0 67px;
+    @include flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @media screen and (max-width:$mobile) {
+      gap: 42px;
+    }
+
+  }
+
+  &__heading {
+    max-width: 310px;
+    text-align: center;
+    @include font-h2($color-dark-l);
+
+    @media screen and (max-width:$tablet) {
+      max-width: 44%;
+    }
+    @media screen and (max-width:$mobile) {
+      max-width: 74%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 120px;
+    row-gap: 55px;
+
+    @media screen and (max-width:$tablet) {
+      column-gap: 60px;
+    }
+    @media screen and (max-width:$mobile) {
+      gap: 30px;
+      // justify-content: flex-start;
+    }
+    @media screen and (max-width:340px) {
+      // gap: 30px;
+      justify-content: flex-start;
+    }
+
+
+
+  }
+
+  &__item {
+    height: 113px;
+    min-width: 60px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+
+    @media screen and (max-width:$tablet) {
+      width: 170px;
+    }
+    @media screen and (max-width:$mobile) {
+      height: 87px;
+      width: 130px;
+      background-size: 50px;
+      gap: 20px;
+     
+    }
+
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 60px 60px;
+    &:nth-child(1) {
+      background-image: url('../assets/icons/icon-pet-food.svg');
+    }
+    &:nth-child(2) {
+      background-image: url('../assets/icons/icon-transportation.svg');
+    }
+    &:nth-child(3) {
+      background-image: url('../assets/icons/icon-toys.svg');
+    }
+    &:nth-child(4) {
+      background-image: url('../assets/icons/bowls-and-cups.svg');
+    }
+    &:nth-child(5) {
+      background-image: url('../assets/icons/icon-shampoos.svg');
+    }
+    &:nth-child(6) {
+      background-image: url('../assets/icons/icon-vitamins.svg');
+    }
+    &:nth-child(7) {
+      background-image: url('../assets/icons/icon-medicines.svg');
+    }
+    &:nth-child(8) {
+      background-image: url('../assets/icons/collars-or-leashes.svg');
+    }
+    &:nth-child(9) {
+      background-image: url('../assets/icons/sleeping-area.svg');
+     }
+    
+  }
+
+  &__text {
+    @extend %h4;
+    color: $color-dark-l;
+  }
+}
+
+.donat {
+  @extend %paddings;
+  background-color: $color-light-l;
+
+  &__inner {
+    @extend %cont;
+    // padding: 0 143px;
+    @include flex;
+    gap: 30px;
+    justify-content: center;
+
+    @media screen and (max-width:$tablet) {
+      flex-direction: column-reverse;
+      gap: 60px;
+    }
+    @media screen and (max-width:$mobile) {
+      gap: 42px;
+    }
+  }
+
+  &__img {
+    @media screen and (max-width:$mobile) {
+      width: 260px;
+      height: 135px;
+    }
+  }
+
+  &__cont {
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media screen and (max-width:$tablet) {
+      max-width: 54%;
+    }
+    @media screen and (max-width:$mobile) {
+      max-width: 100%;
+      align-items: center;
+    }
+  }
+
+  &__heading {
+    @include font-h2($color-dark-l);
+    width: 300px;
+    @media screen and (max-width:$tablet) {
+      width: 80%;
+    }
+    @media screen and (max-width:$mobile) {
+      width: 70%;
+      text-align: center;
+    }
+  }
+
+  &__subheading {
+    width: 100%;
+   font: 400 15px 'Georgia', serif;
+   line-height: 110%;
+   letter-spacing: 0.06em;
+   color: $color-dark-l;
+   @media screen and (max-width:$mobile) {
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 160%;
+  }
+
+  }
+
+  &__credit {
+    width: 350px;
+    height: 43px;
+    padding-right:15px;
+    border-radius: 9px;
+    text-align: right;
+
+    background: 15px center no-repeat url('../assets/icons/credit-card.svg');
+    background-color: $color-beige;
+    
+    @extend %h4;
+    color: $color-dark-l;
+
+    @media screen and (max-width:$mobile) {
+      width: 280px;
+      
+    }
+
+    &:hover {
+      background-color: $color-beige-l;
+      cursor: pointer;
+      transform: scale(1.1);
+      transition: $trans;
+    }
+    a{
+      justify-content: flex-end;
+     }
+  }
+
+  &__text {
+ font-family: 'Arial';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: $color-dark-m;
+
+  
+  @media screen and (max-width:$mobile) {
+    width: 100%;
+    padding: 0 10px;
+    text-align: justify;
+  }
+ }
+}
+// pets
+.gallery {
+  @extend %paddings;
+  background-color: $color-light-l;
+  @media screen and (max-width:$tablet) {
+    padding-bottom: 78px;
+  }
+  @media screen and (max-width:$mobile) {
+    padding-bottom: 42px;
+  }
+
+  &__heading {
+    width: 400px;
+    margin: 0 auto;
+
+    @media screen and (max-width:$tablet) {
+      width: 56.5%;
+    }
+    @media screen and (max-width:$mobile) {
+      width: 90%;
+    }
+
+    @include font-h2($color-dark-l);
+    text-align: center;
+  }
+
+  &__inner {
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 15px 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-template-rows: repeat(2, 435px);
+    row-gap: 30px;
+    justify-content: space-between;
+
+    @media screen and (max-width:1120px) {
+      width: 95%;
+      grid-template-columns: repeat(3, 270px);
+      grid-template-rows: repeat(2, 435px);
+      padding: 15px 0;
+      margin: 15px auto 22px auto;
+    }
+    
+    @media screen and (max-width:900px) {
+      width: 85%;
+      grid-template-columns: repeat(2, 270px);
+      grid-template-rows: repeat(3, 435px);
+      padding: 15px 35px;
+    }
+    @media screen and (max-width:900px) {
+       grid-template-columns: repeat(2, 270px);
+      grid-template-rows: repeat(3, 435px);
+    }
+
+    @media screen and (max-width:740px) {
+      width: fit-content;
+      grid-template-columns: 270px;
+      grid-template-rows: repeat(3, 435px);
+      align-content: center;
+      padding: 25px 15px 20px 15px;
+      
+    }
+  }
+
+  &__btn-cont {
+    max-width: 340px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width:400px) {
+      padding: 0 10px;
+      
+    }
+
+    @extend %h4;
+  
+        .number-btn {
+      background-color: $color-beige;
+    }
+    
+  }
+
+
+  &__btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 100px;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    @extend %h4;
+
+    border: 2PX SOLID $color-beige;
+
+    &:hover {
+      background-color: $color-beige-l;
+      border-color: $color-beige-l;
+      transition: $trans;
+    }
+
+    &:active {
+      background-color: $color-beige;
+    }
+
+    &:disabled {
+      background-color: inherit;
+      border-color: $color-dark-s;
+      cursor: default;
+    }
+  }
+}
+
+

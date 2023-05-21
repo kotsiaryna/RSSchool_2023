@@ -1,0 +1,146 @@
+.popup {
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(41, 41, 41, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__window {
+    position: relative;
+    width: 900px;
+    min-height: 500px;
+    background-color: $color-light-s;
+    border-radius:10px;
+    display: flex;
+    gap: 10px;
+
+    @media screen and (max-width:$tablet)  {
+      width: 630px;
+      min-height: 350px;
+    }
+    @media screen and (max-width:$mobile)  {
+      width: 240px;
+      min-height: 341px;
+    }
+  }
+
+  &__btn {
+    width: 52px;
+    height: 52px;
+    border: 2px solid $color-beige;
+    border-radius: 100px;
+    background: center no-repeat url('../assets/icons/closebtn.svg');
+    position: absolute;
+    top: -52px;
+    right: -42px;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-beige;
+      transition: 0.3s;
+    }
+
+    @media screen and (max-width:$mobile)  {
+      right: -30px;
+      }
+  }
+
+  &__img {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    width:500px;
+    height: 500px;
+
+    @media screen and (max-width:$tablet)  {
+      width:350px;
+      height: 350px;
+    }
+    @media screen and (max-width:$mobile)  {
+     display: none;
+    }
+  }
+
+  &__cont {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: black;
+    @media screen and (max-width:$tablet) {
+      gap: 20px;
+      padding: 10px 8px 0 0;
+    }
+    @media screen and (max-width:$mobile) {
+      padding: 10px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__heading {
+    @extend %heading;
+    font-size: 35px;
+    letter-spacing: 0.06em; 
+     @media screen and (max-width:$mobile)  {
+      text-align: center;
+      }
+  }
+
+  &__subheading {
+    @extend %h3;
+    color: black;
+    text-align: left;
+    @media screen and (max-width:$mobile)  {
+      text-align: center;
+      }
+  }
+
+  &__text {
+    @extend %h5;
+    @media screen and (max-width:$tablet) {
+      font-size: 13px;
+    }
+    @media screen and (max-width:$mobile)  {
+      text-align: justify;
+      }
+  }
+
+  &__list {
+    margin-top: -2px;
+    @extend %h5;
+
+    @media screen and (max-width:$mobile)  {
+      margin-top: 0;
+      }
+
+    li {
+      margin-bottom: 12px;
+      background: left center no-repeat url('../assets/icons/dot.svg');
+      padding-left: 15px;
+
+      @media screen and (max-width:$tablet) {
+        margin-bottom: 7px;
+        padding-left: 12px;
+      }
+      @media screen and (max-width:$tablet) {
+        margin-bottom: 7px;
+        
+      }
+    }
+  }
+ }
+
+.bold {
+  font-weight: 700;
+}
+.hidden {
+  display: none;
+}
