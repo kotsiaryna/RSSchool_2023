@@ -7,10 +7,7 @@
 .result__list {
   display: flex;
   flex-direction: column;
+  gap: 5px;
   width: fit-content;
   margin: 0 auto;
-}
-
-.result__item {
-  margin-top:  5px;
 }

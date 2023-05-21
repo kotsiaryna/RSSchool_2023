@@ -3,60 +3,48 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  
   font-size: 20px;
-  
+  line-height: 30px;
 }
-.mine {
-  width: 60px;
+
+.mine,
+.flag,
+.time, 
+.click {
+  width: 70px;
   display: flex;
   justify-content: space-between;
   gap: 15px;
 
   &__img {
-    width: 23px;
-    background-image: url(../assets/icons/mine.png);
+    width: 30px;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
+  }
+}
+
+.mine {
+  &__img {
+    background-image: url(../assets/icons/mine.png);
   }
 }
 .flag {
-  width: 60px;
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-
-  &__img {
-    width: 23px;
+   &__img {
     background-image: url(../assets/icons/flag.png);
-    background-repeat: no-repeat;
-    background-size: contain;
   }
 }
+
 .time {
-  display: flex;
-  justify-content: space-between;
-  width: 100px;
-  gap: 20px;
+  width: 110px;
   
   &__img {
-    
-      width: 23px;
-      background-image: url(../assets/icons/clock3.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-   }
+    background-image: url(../assets/icons/clock3.png);
+  }
 }
+
 .click {
-  display: flex;
-  justify-content: space-between;
-  width: 60px;
-  gap: 20px;
-  
   &__img {
-      width: 23px;
-      background-image: url(../assets/icons/click.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-   }
+    background-image: url(../assets/icons/click.png);
+  }
 }

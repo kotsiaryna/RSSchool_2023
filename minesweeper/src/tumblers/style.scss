@@ -5,7 +5,8 @@
   display: flex;
   justify-content: space-between;
 }
-.sound {
+.sound,
+.theme {
   width: 120px;
   display: flex;
   align-items: center;
@@ -19,8 +20,12 @@
     background-size: contain;
     &:hover {
       cursor: pointer;
-      transform: scale(1.1);
     }
+  }
+}
+
+.sound {
+  &__img {
     &_on {
       background-image: url('../assets/icons/sound-on.png');
     }
@@ -31,16 +36,8 @@
 }
 
 .theme {
-  width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  &__img {
-    width: 50px;
-    height: 28px;
-    background-position: center;
-    background-repeat: no-repeat;
+   &__img {
+    height: 28px ;
     background-size: 90%;
     background-color: white;
     border-radius: 12px;
@@ -53,4 +50,3 @@
     }
   }
 }
-

@@ -5,52 +5,53 @@
   padding: 2px;
   display: grid;
  
-  background-color: rgb(240, 238, 238);
+  background-color: rgb(248, 247, 247);
   border: 0.5px solid rgb(77, 72, 72);
 
-   &_10 {
+  &_10 {
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10,1fr);
     gap: 2px;
-   }
-   &_15 {
+  }
+  &_15 {
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(15,1fr);
     gap: 1px;
-   }
-   &_25 {
+  }
+  &_25 {
     grid-template-columns: repeat(25, 1fr);
     grid-template-rows: repeat(25,1fr);
     gap: 0;
-   }
+    font-size: 14px;
+  }
 }
 
 .cell {
-    border: 0.01px solid rgb(77, 72, 72);
-    border-radius: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  background-color: rgb(218, 212, 212);
+  border: 0.01px solid rgb(70, 65, 65);
+  border-radius: 5%;
+ 
+  font-weight: bold;
 }
 
-.mined {
-      background-color: aqua;
-    }
 .opened {
   background-color: white;
 }
 
-.mined.opened {
-  background-image: url(../assets/icons/mine.png);
+.mined.opened, 
+.flagged {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80%;
 }
 
+.mined.opened {
+   background-image: url(../assets/icons/mine.png);
+}
 .flagged {
   background-image: url(../assets/icons/flag.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 80%;
 }
