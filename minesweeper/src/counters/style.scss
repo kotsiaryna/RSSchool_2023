@@ -36,10 +36,12 @@
 }
 
 .time {
-  width: 110px;
+  width: 120px;
+  justify-content: flex-start;
+  gap: 20px;
   
   &__img {
-    background-image: url(../assets/icons/clock3.png);
+   background-image: url(../assets/icons/clock3.png);
   }
 }
 

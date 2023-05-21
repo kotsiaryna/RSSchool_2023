@@ -7,22 +7,41 @@
  
   background-color: rgb(248, 247, 247);
   border: 0.5px solid rgb(77, 72, 72);
-
+  & .cell {
+    border: 5px solid rgb(122, 119, 119);
+    border-right-color: aliceblue;
+    border-top-color: aliceblue;
+    &.opened {
+      border: 1px solid rgb(122, 119, 119); 
+    }
+  }
+  
   &_10 {
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10,1fr);
-    gap: 2px;
+    gap: 1px;
+   
   }
   &_15 {
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(15,1fr);
     gap: 1px;
+    & .cell {
+     border-width: 3.5px;
+     &.opened {
+      border: 1px solid rgb(122, 119, 119); 
+    }
+      
+    }
   }
   &_25 {
     grid-template-columns: repeat(25, 1fr);
     grid-template-rows: repeat(25,1fr);
     gap: 0;
     font-size: 14px;
+    & .cell {
+      border-width: 2.5px;
+    }
   }
 }
 
@@ -31,8 +50,7 @@
   justify-content: center;
   align-items: center;
  
-  background-color: rgb(218, 212, 212);
-  border: 0.01px solid rgb(70, 65, 65);
+  background-color: rgb(220, 231, 220);
   border-radius: 5%;
  
   font-weight: bold;
@@ -40,6 +58,7 @@
 
 .opened {
   background-color: white;
+  border: 0.2px solid black
 }
 
 .mined.opened, 
