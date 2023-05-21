@@ -10,7 +10,7 @@ import ResultButton from './Results'
 
 import placeMines from './scripts/placeMines'
 import openCell, { openedCellsCounter } from './scripts/openCells'
-import { size } from './game/index'
+
 
 import {setFlag, num } from './scripts/setFlags'
 

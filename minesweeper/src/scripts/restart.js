@@ -27,6 +27,7 @@ function restartGame () {
   localStorage.removeItem('counters')
   localStorage.removeItem('game')
   localStorage.removeItem('num')
+  localStorage.removeItem('options')
   
   openedCellsCounter.n = 0
   num.flags = 0
