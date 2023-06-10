@@ -18,7 +18,7 @@ class News {
                 title: newsClone.querySelector('.news__description-title'),
                 source: newsClone.querySelector('.news__description-source'),
                 content: newsClone.querySelector('.news__description-content'),
-                more: newsClone.querySelector('..news__read-more a'),
+                more: newsClone.querySelector('.news__read-more a'),
             };
 
             if (idx % 2 && news.item) news.item.classList.add('alt');
