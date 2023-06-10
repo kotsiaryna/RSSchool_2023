@@ -1,5 +1,15 @@
+export interface ResponseObj {
+    status: 'ok' | 'error';
+    totalResults: number;
+    articles?: NewsAPI[];
+    sources?: Source[];
+}
+
 export interface NewsAPI {
-    source: Source;
+    source: {
+        id: string;
+        name: string;
+    };
     author: string;
     title: string;
     description: string;
@@ -8,13 +18,7 @@ export interface NewsAPI {
     publishedAt: string;
     content: string;
 }
-
 export interface Source {
-    id: string;
-    name: string;
-}
-
-export interface Sources {
     id: string;
     name: string;
     description: string;
