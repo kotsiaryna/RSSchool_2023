@@ -2,7 +2,7 @@ export interface ResponseObj {
     status: 'ok' | 'error';
     totalResults: number;
     articles?: NewsAPI[];
-    sources?: Source[];
+    sources: Source[];
 }
 
 export interface NewsAPI {
@@ -81,3 +81,18 @@ export interface Source {
         | 've'
         | 'za';
 }
+
+export type Method = 'GET' | 'POST' | 'HEADERS';
+
+export type Endpoint = 'everything' | 'top-headlines' | 'sources';
+
+export type Options = {
+    country?: string;
+    language?: string;
+    category?: 'business' | 'entertainment' | 'general' | 'health' | 'science' | 'sports' | 'technology';
+    q?: string;
+    pageSize?: number;
+    page?: number;
+};
+
+export type callbackFunction = (data: ResponseObj) => void;
