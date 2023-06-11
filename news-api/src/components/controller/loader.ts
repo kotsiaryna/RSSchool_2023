@@ -11,7 +11,7 @@ class Loader {
     }
 
     protected getResp(
-        { endpoint, options = {} }: { endpoint: Endpoint; options: Options },
+        { endpoint, options = {} }: { endpoint: Endpoint; options?: Options },
         callback = (): void => {
             console.error('No callback for GET response');
         }
