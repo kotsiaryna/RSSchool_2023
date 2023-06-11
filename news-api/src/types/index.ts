@@ -104,4 +104,4 @@ export type Options = {
     sources?: string;
 };
 
-export type callbackFunction = (data?: ResponseObj) => void;
+export type callbackFunction<T = ResponseObj> = (data?: T) => void;
