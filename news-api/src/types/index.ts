@@ -1,10 +1,14 @@
 export interface ResponseObj {
-    status: 'ok' | 'error';
+    status: Status;
     totalResults: number;
     articles?: NewsAPI[];
     sources: Source[];
 }
 
+export enum Status {
+    Unauthorized = 401,
+    NotFound = 404,
+}
 export interface NewsAPI {
     source: {
         id: string;
@@ -84,7 +88,11 @@ export interface Source {
 
 export type Method = 'GET' | 'POST' | 'HEADERS';
 
-export type Endpoint = 'everything' | 'top-headlines' | 'sources';
+export enum Endpoint {
+    everything = 'everything',
+    topHeadlines = 'top-headlines',
+    sources = 'sources',
+}
 
 export type Options = {
     country?: string;
