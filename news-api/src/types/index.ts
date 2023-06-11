@@ -93,6 +93,7 @@ export type Options = {
     q?: string;
     pageSize?: number;
     page?: number;
+    sources?: string;
 };
 
-export type callbackFunction = (data: ResponseObj) => void;
+export type callbackFunction = (data?: ResponseObj) => void;
