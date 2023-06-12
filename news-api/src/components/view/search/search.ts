@@ -47,6 +47,8 @@ class AppLetters {
 
             const firstLetter = target.textContent;
             const sources = [...document.querySelectorAll('.source__item')];
+            [...document.querySelectorAll('.letter')].forEach((el) => el.classList.remove('active'));
+            target.classList.add('active');
 
             for (let i = 0; i < sources.length; i++) {
                 const elem = sources[i] as HTMLDivElement;
