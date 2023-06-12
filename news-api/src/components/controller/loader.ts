@@ -2,7 +2,7 @@ import { Method, Endpoint, Options, callbackFunction, Status } from '../../types
 
 class Loader {
     private baseLink: string;
-    protected options: {
+    private options: {
         apiKey: string;
     };
     constructor(baseLink: string, options: { apiKey: string }) {
