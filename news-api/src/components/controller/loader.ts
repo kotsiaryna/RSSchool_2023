@@ -40,7 +40,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: Method, endpoint: Endpoint, callback: callbackFunction, options = {}): void {
+    private load(method: Method, endpoint: Endpoint, callback: callbackFunction, options: Options = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
