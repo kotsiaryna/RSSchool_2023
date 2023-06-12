@@ -17,12 +17,15 @@ footer {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    letter-spacing: 0.06em;
 }
 footer .copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
+    width: 100%;
 }
 footer .copyright a {
     color: #444;
@@ -32,4 +35,19 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+
+footer a {
+    color: white;
+    outline: none;
+    text-decoration: none;
+}
+
+footer .rs-link {
+    width: 70px;
+    background-color: #fff;
+}
+
+footer .rs-link svg {
+    width: 90%;
 }
