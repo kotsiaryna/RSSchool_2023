@@ -1,11 +1,10 @@
-import { Method, Endpoint, Options, callbackFunction, Status } from '../../types/index';
+import { Method, Endpoint, Options, callbackFunction, Status, ApiKeyOption } from '../../types/index';
 
 class Loader {
     private baseLink: string;
-    private options: {
-        apiKey: string;
-    };
-    constructor(baseLink: string, options: { apiKey: string }) {
+    private options: ApiKeyOption;
+
+    constructor(baseLink: string, options: ApiKeyOption) {
         this.baseLink = baseLink;
         this.options = options;
     }

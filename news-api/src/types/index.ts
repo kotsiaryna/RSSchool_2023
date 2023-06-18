@@ -86,6 +86,10 @@ export interface Source {
         | 'za';
 }
 
+export type ApiKeyOption = {
+    apiKey: string;
+};
+
 export type Method = 'GET' | 'POST' | 'HEADERS';
 
 export enum Endpoint {
