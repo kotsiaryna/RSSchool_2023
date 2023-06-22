@@ -1,0 +1,50 @@
+.game {
+    width: calc(100vw - 375px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: #7cd8b3;
+    padding: 1vh 5vw;
+
+    &__heading {
+        text-align: center;
+        color:  #eaf1ef; 
+        font-size: 2em;
+        letter-spacing: 0.5em;
+    }
+
+    &__text-task {
+        font-size: 3em;
+        color: #eaf1ef;
+        text-align: center;
+    }
+
+    &__img-task {
+        width: 500px;
+        margin: 0 auto;
+        height: 200px;
+        background-color: #fd9873;
+        
+    }
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.plate {
+    width: 80px;
+    height: 80px;
+    background-image: url('./../../../assets/icons/table.png');
+    background-size: contain;
+    &:hover {
+        cursor: pointer;
+        filter: drop-shadow(6px 6px 10px rgb(184, 233, 225));
+    }
+
+}

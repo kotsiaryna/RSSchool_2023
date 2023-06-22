@@ -1,0 +1,66 @@
+.editor {
+    display: flex;
+    width: 500px;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 15px;
+    
+
+    &__css {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        // border: 1px solid black;
+        border-radius: 5px;
+
+        input {
+            width: 80%;
+            padding: 5px 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border: none;
+            font-size: inherit;
+        }
+
+        input::placeholder {
+            color: aquamarine;
+        }
+    }
+
+    &__html {
+        display: flex;
+        width: 100%;
+        height: 500px;
+        // border: 1px solid black;
+        background-color: #eaf1ef;
+        font-size: 16px;
+    }
+
+    &__numbers {
+        display: flex;
+        flex-direction: column;
+        background-color: #d0ece4;
+
+        span {
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            padding-top: 5px;
+        }
+    }
+
+    &__markup {
+        width: calc(100% - 25px);
+    }
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    background-color: #fd9873;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
