@@ -32,13 +32,13 @@ export default class ElementCreator {
         this.element?.classList.add(...cssClasses);
     }
 
-    private setTextContent(Text = ''): void {
+    public setTextContent(Text = ''): void {
         if (this.element) {
             this.element.textContent = Text;
         }
     }
 
-    private setCallback(callback: Elem['callback']): void {
+    public setCallback(callback: Elem['callback']): void {
         if (callback) {
             this.element.addEventListener('click', (event) => callback(event));
         }
