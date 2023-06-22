@@ -6,6 +6,7 @@ export default class TaskTextView extends View {
         const options: Elem = {
             tag: 'h2',
             classNames: ['game__text-task'],
+            textContent: 'Task will be here',
         };
         super(options);
     }

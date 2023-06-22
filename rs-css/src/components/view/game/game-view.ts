@@ -1,3 +1,4 @@
+import './game.scss';
 import { Elem } from '../../../types/index';
 import ElementCreator from '../../../utils/createElement';
 import View from '../view';
@@ -6,8 +7,9 @@ import TaskImgView from './task/task-img-view';
 import TaskTextView from './task/task-text-view';
 
 export default class GameView extends View {
-    public textTask: TaskImgView;
+    public textTask: TaskTextView;
     public imgTask: TaskImgView;
+    public editor: EditorView;
 
     constructor() {
         const options: Elem = {
@@ -17,6 +19,7 @@ export default class GameView extends View {
         super(options);
         this.textTask = new TaskTextView();
         this.imgTask = new TaskImgView();
+        this.editor = new EditorView();
         this.addElements();
     }
 
@@ -30,7 +33,6 @@ export default class GameView extends View {
         this.makeView.addInnerElement(GameHeader.getElement());
         this.makeView.addInnerElement(this.textTask.getHtmlElement());
         this.makeView.addInnerElement(this.imgTask.getHtmlElement());
-        const GameEditor = new EditorView();
-        this.makeView.addInnerElement(GameEditor.getHtmlElement());
+        this.makeView.addInnerElement(this.editor.getHtmlElement());
     }
 }
