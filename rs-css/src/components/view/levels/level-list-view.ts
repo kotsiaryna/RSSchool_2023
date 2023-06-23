@@ -1,7 +1,7 @@
 import View from '../view';
 import { Elem } from '../../../types/index';
 import ListItemView from './list-item-view';
-import { level1, levels } from './levels';
+import { levels } from './levels';
 import { app } from '../../../index';
 
 export default class LevelListView extends View {
@@ -33,9 +33,10 @@ export default class LevelListView extends View {
             }
             const id = target?.children[1].textContent?.split(' ').at(-1);
             if (id) {
-                const level = levels.find((el) => el.id === +id) || level1;
+                const level = levels.find((el) => el.id === +id) || levels[0];
                 app.markup.innerHTML = level.code;
                 app.task.textContent = level.task;
+                app.imgTask.innerHTML = level.tableCode;
             }
         };
         this.makeView.setCallback(callback);

@@ -4,3 +4,12 @@ export interface Elem {
     textContent?: string;
     callback?: (e: Event) => void;
 }
+
+export type Level = {
+    id: number;
+    name: string;
+    code: string;
+    task: string;
+    hint: string;
+    tableCode: string;
+};
