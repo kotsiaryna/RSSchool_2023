@@ -1,6 +1,6 @@
 .game {
     width: calc(100vw - 375px);
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -23,28 +23,80 @@
     &__img-task {
         width: 500px;
         margin: 0 auto;
-        height: 200px;
+        height: 300px;
         background-color: #fd9873;
-        
     }
 }
 
-.table {
+sofa {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: url('../../../assets/sofa.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 70px 70px;
 
-.plate {
-    width: 80px;
-    height: 80px;
-    background-image: url('./../../../assets/icons/table.png');
-    background-size: contain;
-    &:hover {
+    & * {
+        position: relative;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        &:hover {
         cursor: pointer;
-        filter: drop-shadow(6px 6px 10px rgb(184, 233, 225));
+        filter: drop-shadow(6px 6px 10px rgb(145, 231, 217));
     }
-
+    }
 }
+
+@keyframes go-left-right {
+    from {
+      left: 0px;  
+    }
+    to {
+    
+    left: 10px;
+    }
+  }
+
+ 
+cat {
+    // position: relative;
+    width: 150px;
+    height: 120px;
+    background-image: url('./../../../assets/icons/cat.png');
+    // background-position: center;
+    // background-size: contain;
+    // background-repeat: no-repeat;
+    // &:hover {
+    //     cursor: pointer;
+    //     filter: drop-shadow(6px 6px 10px rgb(145, 231, 217));
+    // }
+    
+}
+
+rabbit {
+    width: 150px;
+    height: 120px;
+    background-image: url('./../../../assets/icons/rabit.png');
+    margin-bottom: 15px;
+}
+croco {
+    width: 170px;
+    height: 150px;
+    background-image: url('./../../../assets/icons/croco.png');
+    margin-bottom: -15px;
+}
+chicken {
+    width: 70px;
+    height: 150px;
+    background-image: url('./../../../assets/icons/chicken.png');
+    margin-bottom: -15px;
+}
+
+.active {
+    animation: go-left-right 0.5s infinite alternate;
+}
+
