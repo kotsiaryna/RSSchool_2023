@@ -49,10 +49,6 @@ sofa {
         cursor: pointer;
         filter: drop-shadow(6px 6px 10px rgb(145, 231, 217));
         }
-        & > * {
-            position: absolute;
-            top: -50px;
-        }
     }
 }
 
@@ -65,7 +61,15 @@ sofa {
     left: 10px;
     }
   }
-
+  
+  @keyframes stop {
+    from {
+        left: 0;
+    }
+    to {
+        right: 0;
+    }
+  }
  
 cat {
     background-image: url('./../../../assets/icons/cat.png');
@@ -142,4 +146,46 @@ pig {
     bird:nth-child(odd){
         margin-bottom: 30px;
     }
+}
+
+.level4 {
+    justify-content: space-evenly;
+    dachshund {
+        position: relative;
+        width: 90px;
+        height: 60px;
+        margin-bottom: 25px;
+        & > pig {
+            display: block;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: -16px;
+            margin-left: 27px;
+        }
+
+        & > rabbit {
+            display: block;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: 25px;
+             & > pig {
+                display: block;
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                top: -10px;
+                margin-left: 40px;
+             }
+        } 
+        & > bird {
+            display: block;
+            position: absolute;
+            width: 100px;
+            height: 70px;
+            top: -30px;
+        }
+    }
+
 }

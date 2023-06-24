@@ -30,11 +30,11 @@ const level3: Level = {
 const level4: Level = {
     id: 4,
     name: 'Level 4',
-    code: '<div>&lt;div class="sofa"&gt;<div>&lt;dachshund/&gt;</div><div>&lt;dachshund/&gt;</div><div>&lt;dachshund/&gt;</div><div>&lt;dachshund/&gt;</div>&lt;/div&gt;</div>',
+    code: '<div>&lt;div class="sofa"&gt;<div>&lt;dachshund&gt;<div>&lt;pig/&gt;</div>&lt;/dachshund&gt;</div><div>&lt;dachshund&gt; <div>&lt;rabbit&gt;<div>&lt;pig/&gt;</div>&lt;/rabbit&gt;</div>&lt;/dachshund&gt;</div><div>&lt;dachshund/&gt;</div><div>&lt;dachshund&gt; <div>&lt;bird/&gt;</div>&lt;/dachshund&gt;</div>&lt;/div&gt;</div>',
     task: 'Select all animals, that are immediate on the top of a dachshund',
     hint: '',
     tableCode:
-        '<sofa><dachshund><pig class="active"></pig></dachshund><dachshund><rabbit class="active"><pig></pig></rabbit></dachshund><dachshund></dachshund><dachshund><chicken class="active"></chicken></dachshund></sofa>',
+        '<sofa class="level4"><dachshund><pig class="active"></pig></dachshund><dachshund><rabbit class="active"><pig></pig></rabbit></dachshund><dachshund></dachshund><dachshund><bird class="active"></bird></dachshund></sofa>',
 };
 
 export const levels: Level[] = [level1, level2, level3, level4];
