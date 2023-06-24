@@ -5,6 +5,7 @@ import { levels } from './levels';
 import { app } from '../../../index';
 
 export default class LevelListView extends View {
+    private levels: ListItemView[] = [];
     constructor() {
         const options: Elem = {
             tag: 'div',
@@ -21,6 +22,10 @@ export default class LevelListView extends View {
             const item = new ListItemView();
             item.levelText.setTextContent(`Level ${i}`);
             this.makeView.addInnerElement(item.getHtmlElement());
+            this.levels.push(item);
+            if (i === 1) {
+                item.getHtmlElement().classList.add('active');
+            }
         }
     }
 
@@ -37,6 +42,11 @@ export default class LevelListView extends View {
                 app.markup.innerHTML = level.code;
                 app.task.textContent = level.task;
                 app.imgTask.innerHTML = level.tableCode;
+
+                this.levels.forEach((element) => {
+                    element.getHtmlElement().classList.remove('active');
+                });
+                this.levels[+id - 1].getHtmlElement().classList.add('active');
             }
         };
         this.makeView.setCallback(callback);
