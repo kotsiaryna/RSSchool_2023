@@ -32,22 +32,27 @@ sofa {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
     background-image: url('../../../assets/sofa.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 0 70px 70px;
+    padding: 0 50px 70px;
 
     & * {
+        // display: block;
         position: relative;
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
+
         &:hover {
         cursor: pointer;
         filter: drop-shadow(6px 6px 10px rgb(145, 231, 217));
-    }
+        }
+        & > * {
+            position: absolute;
+            top: -50px;
+        }
     }
 }
 
@@ -63,40 +68,42 @@ sofa {
 
  
 cat {
-    // position: relative;
-    width: 150px;
-    height: 120px;
     background-image: url('./../../../assets/icons/cat.png');
-    // background-position: center;
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // &:hover {
-    //     cursor: pointer;
-    //     filter: drop-shadow(6px 6px 10px rgb(145, 231, 217));
-    // }
-    
 }
 
 rabbit {
-    width: 150px;
-    height: 120px;
     background-image: url('./../../../assets/icons/rabit.png');
-    margin-bottom: 15px;
 }
+
 croco {
-    width: 170px;
-    height: 150px;
     background-image: url('./../../../assets/icons/croco.png');
-    margin-bottom: -15px;
 }
 chicken {
-    width: 70px;
-    height: 150px;
     background-image: url('./../../../assets/icons/chicken.png');
-    margin-bottom: -15px;
+}
+dog {
+    background-image: url('./../../../assets/icons/dog.png');
+}
+dachshund {
+    background-image: url('./../../../assets/icons/tax.png');
+}
+pig {
+    background-image: url('./../../../assets/icons/pig.png');
 }
 
 .active {
     animation: go-left-right 0.5s infinite alternate;
 }
 
+.level1 {
+    justify-content: space-between;
+    cat {
+        width: 130px;
+        height: 140px;
+        margin-bottom: 10px;
+    }
+
+    cat.active{
+        animation: go-left-right 0.5s infinite alternate;
+    }
+}
