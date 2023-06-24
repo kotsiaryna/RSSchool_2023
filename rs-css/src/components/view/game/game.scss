@@ -78,7 +78,7 @@ rabbit {
 croco {
     background-image: url('./../../../assets/icons/croco.png');
 }
-chicken {
+bird {
     background-image: url('./../../../assets/icons/chicken.png');
 }
 dog {
@@ -131,5 +131,15 @@ pig {
         width: 100px;
         height: 100px;
     }
+}
 
+.level3 {
+    bird {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+    bird:nth-child(odd){
+        margin-bottom: 30px;
+    }
 }

@@ -21,11 +21,11 @@ const level2: Level = {
 const level3: Level = {
     id: 3,
     name: 'Level 3',
-    code: '<div>&lt;div class="sofa"&gt;<div>&lt;chicken/&gt;</div><div>&lt;chicken/&gt;</div><div>&lt;chicken/&gt;</div><div>&lt;chicken/&gt;</div><div>&lt;chicken/&gt;</div>&lt;/div&gt;</div>',
-    task: 'Select all even animals',
+    code: '<div>&lt;div class="sofa"&gt;<div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div>&lt;/div&gt;</div>',
+    task: 'Select all even birds',
     hint: '',
     tableCode:
-        '<sofa><chicken class="active"></chicken><chicken></chicken><chicken class="active"></chicken><chicken></chicken><chicken class="active"></chicken></sofa>',
+        '<sofa class="level3"><bird class="active"></bird><bird></bird><bird class="active"></bird><bird></bird><bird class="active"></bird></sofa>',
 };
 const level4: Level = {
     id: 4,
