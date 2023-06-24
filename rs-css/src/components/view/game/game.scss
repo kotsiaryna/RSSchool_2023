@@ -107,3 +107,29 @@ pig {
         animation: go-left-right 0.5s infinite alternate;
     }
 }
+
+.level2 {
+    justify-content: space-between;
+    cat {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+
+    rabbit {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 25px;
+    }
+
+    dog {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+    croco {
+        width: 100px;
+        height: 100px;
+    }
+
+}

@@ -16,7 +16,7 @@ const level2: Level = {
     task: 'Select all who are not a cat',
     hint: 'Select all elements that do not have a specific tag using the :not() selector',
     tableCode:
-        '<sofa><rabbit class="active"></rabbit><dog class="active"></dog><cat></cat><croco class="active"></croco><cat></cat></sofa>',
+        '<sofa class="level2"><rabbit class="active"></rabbit><dog class="active"></dog><cat></cat><croco class="active"></croco><cat></cat></sofa>',
 };
 const level3: Level = {
     id: 3,
