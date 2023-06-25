@@ -4,27 +4,28 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    background-color: #7cd8b3;
+    background-color: #444c5c;
     padding: 1vh 5vw;
+    font-family: 'Rubik', sans-serif;
+    color: #e1b16a;
+    letter-spacing: 0.1em;
 
     &__heading {
         text-align: center;
-        color:  #eaf1ef; 
         font-size: 2em;
-        letter-spacing: 0.5em;
+       
     }
 
     &__text-task {
-        font-size: 3em;
-        color: #eaf1ef;
+        font-size: 2em;
         text-align: center;
     }
 
     &__img-task {
         width: 500px;
         margin: 0 auto;
-        height: 300px;
-        background-color: #fd9873;
+        height: 240px;
+        display: flex;
     }
 }
 
@@ -33,8 +34,8 @@ sofa {
     height: 100%;
     display: flex;
     align-items: flex-end;
-    background-image: url('../../../assets/sofa.jpg');
-    background-size: cover;
+    background-image: url('../../../assets/icons/sofa.png');
+    background-size: contain;
     background-repeat: no-repeat;
     padding: 0 50px 70px;
 
@@ -104,7 +105,6 @@ pig {
     cat {
         width: 130px;
         height: 140px;
-        margin-bottom: 10px;
     }
 
     cat.active{
@@ -114,37 +114,21 @@ pig {
 
 .level2 {
     justify-content: space-between;
-    cat {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 15px;
-    }
-
-    rabbit {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 25px;
-    }
-
-    dog {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 20px;
-    }
-    croco {
+    & * {
         width: 100px;
         height: 100px;
     }
 }
 
 .level3 {
+    justify-content: space-around;
     bird {
-        width: 100px;
+        width: 60px;
         height: 100px;
-        margin-bottom: 20px;
+
     }
     bird:nth-child(odd){
-        margin-bottom: 30px;
+        margin-bottom: -10px;
     }
 }
 
@@ -154,7 +138,6 @@ pig {
         position: relative;
         width: 90px;
         height: 60px;
-        margin-bottom: 25px;
         & > pig {
             display: block;
             position: absolute;

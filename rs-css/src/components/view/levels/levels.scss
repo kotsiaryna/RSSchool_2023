@@ -10,8 +10,10 @@
     padding: 10px;
 
     font-size: 1.5em;
+    letter-spacing: 0.05em;
 
-    background-color: #34b28e;
+    background-color:#78a5a3;
+    color: #e1b16a;
 
     &__list {
         height: 700px;
@@ -39,7 +41,7 @@
 
     }
     .active {
-        color: white;
+        color: #ce5a57;
         font-weight: bold;
     }
 }

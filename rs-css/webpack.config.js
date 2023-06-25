@@ -18,7 +18,7 @@ module.exports = {
                     loader: 'sass-resources-loader',
                     options: {
                       resources: [
-                        './src/styles/style.scss'
+                        './src/style.scss'
                       ]
                     } }
                 ],
@@ -35,6 +35,10 @@ module.exports = {
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg|mp3|wav|svg)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
         ],
