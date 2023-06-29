@@ -47,6 +47,8 @@ export default class LevelListView extends View {
 
                     app.task.textContent = level.task;
                     app.imgTask.innerHTML = level.tableCode;
+                    app.input.value = '';
+                    if (app.cssPre.firstElementChild) app.cssPre.firstElementChild.textContent = '';
 
                     this.levels.forEach((element) => {
                         element.getHtmlElement().classList.remove('active');

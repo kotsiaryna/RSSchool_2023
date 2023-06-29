@@ -6,11 +6,13 @@ import View from '../../view';
 import CssInputView from './css-input-view';
 import HTMLMarkupView from './html-markup-view';
 import CssButtonView from './css-btn-view';
+import hljs from 'highlight.js';
 
 export default class EditorView extends View {
     public cssInput = new CssInputView();
     public htmlMarkup = new HTMLMarkupView();
     public enterBtn = new CssButtonView();
+    public pre = new ElementCreator({ tag: 'pre', classNames: ['editor__pre'] });
 
     constructor() {
         const options: Elem = {
@@ -19,13 +21,14 @@ export default class EditorView extends View {
         };
         super(options);
         this.addElements();
+        this.addInputHighligh();
     }
     private addElements(): void {
-        const LeftSide = new ElementCreator({
+        const css = new ElementCreator({
             tag: 'div',
             classNames: ['editor__css'],
         });
-        const RightSide = new ElementCreator({
+        const html = new ElementCreator({
             tag: 'div',
             classNames: ['editor__html'],
         });
@@ -37,7 +40,7 @@ export default class EditorView extends View {
                 textContent: 'CSS Editor',
             }).getElement()
         );
-        this.makeView.addInnerElement(LeftSide.getElement());
+        this.makeView.addInnerElement(css.getElement());
 
         this.makeView.addInnerElement(
             new ElementCreator({
@@ -46,7 +49,7 @@ export default class EditorView extends View {
                 textContent: 'HTML Viewer',
             }).getElement()
         );
-        this.makeView.addInnerElement(RightSide.getElement());
+        this.makeView.addInnerElement(html.getElement());
         const numbers = new ElementCreator({
             tag: 'div',
             classNames: ['editor__numbers'],
@@ -56,9 +59,35 @@ export default class EditorView extends View {
                 new ElementCreator({ tag: 'span', classNames: ['numbers__item'], textContent: `${i}` }).getElement()
             );
         }
-        RightSide.addInnerElement(numbers.getElement());
-        LeftSide.addInnerElement(this.cssInput.getHtmlElement());
-        LeftSide.addInnerElement(this.enterBtn.getHtmlElement());
-        RightSide.addInnerElement(this.htmlMarkup.getHtmlElement());
+        const cssCode = new ElementCreator({ tag: 'code', classNames: ['hljs', 'language-css'] });
+        this.pre.addInnerElement(cssCode.getElement());
+
+        html.addInnerElement(numbers.getElement());
+        css.addInnerElement(this.cssInput.getHtmlElement());
+        this.addPlaceHolder();
+        css.addInnerElement(this.enterBtn.getHtmlElement());
+        css.addInnerElement(this.pre.getElement());
+        html.addInnerElement(this.htmlMarkup.getHtmlElement());
+    }
+
+    private addPlaceHolder(): void {
+        const input = this.cssInput.getHtmlElement() as HTMLInputElement;
+        input.placeholder = 'Type in a CSS Selector';
+    }
+
+    private addInputHighligh(): void {
+        const input = this.cssInput.getHtmlElement() as HTMLInputElement;
+        const pre = this.pre.getElement();
+        const code = pre.firstElementChild;
+        input.addEventListener('keyup', () => {
+            input.classList.add('hidden');
+            pre.classList.add('visible');
+            if (code) code.textContent = input.value;
+            hljs.highlightAll();
+        });
+        input.addEventListener('blur', () => {
+            input.classList.remove('hidden');
+            input.classList.remove('visible');
+        });
     }
 }

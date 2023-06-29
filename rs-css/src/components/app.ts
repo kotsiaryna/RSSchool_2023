@@ -7,6 +7,8 @@ export default class App {
     public HTMLEditor = this.game.editor.htmlMarkup;
     public task = this.game.textTask.getHtmlElement();
     public imgTask = this.game.imgTask.getHtmlElement();
+    public cssPre = this.game.editor.pre.getElement();
+    public input = this.game.editor.cssInput.getHtmlElement() as HTMLInputElement;
 
     public start(): void {
         // const game = new GameView();
