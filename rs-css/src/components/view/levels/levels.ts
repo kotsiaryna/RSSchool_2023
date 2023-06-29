@@ -3,7 +3,7 @@ import { Level } from '../../../types/index';
 const level1: Level = {
     id: 1,
     name: 'Level 1',
-    code: '<div>&lt;div class="sofa"&gt;<div>&lt;cat/&gt;</div><div>&lt;cat/&gt;</div><div>&lt;cat /&gt;</div>&lt;/div&gt;</div>',
+    code: ['cat', 'cat', 'cat'],
     task: 'Select all cats',
     hint: '',
     tableCode:
@@ -12,7 +12,7 @@ const level1: Level = {
 const level2: Level = {
     id: 2,
     name: 'Level 2',
-    code: '<div>&lt;div class="sofa"&gt;<div>&lt;rabbit/&gt;</div><div>&lt;dog/&gt;</div><div>&lt;cat/&gt;</div><div>&lt;croco/&gt;</div><div>&lt;cat /&gt;</div>&lt;/div&gt;</div>',
+    code: ['rabbit', 'dog', 'cat', 'croco', 'cat'],
     task: 'Select all who are not a cat',
     hint: 'Select all elements that do not have a specific tag using the :not() selector',
     tableCode:
@@ -21,7 +21,7 @@ const level2: Level = {
 const level3: Level = {
     id: 3,
     name: 'Level 3',
-    code: '<div>&lt;div class="sofa"&gt;<div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div><div>&lt;bird/&gt;</div>&lt;/div&gt;</div>',
+    code: ['bird', 'bird', 'bird', 'bird', 'bird'],
     task: 'Select all even birds',
     hint: '',
     tableCode:
@@ -30,7 +30,7 @@ const level3: Level = {
 const level4: Level = {
     id: 4,
     name: 'Level 4',
-    code: '<div>&lt;div class="sofa"&gt;<div>&lt;dachshund&gt;<div>&lt;pig/&gt;</div>&lt;/dachshund&gt;</div><div>&lt;dachshund&gt; <div>&lt;rabbit&gt;<div>&lt;pig/&gt;</div>&lt;/rabbit&gt;</div>&lt;/dachshund&gt;</div><div>&lt;dachshund/&gt;</div><div>&lt;dachshund&gt; <div>&lt;bird/&gt;</div>&lt;/dachshund&gt;</div>&lt;/div&gt;</div>',
+    code: [['dog', ['pig']], ['dog', ['rabbit', ['pig']]], 'dog', ['dog', ['bird']]],
     task: 'Select all animals, that are immediate on the top of a dachshund',
     hint: '',
     tableCode:

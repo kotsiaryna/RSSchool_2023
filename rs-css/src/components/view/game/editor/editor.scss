@@ -84,5 +84,11 @@
     }
     & > *:not(:first-child, :last-child) {
         padding-left: 25px;
+         & > * > * {
+            padding-left: 20px;
+            &:not(span) {
+                padding-left: 40px;
+            }
+         }
     }
 }

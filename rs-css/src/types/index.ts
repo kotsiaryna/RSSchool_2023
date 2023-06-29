@@ -8,7 +8,7 @@ export interface Elem {
 export type Level = {
     id: number;
     name: string;
-    code: string;
+    code: (string | string[] | (string[] | string)[] | ((string[] | string)[] | string)[])[];
     task: string;
     hint: string;
     tableCode: string;
