@@ -101,9 +101,18 @@ export default class EditorView extends View {
         const id = [...app.levelList.getHtmlElement().children].findIndex((el) => el.classList.contains('active'));
         const hint = levels[id].hint;
         const isCorrect = this.answer === hint;
-        console.log(isCorrect);
         this.makeAnimation(isCorrect);
-        if (isCorrect) setTimeout(() => app.levelList.openNextLevel(), 1000);
+        if (isCorrect) {
+            app.levelList.markDoneLevel(id);
+            if (app.levelList.checkWin()) {
+                setTimeout(() => {
+                    app.task.textContent = `Hooray! You've passed all levels!`;
+                    app.task.classList.add('win');
+                }, 1000);
+            } else {
+                setTimeout(() => app.levelList.openNextLevel(), 1000);
+            }
+        }
         return isCorrect;
     }
 

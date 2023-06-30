@@ -17,6 +17,7 @@
     }
 
     &__text-task {
+        position: relative;
         font-size: 2em;
         text-align: center;
     }
@@ -51,6 +52,30 @@ sofa {
         filter: drop-shadow(6px 6px 10px rgb(145, 231, 217));
         }
     }
+}
+@keyframes win-game {
+    0% {
+        top: -300px;
+        transform: skew(0, 0);
+    }
+    25% {
+        top: 0;
+        transform: skew(45deg, 10deg);
+    }
+    50% {
+        transform: skew(0, 0);
+    }
+    75% {
+        transform: skew(-45deg, -10deg);
+    }
+    100% {
+        transform: skew(0, 0);
+    }
+}
+.win {
+    color: #78a5a3;
+    animation: win-game 2s ease-in;
+    
 }
 
 @keyframes go-left-right {

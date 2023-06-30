@@ -55,10 +55,19 @@ export default class LevelListView extends View {
         app.task.textContent = levels[next].task;
         app.imgTask.innerHTML = levels[next].tableCode;
         app.input.value = '';
+        app.input.classList.remove('hidden');
         if (app.cssPre.firstElementChild) app.cssPre.firstElementChild.textContent = '';
         this.levels.forEach((element) => {
             element.getHtmlElement().classList.remove('active');
         });
         this.levels[next].getHtmlElement().classList.add('active');
+    }
+
+    public markDoneLevel(id: number): void {
+        this.levels[id].getHtmlElement().classList.add('done');
+    }
+    public checkWin(): boolean {
+        const doneLevelsCount = this.levels.filter((el) => el.getHtmlElement().classList.contains('done')).length;
+        return doneLevelsCount === 2; //change to 10
     }
 }
