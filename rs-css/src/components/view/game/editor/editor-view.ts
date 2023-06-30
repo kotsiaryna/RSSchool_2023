@@ -7,12 +7,16 @@ import CssInputView from './css-input-view';
 import HTMLMarkupView from './html-markup-view';
 import CssButtonView from './css-btn-view';
 import hljs from 'highlight.js';
+import { app } from '../../../..';
+import { levels } from '../../levels/levels';
 
 export default class EditorView extends View {
     public cssInput = new CssInputView();
     public htmlMarkup = new HTMLMarkupView();
     public enterBtn = new CssButtonView();
     public pre = new ElementCreator({ tag: 'pre', classNames: ['editor__pre'] });
+    private answer = '';
+    private input = this.cssInput.getHtmlElement() as HTMLInputElement;
 
     constructor() {
         const options: Elem = {
@@ -22,6 +26,8 @@ export default class EditorView extends View {
         super(options);
         this.addElements();
         this.addInputHighligh();
+        this.addInputListener();
+        this.addButtonListener();
     }
     private addElements(): void {
         const css = new ElementCreator({
@@ -89,5 +95,24 @@ export default class EditorView extends View {
             input.classList.remove('hidden');
             input.classList.remove('visible');
         });
+    }
+    private checkAnswer(): boolean {
+        console.log(this.input);
+        this.answer = this.input.value;
+        const id = [...app.levelList.children].findIndex((el) => el.classList.contains('active'));
+        const hint = levels[id].hint;
+        return this.answer === hint;
+    }
+
+    private addInputListener(): void {
+        this.input.addEventListener('keydown', (e) => {
+            if (e.code === 'Enter') {
+                this.checkAnswer();
+            }
+        });
+    }
+
+    private addButtonListener(): void {
+        this.enterBtn.getHtmlElement().addEventListener('click', () => this.checkAnswer());
     }
 }
