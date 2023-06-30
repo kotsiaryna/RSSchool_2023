@@ -16,6 +16,7 @@ export default class LevelListView extends View {
         super(options);
         this.addElements();
         this.addListener();
+        // this.levelID = 1;
     }
 
     private addElements(): void {
@@ -36,27 +37,28 @@ export default class LevelListView extends View {
             let target: HTMLElement | null;
             if (e.target instanceof HTMLElement) {
                 target = e.target.closest('.list__item');
-
-                app.HTMLEditor.clearSofa();
-
                 const id = target?.children[1].textContent?.split(' ').at(-1);
-                let level: Level;
-                if (id) {
-                    level = levels.find((el) => el.id === +id) || levels[0];
-                    app.HTMLEditor.appendAnimals(level);
 
-                    app.task.textContent = level.task;
-                    app.imgTask.innerHTML = level.tableCode;
-                    app.input.value = '';
-                    if (app.cssPre.firstElementChild) app.cssPre.firstElementChild.textContent = '';
-
-                    this.levels.forEach((element) => {
-                        element.getHtmlElement().classList.remove('active');
-                    });
-                    this.levels[+id - 1].getHtmlElement().classList.add('active');
-                }
+                if (id) this.openNextLevel(+id - 1);
             }
         };
         this.makeView.setCallback(callback);
+    }
+
+    public openNextLevel(id?: Level['id']): void {
+        const current = this.levels.findIndex((el) => el.getHtmlElement().classList.contains('active'));
+        const next = id ?? current + 1;
+        console.log(next);
+        app.HTMLEditor.clearSofa();
+        app.HTMLEditor.appendAnimals(levels[next]);
+
+        app.task.textContent = levels[next].task;
+        app.imgTask.innerHTML = levels[next].tableCode;
+        app.input.value = '';
+        if (app.cssPre.firstElementChild) app.cssPre.firstElementChild.textContent = '';
+        this.levels.forEach((element) => {
+            element.getHtmlElement().classList.remove('active');
+        });
+        this.levels[next].getHtmlElement().classList.add('active');
     }
 }

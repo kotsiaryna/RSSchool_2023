@@ -99,9 +99,11 @@ export default class EditorView extends View {
     private checkAnswer(): boolean {
         console.log(this.input);
         this.answer = this.input.value;
-        const id = [...app.levelList.children].findIndex((el) => el.classList.contains('active'));
+        const id = [...app.levelList.getHtmlElement().children].findIndex((el) => el.classList.contains('active'));
         const hint = levels[id].hint;
-        return this.answer === hint;
+        const isCorrect = this.answer === hint;
+        if (isCorrect) app.levelList.openNextLevel();
+        return isCorrect;
     }
 
     private addInputListener(): void {
@@ -113,6 +115,7 @@ export default class EditorView extends View {
     }
 
     private addButtonListener(): void {
-        this.enterBtn.getHtmlElement().addEventListener('click', () => this.checkAnswer());
+        this.enterBtn.makeView.setCallback(() => this.checkAnswer());
+        // this.enterBtn.getHtmlElement().addEventListener('click', () => this.checkAnswer());
     }
 }
