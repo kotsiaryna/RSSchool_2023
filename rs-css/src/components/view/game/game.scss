@@ -62,6 +62,14 @@ sofa {
     left: 10px;
     }
   }
+  @keyframes go-up {
+    from {
+        top:0
+    } 
+    to {
+        top: -400px;
+    }
+  }
   
   @keyframes stop {
     from {
@@ -98,6 +106,10 @@ pig {
 
 .active {
     animation: go-left-right 0.5s infinite alternate;
+}
+
+.up {
+    animation: go-up 1s;
 }
 
 .level1 {

@@ -6,6 +6,15 @@
     flex-direction: column;
     gap: 15px;
     color: #e1b16a;
+
+    @keyframes shake {
+        from {
+            left: -10px;
+        }
+        to {
+            left: 10px;
+        }
+    }
     
 
     &__css {
@@ -86,6 +95,9 @@
         // padding-left: 5px;
         letter-spacing: 0.05em;
     }
+}
+.shaking {
+    animation: shake 0.05s 5 alternate;
 }
 
 // .hidden {

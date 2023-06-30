@@ -97,12 +97,13 @@ export default class EditorView extends View {
         });
     }
     private checkAnswer(): boolean {
-        console.log(this.input);
         this.answer = this.input.value;
         const id = [...app.levelList.getHtmlElement().children].findIndex((el) => el.classList.contains('active'));
         const hint = levels[id].hint;
         const isCorrect = this.answer === hint;
-        if (isCorrect) app.levelList.openNextLevel();
+        console.log(isCorrect);
+        this.makeAnimation(isCorrect);
+        if (isCorrect) setTimeout(() => app.levelList.openNextLevel(), 1000);
         return isCorrect;
     }
 
@@ -117,5 +118,18 @@ export default class EditorView extends View {
     private addButtonListener(): void {
         this.enterBtn.makeView.setCallback(() => this.checkAnswer());
         // this.enterBtn.getHtmlElement().addEventListener('click', () => this.checkAnswer());
+    }
+
+    private makeAnimation(isCorrect: boolean): void {
+        if (isCorrect && app.imgTask.firstElementChild) {
+            [...app.imgTask.firstElementChild.children].forEach((animal) => {
+                console.log(animal);
+                animal.classList.remove('active');
+                animal.classList.add('up');
+            });
+        } else {
+            this.makeView.getElement().classList.add('shaking');
+            setTimeout(() => this.makeView.getElement().classList.remove('shaking'), 300);
+        }
     }
 }
