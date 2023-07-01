@@ -40,7 +40,7 @@ export default class LevelsView extends View {
             textContent: 'Reset',
             callback: resetCallback,
         });
-        this.makeView.addInnerElement(resetButton.getElement());
+        this.levelHints.makeView.addInnerElement(resetButton.getElement());
     }
     private addHintBtnCallback(): void {
         const hintCallback: Elem['callback'] = () => {
@@ -65,6 +65,15 @@ export default class LevelsView extends View {
             }
             app.input.classList.remove('hidden');
             app.input.focus();
+
+            const hintLevels = localStorage.getItem('hintLevels');
+            if (hintLevels) {
+                const hintArr = JSON.parse(hintLevels);
+                hintArr.push(activeLevelIndex);
+                localStorage.setItem('hintLevels', JSON.stringify(hintArr));
+            } else {
+                localStorage.setItem('hintLevels', JSON.stringify([activeLevelIndex]));
+            }
         };
         this.levelHints.hintBtn.setCallback(hintCallback);
     }
