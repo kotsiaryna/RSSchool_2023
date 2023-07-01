@@ -1,24 +1,29 @@
 .game {
-    width: calc(100vw - 375px);
-    // height: 100vh;
+    width: calc(100vw - 300px);
+    height: calc(100vh - 30px);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     background-color: #444c5c;
-    padding: 1vh 5vw;
+    padding: 1vh 0;
     font-family: 'Rubik', sans-serif;
     color: #e1b16a;
     letter-spacing: 0.1em;
 
+     @media screen and (max-width: 900px) {
+        width: 100vw;
+        height: fit-content;
+    }
+
     &__heading {
         text-align: center;
-        font-size: 2em;
+        font-size: 1em;
        
     }
 
     &__text-task {
         position: relative;
-        font-size: 2em;
+        font-size: 1.2em;
         text-align: center;
     }
 

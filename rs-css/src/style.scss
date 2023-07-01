@@ -3,18 +3,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: 0.2s;
 }
-// vars - сделать переменные цветов
 
 body {
     background-color: antiquewhite;
-    font-family: 'Rubik', sans-serif;;
+    font-family: 'Rubik', sans-serif;
 }
-
-// object {
-//     width: 20px;
-//     height: 20px;
-//     svg {
-//         fill: aqua;
-//     }
-// }
+html {
+    overflow-x: hidden;
+}
+a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+    
+}
