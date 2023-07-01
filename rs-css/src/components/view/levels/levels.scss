@@ -2,6 +2,7 @@
     position: fixed;
     display: flex;
     flex-direction: column;
+    gap: 25px;
     width: 375px;
     right: 0;
     top: 0;
@@ -16,7 +17,7 @@
     color: #e1b16a;
 
     &__list {
-        height: 700px;
+        // height: 700px;
         display: flex;
         flex-direction: column;
         
@@ -24,24 +25,54 @@
         .list__item {
             width: 100%;
             height: 50px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            font-weight: 400;
             &:first-child {
                 margin-top: 10px;
             }
             &:hover {
                 cursor: pointer;
             }
+            &.done{
+                color: #444c5c;
+            }
+            &.done .checkmark,
+            &.done {
+                visibility: visible;
+            }
+            .checkmark {
+                visibility: hidden;
+                background-image: url('../../../assets/icons/checkmark.png');
+                background-position: left center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                padding-left: 35px;
+                font-size: 0.8em;
+            }
+            .help {
+                font-size: 0.8em;
+                visibility: hidden;
+            }
+
+            &.hint .help {
+                visibility: visible;
+            }
+            
         }
+        
     }
 
     &__hint {
-        height: calc(100% - 700px);
+        // height: calc(100% - 700px);
         display: flex;
         flex-direction: column;
         gap: 10px;
 
     }
-    .active {
+    .active.active {
         color: #ce5a57;
-        font-weight: bold;
     }
 }
