@@ -111,12 +111,20 @@ sofa {
 }
 
 @keyframes go-left-right {
-    from {
-      left: 0px;  
+    0% {
+      left: 0;  
     }
-    to {
-    
-    left: 10px;
+    25% {
+        left: -5px;
+    }
+    50% {
+        left:0;
+    }
+    75% {
+        left:5px;
+    }
+    100% {
+        left: 0;
     }
   }
   @keyframes go-up {
@@ -157,12 +165,19 @@ dog {
 dachshund {
     background-image: url('./../../../assets/icons/tax.png');
 }
-pig {
+hamster {
     background-image: url('./../../../assets/icons/pig.png');
 }
+pig {
+    background-image: url('./../../../assets/icons/bacon.png');
+}
+sphinx {
+    background-image: url('./../../../assets/icons/sfinks.png');
+}
 
-.active {
-    animation: go-left-right 0.5s infinite alternate;
+.active,
+.mooving {
+    animation: go-left-right 0.7s infinite;
 }
 
 .up {
@@ -207,7 +222,7 @@ pig {
         position: relative;
         width: 90px;
         height: 60px;
-        & > pig {
+        & > hamster {
             display: block;
             position: absolute;
             width: 50px;
@@ -222,7 +237,7 @@ pig {
             width: 100px;
             height: 100px;
             bottom: 25px;
-             & > pig {
+             & > hamster {
                 display: block;
                 position: absolute;
                 width: 50px;
@@ -239,5 +254,101 @@ pig {
             top: -30px;
         }
     }
-
 }
+    .level5 {
+        justify-content: space-around;
+        pig, dog {
+            width: 60px;
+            height: 100px;
+        }
+    }
+    .level6 {
+        justify-content: space-around;
+        rabbit, 
+        pig {
+            width: 70px;
+            height: 90px;
+        }
+    }
+    .level7 {
+        justify-content: space-around;
+        * {
+            position: relative;
+            display: block;
+            width: 70px;
+            height: 100px;
+        }
+        croco {
+            height: 60px;
+        }
+        pig > croco {
+            position: absolute;
+            bottom: 65px;
+        }
+    }
+    .level8 {
+        justify-content: space-around;
+        sphinx, 
+        pig {
+            width: 70px;
+            height: 90px;
+        }
+    }
+
+    .level9 {
+        justify-content: space-around;
+        * {
+            width: 70px;
+            height: 100px;
+        }
+
+        hamster {
+            height: 70px;
+        }
+        croco {
+            height: 60px;
+        }
+        rabbit {
+            height: 80px;
+        }
+    }
+    .level10 {
+        justify-content: space-between;
+        * {
+            position: relative;
+            width: 90px;
+            height: 80px;
+        }
+        * > * {
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+        sphinx > bird {
+            bottom: 40px;
+            left: 10px;
+        }
+        sphinx > bird > hamster {
+            position: absolute;
+            bottom: 40px;
+        }
+
+        * > pig {
+            bottom: 60px;
+        }
+
+        * > croco {
+            width: 100px;
+            bottom: 70px;
+            left: -10px;
+        }
+        pig > cat {
+            width: 90px;
+            height: 90px;
+            bottom: 60px;
+            & > rabbit {
+               bottom: 70px;
+            }
+        }
+    }
