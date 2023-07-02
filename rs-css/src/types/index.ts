@@ -2,7 +2,7 @@ export interface Elem {
     tag: string;
     classNames: string[];
     textContent?: string;
-    callback?: (e: Event) => void;
+    callback?: callback;
 }
 
 export type Level = {
@@ -13,3 +13,7 @@ export type Level = {
     hint: string;
     tableCode: string;
 };
+
+type callback = (e: Event) => void;
+
+export type genFunction<T> = (arg?: T) => void;
