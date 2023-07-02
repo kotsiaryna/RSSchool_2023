@@ -3,7 +3,7 @@ import GameView from './view/game/game-view';
 import LevelsView from './view/levels/levels-view';
 
 export default class App {
-    private game = new GameView();
+    public game = new GameView();
     public levels = new LevelsView();
     private footer = new FooterView();
     public levelList = this.levels.levelList;

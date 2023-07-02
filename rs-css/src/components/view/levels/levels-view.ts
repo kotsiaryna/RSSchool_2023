@@ -19,6 +19,7 @@ export default class LevelsView extends View {
         super(options);
         this.addElements();
         this.addHintBtnCallback();
+        this.addLevelsCallback();
     }
 
     private addElements(): void {
@@ -76,5 +77,17 @@ export default class LevelsView extends View {
             }
         };
         this.levelHints.hintBtn.setCallback(hintCallback);
+    }
+    private addLevelsCallback(): void {
+        const levelsCallback: Elem['callback'] = (e) => {
+            console.log(e.target);
+            const burgerBtn = app.game.burgerBtn.getElement();
+            if (burgerBtn.classList.contains('burger-btn_close')) {
+                burgerBtn.classList.remove('burger-btn_close');
+                burgerBtn.classList.add('burger-btn_open');
+                app.levels.getHtmlElement().classList.remove('opened');
+            }
+        };
+        this.makeView.setCallback((e) => levelsCallback(e));
     }
 }

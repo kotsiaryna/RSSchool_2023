@@ -8,6 +8,7 @@
     right: 0;
     top: 0;
     // bottom: 0;
+    z-index: 3;
 
     padding: 10px;
 
@@ -17,11 +18,16 @@
     background-color:#78a5a3;
     color: #e1b16a;
     @media screen and (max-width: 900px) {
-        position: static;
-        width: 100vw;
-        height: fit-content;
-        font-size: 1em;
+        // position: static;
+        // width: 100vw;
+        // height: fit-content;
+        // font-size: 1em;
         // padding: 10px 20px;
+        right: -300px;
+    }
+
+    &.opened {
+        right:0;
     }
 
     &__list {
@@ -29,12 +35,12 @@
         flex-direction: column;
         color: #e1b16a;
 
-        @media screen and (max-width: 900px) {
-            height: 280px;
-            width: 500px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
+        // @media screen and (max-width: 900px) {
+        //     height: 280px;
+        //     width: 500px;
+        //     margin: 0 auto;
+        //     flex-wrap: wrap;
+        // }
 
         .list__item {
             width: 100%;
@@ -44,12 +50,12 @@
             align-items: center;
             gap: 10px;
             font-weight: 400;
-            @media screen and (max-width: 900px) {
-                width: 50%;
-                &:nth-of-type(6) {
-                    margin-top: 25px;
-                }
-            }
+            // @media screen and (max-width: 900px) {
+            //     width: 50%;
+            //     &:nth-of-type(6) {
+            //         margin-top: 25px;
+            //     }
+            // }
 
             &:first-child {
                 margin-top: 10px;
@@ -94,12 +100,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        @media screen and (max-width: 900px) {
-            width: 500px;
-            margin: 0 auto;
-            justify-content: flex-start;
-            gap: 150px;
-        }
+        // @media screen and (max-width: 900px) {
+        //     width: 500px;
+        //     margin: 0 auto;
+        //     justify-content: flex-start;
+        //     gap: 150px;
+        // }
 
     }
     .active.active {

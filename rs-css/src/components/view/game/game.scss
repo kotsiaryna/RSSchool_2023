@@ -12,7 +12,7 @@
 
      @media screen and (max-width: 900px) {
         width: 100vw;
-        height: fit-content;
+        // height: fit-content;
     }
 
     &__heading {
@@ -33,6 +33,33 @@
         height: 240px;
         display: flex;
     }
+    .burger-btn {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        z-index: 5;
+
+        width: 40px;
+        height: 40px;
+        
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &_open {
+            background-image: url('../../../assets/icons/burger.png');
+        }
+        &_close {
+            background-image: url('../../../assets/icons/close.png');
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+        @media screen and (min-width: 901px) {
+            display: none;
+        }
+    }
+
 }
 
 sofa {
