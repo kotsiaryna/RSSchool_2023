@@ -33,13 +33,6 @@ export default class FooterView extends View {
         rsLink.target = 'blank';
         rsLink.innerHTML = logo;
 
-        // const rsLogo = new ElementCreator({
-        //     tag: 'img',
-        //     classNames: ['footer__logo'],
-        // }).getElement() as HTMLImageElement;
-        // rsLogo.src = '../../../assets/icons/rs.svg';
-
-        // rsLink.append(rsLogo);
         this.makeView.addInnerElement(ghLink);
         this.makeView.addInnerElement(year.getElement());
         this.makeView.addInnerElement(rsLink);

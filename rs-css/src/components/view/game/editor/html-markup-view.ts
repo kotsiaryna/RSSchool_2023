@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import hljs from 'highlight.js';
 import { Elem, Level } from '../../../../types/index';
 import { levels } from '../../levels/levels';
@@ -16,7 +15,6 @@ export default class HTMLMarkupView extends View {
         this.addSofa(levels[0]);
     }
     private addSofa(level: Level): void {
-        // const sofa = document.createElement('div');
         this.sofa.className = 'sofa';
 
         this.appendPlace.textContent = '<div class = "sofa">';

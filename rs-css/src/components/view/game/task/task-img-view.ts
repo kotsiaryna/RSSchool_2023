@@ -11,13 +11,8 @@ export default class TaskImgView extends View {
             classNames: ['game__img-task'],
         };
         super(options);
-        // this.appendTable();
         this.appendLevelTask(levels[0]);
     }
-
-    // private appendTable(): void {
-    //     this.makeView.addInnerElement(this.table.getElement());
-    // }
 
     private appendLevelTask(level: Level): void {
         this.makeView.getElement().innerHTML = level.tableCode;

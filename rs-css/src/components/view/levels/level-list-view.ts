@@ -1,4 +1,3 @@
-// import hljs from 'highlight.js';
 import View from '../view';
 import { Elem, Level } from '../../../types/index';
 import ListItemView from './list-item-view';
@@ -16,7 +15,6 @@ export default class LevelListView extends View {
         super(options);
         this.addElements();
         this.addListener();
-        // this.levelID = 1;
     }
 
     private addElements(): void {
@@ -83,6 +81,6 @@ export default class LevelListView extends View {
     }
     public checkWin(): boolean {
         const doneLevelsCount = this.levels.filter((el) => el.getHtmlElement().classList.contains('done')).length;
-        return doneLevelsCount === 10; //change to 10
+        return doneLevelsCount === 10;
     }
 }

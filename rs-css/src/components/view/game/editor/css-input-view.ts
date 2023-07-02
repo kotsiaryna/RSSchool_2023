@@ -1,6 +1,4 @@
-// import { app } from '../../../..';
 import { Elem } from '../../../../types/index';
-// import { levels } from '../../levels/levels';
 import View from '../../view';
 
 export default class CssInputView extends View {

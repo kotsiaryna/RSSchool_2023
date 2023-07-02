@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import './editor.scss';
 import { Elem } from '../../../../types/index';
 import ElementCreator from '../../../../utils/createElement';
@@ -38,7 +37,6 @@ export default class EditorView extends View {
             tag: 'div',
             classNames: ['editor__html'],
         });
-
         this.makeView.addInnerElement(
             new ElementCreator({
                 tag: 'h3',
@@ -47,7 +45,6 @@ export default class EditorView extends View {
             }).getElement()
         );
         this.makeView.addInnerElement(css.getElement());
-
         this.makeView.addInnerElement(
             new ElementCreator({
                 tag: 'h3',
@@ -67,7 +64,6 @@ export default class EditorView extends View {
         }
         const cssCode = new ElementCreator({ tag: 'code', classNames: ['hljs', 'language-css'] });
         this.pre.addInnerElement(cssCode.getElement());
-
         html.addInnerElement(numbers.getElement());
         css.addInnerElement(this.cssInput.getHtmlElement());
         this.addPlaceHolder();
@@ -126,7 +122,6 @@ export default class EditorView extends View {
 
     private addButtonListener(): void {
         this.enterBtn.makeView.setCallback(() => this.checkAnswer());
-        // this.enterBtn.getHtmlElement().addEventListener('click', () => this.checkAnswer());
     }
 
     private makeAnimation(isCorrect: boolean): void {
