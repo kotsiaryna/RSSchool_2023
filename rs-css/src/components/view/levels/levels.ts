@@ -32,9 +32,9 @@ const level4: Level = {
     name: 'Level 4',
     code: [['dachshund', ['pig']], ['dachshund', ['rabbit', ['hamster']]], 'dachshund', ['dachshund', ['bird']]],
     task: 'Select all animals on dachshunds',
-    hint: 'dog > *',
+    hint: 'dachshund *',
     tableCode:
-        '<sofa class="level4"><dachshund><hamster class="active"></hamster></dachshund><dachshund><rabbit class="active"><hamster></hamster></rabbit></dachshund><dachshund></dachshund><dachshund><bird class="active"></bird></dachshund></sofa>',
+        '<sofa class="level4"><dachshund><hamster class="active"></hamster></dachshund><dachshund><rabbit class="active"><hamster class = "active"></hamster></rabbit></dachshund><dachshund></dachshund><dachshund><bird class="active"></bird></dachshund></sofa>',
 };
 const level5: Level = {
     id: 5,
@@ -42,14 +42,14 @@ const level5: Level = {
     code: ['pig', 'pig id = "active"', 'dog', 'pig'],
     task: 'Select the active pig',
     hint: '#active',
-    tableCode: '<sofa class="level5"><pig></pig><pig class="active"></pig><dog></dog><pig></pig></sofa>',
+    tableCode: '<sofa class="level5"><pig></pig><pig class="active" id = "active"></pig><dog></dog><pig></pig></sofa>',
 };
 const level6: Level = {
     id: 6,
     name: 'Level 6',
     code: ['rabbit', 'rabbit', 'rabbit', 'rabbit', 'rabbit', 'pig'],
     task: 'Select the last rabbit',
-    hint: ':last-of-type',
+    hint: 'rabbit:last-of-type',
     tableCode:
         '<sofa class="level6"><rabbit></rabbit><rabbit></rabbit><rabbit></rabbit><rabbit></rabbit><rabbit class = "active"></rabbit><pig></pig></sofa>',
 };
@@ -76,7 +76,7 @@ const level8: Level = {
     task: 'Select all sphinx, who are mooving',
     hint: 'sphinx.mooving',
     tableCode:
-        '<sofa class="level8"><sphinx  class = "active"></sphinx><sphinx  class = "active"></sphinx><sphinx></sphinx><pig  class = "mooving"></pig><sphinx></sphinx><sphinx class = "active"></sphinx>></sofa>',
+        '<sofa class="level8"><sphinx  class = "active mooving"></sphinx><sphinx  class = "active mooving"></sphinx><sphinx></sphinx><pig  class = "mooving"></pig><sphinx></sphinx><sphinx class = "active mooving"></sphinx>></sofa>',
 };
 const level9: Level = {
     id: 9,
@@ -90,9 +90,9 @@ const level9: Level = {
         'pig color = "pink"',
     ],
     task: 'Select all animals with attribute "color" contains  "n"',
-    hint: '[color*="c"]',
+    hint: '[color*="n"]',
     tableCode:
-        '<sofa class="level9"><sphinx  class = "active"></sphinx><hamster class = "active"></hamster><croco class = "active"></croco><rabbit></rabbit><bird></bird><pig class = "active"></pig></sofa>',
+        '<sofa class="level9"><sphinx  class = "active" color =  "pink"></sphinx><hamster class = "active" color = "brown"></hamster><croco class = "active" color = "green"></croco><rabbit color = "white"></rabbit><bird color = "yellow"></bird><pig class = "active" color = "pink"></pig></sofa>',
 };
 const level10: Level = {
     id: 10,
@@ -104,10 +104,10 @@ const level10: Level = {
         ['bird', ['croco']],
         ['pig', ['cat', ['rabbit']]],
     ],
-    task: 'Select those who are at the top level',
-    hint: '* *',
+    task: 'Select those who are on the top',
+    hint: ':empty',
     tableCode:
-        '<sofa class="level10"><sphinx><bird><hamster class = "active"></hamster></bird></sphinx><dachshund><pig></pig></dachshund><rabbit></rabbit><bird><croco></croco></bird><pig><cat><rabbit class = "active"></rabbit></cat></pig></sofa>',
+        '<sofa class="level10"><sphinx><bird><hamster class = "active"></hamster></bird></sphinx><dachshund><pig class = "active"></pig></dachshund><rabbit class = "active"></rabbit><bird><croco class = "active"></croco></bird><pig><cat><rabbit class = "active"></rabbit></cat></pig></sofa>',
 };
 
 export const levels: Level[] = [level1, level2, level3, level4, level5, level6, level7, level8, level9, level10];
