@@ -7,7 +7,7 @@ import HTMLMarkupView from './html-markup-view';
 import CssButtonView from './css-btn-view';
 import hljs from 'highlight.js';
 import { app } from '../../../..';
-import { levels } from '../../levels/levels';
+// import { levels } from '../../levels/levels';
 
 export default class EditorView extends View {
     public cssInput = new CssInputView();
@@ -95,11 +95,28 @@ export default class EditorView extends View {
     private checkAnswer(): boolean {
         this.answer = this.input.value;
         const id = [...app.levelList.getHtmlElement().children].findIndex((el) => el.classList.contains('active'));
-        const hint = levels[id].hint;
-        const isCorrect = this.answer === hint;
+        let isCorrect = false;
+        const sofa = app.imgTask.firstElementChild;
+        if (sofa) {
+            try {
+                const results = [...sofa.querySelectorAll(this.answer)];
+                const activeAnimals = [...sofa.querySelectorAll('.active')];
+                isCorrect = this.compareResults(results, activeAnimals);
+            } catch {
+                console.log('error');
+            }
+        }
         this.makeAnimation(isCorrect);
         if (isCorrect) {
             app.levelList.markDoneLevel(id);
+            const doneLevels = localStorage.getItem('doneLevels');
+            if (doneLevels) {
+                const doneArr = JSON.parse(doneLevels);
+                doneArr.push(id);
+                localStorage.setItem('doneLevels', JSON.stringify(doneArr));
+            } else {
+                localStorage.setItem('doneLevels', JSON.stringify([id]));
+            }
             if (app.levelList.checkWin()) {
                 setTimeout(() => {
                     app.task.textContent = `Hooray! You've passed all levels!`;
@@ -110,6 +127,17 @@ export default class EditorView extends View {
             }
         }
         return isCorrect;
+    }
+
+    private compareResults(arr1: Element[], arr2: Element[]): boolean {
+        console.log(arr1);
+        console.log(arr2);
+        if (arr1.length !== arr2.length) return false;
+
+        for (const elem of arr1) {
+            if (!arr2.includes(elem)) return false;
+        }
+        return true;
     }
 
     private addInputListener(): void {
@@ -130,7 +158,6 @@ export default class EditorView extends View {
     private makeAnimation(isCorrect: boolean): void {
         if (isCorrect && app.imgTask.firstElementChild) {
             [...app.imgTask.firstElementChild.children].forEach((animal) => {
-                console.log(animal);
                 animal.classList.remove('active');
                 animal.classList.add('up');
             });

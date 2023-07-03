@@ -33,6 +33,7 @@ export default class LevelsView extends View {
             });
             this.levelList.openNextLevel(0);
             localStorage.removeItem('doneLevels');
+            localStorage.removeItem('hintLevels');
         };
 
         const resetButton = new ElementCreator({
@@ -79,8 +80,7 @@ export default class LevelsView extends View {
         this.levelHints.hintBtn.setCallback(hintCallback);
     }
     private addLevelsCallback(): void {
-        const levelsCallback: Elem['callback'] = (e) => {
-            console.log(e.target);
+        const levelsCallback: Elem['callback'] = () => {
             const burgerBtn = app.game.burgerBtn.getElement();
             if (burgerBtn.classList.contains('burger-btn_close')) {
                 burgerBtn.classList.remove('burger-btn_close');
