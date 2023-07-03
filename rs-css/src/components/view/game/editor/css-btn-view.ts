@@ -6,8 +6,8 @@ export default class CssButtonView extends View {
         const options: Elem = {
             tag: 'div',
             classNames: ['button', 'css__btn'],
-            textContent: 'Enter',
         };
         super(options);
+        this.makeView.setTextContent('Enter');
     }
 }

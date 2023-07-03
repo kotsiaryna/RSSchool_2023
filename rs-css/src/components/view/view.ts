@@ -1,7 +1,7 @@
 import { Elem } from '../../types/index';
 import ElementCreator from '../../utils/createElement';
 
-export default class View {
+export default abstract class View {
     public makeView: ElementCreator;
 
     constructor(options: Pick<Elem, 'tag' | 'classNames'> = { tag: 'section', classNames: [] }) {
