@@ -118,6 +118,9 @@ export default class EditorView extends View {
                 this.checkAnswer();
             }
         });
+        this.input.addEventListener('click', () => {
+            this.input.classList.add('hidden');
+        });
     }
 
     private addButtonListener(): void {
