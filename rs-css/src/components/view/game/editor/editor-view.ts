@@ -122,7 +122,7 @@ export default class EditorView extends View {
                     app.task.textContent = `Hooray! You've passed all levels!`;
                     app.task.classList.add('win');
                 }, 1000);
-            } else {
+            } else if (id !== 9) {
                 setTimeout(() => app.levelList.openNextLevel(), 1000);
             }
         }
