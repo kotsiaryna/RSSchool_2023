@@ -33,7 +33,6 @@ export default class HTMLMarkupView extends View {
         this.addAnimals(level);
 
         this.makeView.getElement().append(this.sofa);
-        console.log(level.id);
     }
 
     private addAnimals(level: Level): void {

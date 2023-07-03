@@ -130,8 +130,6 @@ export default class EditorView extends View {
     }
 
     private compareResults(arr1: Element[], arr2: Element[]): boolean {
-        console.log(arr1);
-        console.log(arr2);
         if (arr1.length !== arr2.length) return false;
 
         for (const elem of arr1) {
