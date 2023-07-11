@@ -41,22 +41,30 @@ export default class GameView extends View {
     }
 
     private makeBurgerButton(): ElementCreator {
+        const burgerBtnClass = {
+            opened: 'burger-btn_open',
+            closed: 'burger-btn_close',
+        };
+        const levelsClass = {
+            opened: 'opened',
+        };
+
         const burgerBtnCallback: Elem['callback'] = () => {
             const burgerBtn = this.burgerBtn.getElement();
-            if (burgerBtn.classList.contains('burger-btn_open')) {
-                burgerBtn.classList.remove('burger-btn_open');
-                burgerBtn.classList.add('burger-btn_close');
-                app.levels.getHtmlElement().classList.add('opened');
+            if (burgerBtn.classList.contains(burgerBtnClass.opened)) {
+                burgerBtn.classList.remove(burgerBtnClass.opened);
+                burgerBtn.classList.add(burgerBtnClass.closed);
+                app.levels.getHtmlElement().classList.add(levelsClass.opened);
             } else {
-                burgerBtn.classList.remove('burger-btn_close');
-                burgerBtn.classList.add('burger-btn_open');
-                app.levels.getHtmlElement().classList.remove('opened');
+                burgerBtn.classList.remove(burgerBtnClass.closed);
+                burgerBtn.classList.add(burgerBtnClass.opened);
+                app.levels.getHtmlElement().classList.remove(levelsClass.opened);
             }
         };
 
         const options: Elem = {
             tag: 'div',
-            classNames: ['burger-btn', 'burger-btn_open'],
+            classNames: ['burger-btn', burgerBtnClass.opened],
             callback: burgerBtnCallback,
         };
 
