@@ -1,9 +1,9 @@
 import carImage from "../../../assets/icons/car.";
-import { Elem } from "../../../types/type";
+import { Car, Elem } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
 
-function createButtonCont(): HTMLElement {
+function createButtonCont(carName: Car["name"]): HTMLElement {
   const cont = createElement({
     tag: "div",
     className: ["track__controls"],
@@ -22,8 +22,6 @@ function createButtonCont(): HTMLElement {
     "remove",
     removeCar,
   );
-
-  const carName = "NEW CAR";
 
   const name = createElement({
     tag: "span",
@@ -64,18 +62,18 @@ const createCar = (): HTMLElement => {
   return wrapper;
 };
 
-export default function createTrack(): HTMLElement {
+export default function createTrack(car: Car): HTMLElement {
   const track = createElement({
     tag: "div",
     className: ["track"],
   });
 
-  const buttonCont = createButtonCont();
+  const buttonCont = createButtonCont(car.name);
   const driveButtonsCont = createDriveButtonsCont();
   const carWrapper = createCar();
-  const car = carWrapper.firstElementChild as SVGImageElement;
-  car.setAttribute("fill", "red");
-  track.append(buttonCont, driveButtonsCont, car);
+  const carImg = carWrapper.firstElementChild as SVGImageElement;
+  carImg.setAttribute("fill", car.color);
+  track.append(buttonCont, driveButtonsCont, carImg);
 
   return track;
 }

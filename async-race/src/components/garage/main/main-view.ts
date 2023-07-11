@@ -1,3 +1,4 @@
+import getCars from "../../../api/getCars";
 import createElement from "../../../utils/createElement";
 import createTrack from "./track";
 
@@ -25,11 +26,9 @@ function createHeading(): HTMLElement {
     text: "Garage ",
   });
 
-  const carsAmount = 0;
   const carsAmountView = createElement({
     tag: "span",
     className: ["garage__count"],
-    text: `(${carsAmount})`,
   });
   heading.append(carsAmountView);
   return heading;
@@ -48,8 +47,18 @@ export default function createGarageView(): HTMLElement {
     tag: "div",
     className: ["garage__inner"],
   });
-  const track = createTrack();
-  tracksWrapper.append(track);
+
   garage.append(heading, pages, tracksWrapper);
   return garage;
+}
+
+export async function addTracks(placeToAppend: Element): Promise<void> {
+  const cars = await getCars();
+  const carsAmount = cars.length;
+  const heading = placeToAppend.firstElementChild.firstElementChild;
+  heading.textContent = `(${carsAmount})`;
+  cars.forEach((car) => {
+    const track = createTrack(car);
+    placeToAppend.append(track);
+  });
 }

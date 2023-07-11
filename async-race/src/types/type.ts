@@ -4,3 +4,9 @@ export interface Elem {
   text?: string;
   callback?: () => void;
 }
+
+export interface Car {
+  name: string;
+  color: string;
+  id: number;
+}
