@@ -7,6 +7,7 @@ import ElementCreator from '../../../utils/createElement';
 import { levels } from './levels';
 import { app } from '../../..';
 import hljs from 'highlight.js';
+import { burgerBtnClass, levelsClass } from '../../classes';
 
 export default class LevelsView extends View {
     public levelList = new LevelListView();
@@ -85,13 +86,6 @@ export default class LevelsView extends View {
     private addLevelsCallback(): void {
         const levelsCallback: Elem['callback'] = () => {
             const burgerBtn = app.game.burgerBtn.getElement();
-            const burgerBtnClass = {
-                opened: 'burger-btn_open',
-                closed: 'burger-btn_close',
-            };
-            const levelsClass = {
-                opened: 'opened',
-            };
             if (burgerBtn.classList.contains(burgerBtnClass.closed)) {
                 burgerBtn.classList.remove(burgerBtnClass.closed);
                 burgerBtn.classList.add(burgerBtnClass.opened);

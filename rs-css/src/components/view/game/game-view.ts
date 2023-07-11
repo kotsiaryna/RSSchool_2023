@@ -6,6 +6,7 @@ import EditorView from './editor/editor-view';
 import TaskImgView from './task/task-img-view';
 import TaskTextView from './task/task-text-view';
 import { app } from '../../..';
+import { burgerBtnClass, levelsClass } from '../../classes';
 
 export default class GameView extends View {
     public textTask: TaskTextView;
@@ -41,14 +42,6 @@ export default class GameView extends View {
     }
 
     private makeBurgerButton(): ElementCreator {
-        const burgerBtnClass = {
-            opened: 'burger-btn_open',
-            closed: 'burger-btn_close',
-        };
-        const levelsClass = {
-            opened: 'opened',
-        };
-
         const burgerBtnCallback: Elem['callback'] = () => {
             const burgerBtn = this.burgerBtn.getElement();
             if (burgerBtn.classList.contains(burgerBtnClass.opened)) {
