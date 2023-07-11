@@ -85,10 +85,17 @@ export default class LevelsView extends View {
     private addLevelsCallback(): void {
         const levelsCallback: Elem['callback'] = () => {
             const burgerBtn = app.game.burgerBtn.getElement();
-            if (burgerBtn.classList.contains('burger-btn_close')) {
-                burgerBtn.classList.remove('burger-btn_close');
-                burgerBtn.classList.add('burger-btn_open');
-                app.levels.getHtmlElement().classList.remove('opened');
+            const burgerBtnClass = {
+                opened: 'burger-btn_open',
+                closed: 'burger-btn_close',
+            };
+            const levelsClass = {
+                opened: 'opened',
+            };
+            if (burgerBtn.classList.contains(burgerBtnClass.closed)) {
+                burgerBtn.classList.remove(burgerBtnClass.closed);
+                burgerBtn.classList.add(burgerBtnClass.opened);
+                app.levels.getHtmlElement().classList.remove(levelsClass.opened);
             }
         };
         this.makeView.setCallback((e) => levelsCallback(e));
