@@ -45,7 +45,6 @@ export default class LevelListView extends View {
 
     private addListener(): void {
         const callback = (e: Event): void => {
-            // if (e.target instanceof HTMLElement && e.target?.classList.contains('list__item')) return; ??
             let target: HTMLElement | null;
             if (e.target instanceof HTMLElement) {
                 target = e.target.closest('.list__item');

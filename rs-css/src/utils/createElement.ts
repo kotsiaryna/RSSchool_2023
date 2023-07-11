@@ -20,7 +20,6 @@ export default class ElementCreator {
     }
 
     private makeElement(options: Elem): void {
-        // this.element = document.createElement(options.tag);
         this.setCssClasses(options.classNames);
         this.setTextContent(options.textContent);
         if (options.callback) {

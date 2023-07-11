@@ -7,7 +7,6 @@ import HTMLMarkupView from './html-markup-view';
 import CssButtonView from './css-btn-view';
 import hljs from 'highlight.js';
 import { app } from '../../../..';
-// import { levels } from '../../levels/levels';
 
 export default class EditorView extends View {
     public cssInput = new CssInputView();
