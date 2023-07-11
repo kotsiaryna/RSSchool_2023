@@ -39,7 +39,7 @@ export default class ElementCreator {
 
     public setCallback(callback: Elem['callback']): void {
         if (callback) {
-            this.element.addEventListener('click', (event) => callback(event));
+            this.element.addEventListener('click', callback);
         }
     }
 }

@@ -45,7 +45,9 @@ export default class LevelsView extends View {
         this.levelHints.makeView.addInnerElement(resetButton.getElement());
     }
     private addHintBtnCallback(): void {
-        const hintCallback: Elem['callback'] = () => {
+        const hintCallback: Elem['callback'] = (e) => {
+            const hintBtn = e.target as HTMLElement;
+            if (hintCallback) hintBtn.removeEventListener('click', hintCallback);
             const activeLevelIndex = this.levelList.levels.findIndex((el) =>
                 el.getHtmlElement().classList.contains('active')
             );
@@ -65,6 +67,7 @@ export default class LevelsView extends View {
                     }
                 }, delay);
             }
+            if (hintCallback) setTimeout(() => hintBtn.addEventListener('click', hintCallback), delay);
             app.input.classList.remove('hidden');
             app.input.focus();
 
