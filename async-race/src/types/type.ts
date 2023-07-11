@@ -10,3 +10,11 @@ export interface Car {
   color: string;
   id: number;
 }
+
+export interface Winner {
+  id: number;
+  color: string;
+  name: string;
+  wins: number;
+  time: number;
+}
