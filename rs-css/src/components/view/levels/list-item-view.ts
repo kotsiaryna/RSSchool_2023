@@ -12,12 +12,11 @@ export default class ListItemView extends View {
             classNames: ['list__item'],
         };
         super(options);
-        this.addElements();
+        const elements = [this.levelText.getElement(), this.checkmark.getElement(), this.HelpText.getElement()];
+        this.addElements(elements);
     }
 
-    private addElements(): void {
-        this.makeView.addInnerElement(this.levelText.getElement());
-        this.makeView.addInnerElement(this.checkmark.getElement());
-        this.makeView.addInnerElement(this.HelpText.getElement());
+    private addElements(elements: HTMLElement[]): void {
+        elements.forEach((el) => this.makeView.addInnerElement(el));
     }
 }
