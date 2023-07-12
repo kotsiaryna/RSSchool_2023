@@ -1,4 +1,5 @@
 import carImage from "../../../assets/icons/car.";
+import remove from "../../../callbacks/remove";
 import { Car, Elem } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
@@ -16,12 +17,8 @@ function createButtonCont(carName: Car["name"]): HTMLElement {
     selectCar,
   );
 
-  const removeCar: Elem["callback"] = () => {};
-  const removeButton = createButton(
-    ["button", "remove-btn"],
-    "remove",
-    removeCar,
-  );
+  // const removeCar: Elem["callback"] = () => {};
+  const removeButton = createButton(["button", "remove-btn"], "remove", remove);
 
   const name = createElement({
     tag: "span",
@@ -52,12 +49,6 @@ const createCar = (): HTMLElement => {
     tag: "div",
     className: ["car"],
   });
-  // const obj = document.createElement("object");
-  // obj.data = "../../../assets/icons/car.svg";
-  // obj.type = "image/svg+xml";
-  // obj.setAttribute("width", "60px");
-  // obj.setAttribute("height", "30px");
-  // wrapper.append(obj);
   wrapper.innerHTML = carImage;
   return wrapper;
 };
@@ -67,6 +58,7 @@ export default function createTrack(car: Car): HTMLElement {
     tag: "div",
     className: ["track"],
   });
+  track.id = car.id.toString();
 
   const buttonCont = createButtonCont(car.name);
   const driveButtonsCont = createDriveButtonsCont();

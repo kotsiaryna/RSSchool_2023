@@ -1,3 +1,4 @@
+import createCallback from "../../../callbacks/create";
 import { Elem } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
@@ -5,6 +6,7 @@ import createElement from "../../../utils/createElement";
 function createSelectLine(
   text: Elem["text"],
   callback: Elem["callback"],
+  place: HTMLElement,
 ): HTMLElement {
   const selectLine = createElement({ tag: "div", className: ["select__line"] });
 
@@ -19,7 +21,9 @@ function createSelectLine(
   }) as HTMLInputElement;
   inputColor.type = "color";
 
-  const btn = createButton(["button", `${text}-button`], `${text}`, callback);
+  const btn = createButton(["button", `${text}-button`], `${text}`, (e) =>
+    callback(e, place),
+  );
 
   selectLine.append(inputName, inputColor, btn);
   return selectLine;
@@ -48,16 +52,15 @@ function createButtonsLine(): HTMLElement {
   return buttonsLine;
 }
 
-export default function createSelectView(): HTMLElement {
+export default function createSelectView(place: HTMLElement): HTMLElement {
   const selectCont = createElement({
     tag: "section",
     className: ["select"],
   });
-  const createCallback: Elem["callback"] = () => {};
-  const createLine = createSelectLine("create", createCallback);
+  const createLine = createSelectLine("create", createCallback, place);
 
   const updateCallback: Elem["callback"] = () => {};
-  const updateLine = createSelectLine("update", updateCallback);
+  const updateLine = createSelectLine("update", updateCallback, place);
 
   const buttonsLine = createButtonsLine();
 

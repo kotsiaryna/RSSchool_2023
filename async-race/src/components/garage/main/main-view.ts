@@ -1,4 +1,4 @@
-import getCars from "../../../api/getCars";
+import { getCars } from "../../../api/getData";
 import createElement from "../../../utils/createElement";
 import createTrack from "./track";
 

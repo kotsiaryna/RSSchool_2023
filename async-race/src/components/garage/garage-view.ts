@@ -8,8 +8,8 @@ function createGarage(): HTMLElement {
     tag: "main",
     className: ["garage-view"],
   });
-  const selection = createSelectView();
   const garageView = createGarageView();
+  const selection = createSelectView(garageView);
   garage.append(selection, garageView);
   return garage;
 }
