@@ -41,6 +41,7 @@ export async function addWinners(placeToAppend: Element): Promise<void> {
   let n = 1;
   winners.forEach((winner) => {
     const row = createElement({ tag: "tr" });
+    row.id = winner.id.toString();
     const numberTD = createElement({
       tag: "td",
       text: `${n}`,
@@ -67,6 +68,5 @@ export async function addWinners(placeToAppend: Element): Promise<void> {
     placeToAppend.append(row);
   });
   const heading = placeToAppend.closest(".winners").firstElementChild;
-  console.log(heading);
   heading.firstElementChild.textContent = `(${winners.length})`;
 }
