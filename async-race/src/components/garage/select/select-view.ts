@@ -1,4 +1,5 @@
 import createCallback from "../../../callbacks/create";
+import { updateCallback } from "../../../callbacks/edit";
 import { Elem } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
@@ -59,7 +60,6 @@ export default function createSelectView(place: HTMLElement): HTMLElement {
   });
   const createLine = createSelectLine("create", createCallback, place);
 
-  const updateCallback: Elem["callback"] = () => {};
   const updateLine = createSelectLine("update", updateCallback, place);
 
   const buttonsLine = createButtonsLine();

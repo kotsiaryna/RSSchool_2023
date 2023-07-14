@@ -1,4 +1,5 @@
 import carImage from "../../../assets/icons/car.";
+import { select } from "../../../callbacks/edit";
 import remove from "../../../callbacks/remove";
 import { Car, Elem } from "../../../types/type";
 import createButton from "../../../utils/createButton";
@@ -10,12 +11,8 @@ function createButtonCont(carName: Car["name"]): HTMLElement {
     className: ["track__controls"],
   });
 
-  const selectCar: Elem["callback"] = () => {};
-  const selectButton = createButton(
-    ["button", "select-btn"],
-    "select",
-    selectCar,
-  );
+  // const selectCar: Elem["callback"] = () => {};
+  const selectButton = createButton(["button", "select-btn"], "select", select);
 
   // const removeCar: Elem["callback"] = () => {};
   const removeButton = createButton(["button", "remove-btn"], "remove", remove);
