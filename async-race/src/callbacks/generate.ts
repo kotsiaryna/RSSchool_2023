@@ -1,0 +1,52 @@
+import createCar from "../api/createCar";
+import updatePage from "../render/updatePage";
+import { Car } from "../types/type";
+
+const randomColor = (): string => {
+  const color = `#${Math.random().toString(16).slice(3, 9)}`;
+  return color;
+};
+const firstName: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+const lastName: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+const getRandomName = (array: string[]): string => {
+  const randomNumber = Math.floor(Math.random() * array.length);
+  return array[randomNumber];
+};
+
+const generateCarParams = (): Omit<Car, "id">[] => {
+  const carsOptions = [];
+  for (let i = 0; i < 100; i += 1) {
+    const carParams = {
+      name: `${getRandomName(firstName)} ${getRandomName(lastName)}`,
+      color: randomColor(),
+    };
+    carsOptions.push(carParams);
+  }
+  return carsOptions;
+};
+
+const create100Cars = async (
+  carsOptionsArray: Omit<Car, "id">[],
+): Promise<Car[]> => {
+  const promisedCars = carsOptionsArray.map((car) => createCar(car));
+  const createdCars = await Promise.all(promisedCars);
+  return createdCars;
+};
+
+// const car = await createCar(carParams);
+
+const generateCallback = (e: Event, place: HTMLElement): void => {
+  create100Cars(generateCarParams());
+
+  const heading = place.firstElementChild.firstElementChild;
+  const amount = +heading.textContent.slice(1, -1);
+  const newAmount = amount + 100;
+  heading.textContent = `(${newAmount})`;
+
+  const pageSpan = place.children[1].firstElementChild;
+  const page = +pageSpan.textContent.slice(1);
+  updatePage(page, place);
+};
+
+export default generateCallback;
