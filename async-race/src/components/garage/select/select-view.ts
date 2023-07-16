@@ -1,5 +1,6 @@
 import createCallback from "../../../callbacks/create";
 import { updateCallback } from "../../../callbacks/edit";
+import generateCallback from "../../../callbacks/generate";
 import { Elem } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
@@ -30,7 +31,7 @@ function createSelectLine(
   return selectLine;
 }
 
-function createButtonsLine(): HTMLElement {
+function createButtonsLine(place: HTMLElement): HTMLElement {
   const buttonsLine = createElement({
     tag: "div",
     className: ["select__line"],
@@ -42,11 +43,11 @@ function createButtonsLine(): HTMLElement {
   const reset: Elem["callback"] = () => {};
   const resetButton = createButton(["button", "reset-btn"], "reset", reset);
 
-  const generate: Elem["callback"] = () => {};
+  // const generate: Elem["callback"] = () => {};
   const generateButton = createButton(
     ["button", "generate-btn"],
     "generate cars",
-    generate,
+    (e) => generateCallback(e, place),
   );
 
   buttonsLine.append(raceButton, resetButton, generateButton);
@@ -62,7 +63,7 @@ export default function createSelectView(place: HTMLElement): HTMLElement {
 
   const updateLine = createSelectLine("update", updateCallback, place);
 
-  const buttonsLine = createButtonsLine();
+  const buttonsLine = createButtonsLine(place);
 
   selectCont.append(createLine, updateLine, buttonsLine);
   return selectCont;

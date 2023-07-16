@@ -4,8 +4,8 @@ export default function createButton(
   className: Elem["className"],
   text: Elem["text"],
   callback: Elem["callback"],
-): HTMLDivElement {
-  const button = document.createElement("div");
+): HTMLButtonElement {
+  const button = document.createElement("button");
   button.className = className.join(" ");
   button.textContent = text;
   button.addEventListener("click", callback);
