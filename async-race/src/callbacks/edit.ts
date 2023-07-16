@@ -24,8 +24,10 @@ export function select(e: Event): void {
 const updateWinnerRow = (car: Car, garage: HTMLElement): void => {
   const tbody = garage.parentElement.nextElementSibling.children[2].children[1];
   const row = tbody.querySelector(`[data-id="${car.id}"]`);
-  row.children[1].firstElementChild.setAttribute("fill", car.color);
-  row.children[2].textContent = car.name;
+  if (row) {
+    row.children[1].firstElementChild.setAttribute("fill", car.color);
+    row.children[2].textContent = car.name;
+  }
 };
 
 export function updateCallback(e: Event, garage: HTMLElement): void {
@@ -54,6 +56,6 @@ export function updateCallback(e: Event, garage: HTMLElement): void {
 
   updateCar(carParams);
   name.value = "";
-  color.value = "";
+  color.value = "black";
   btn.removeAttribute("data-id");
 }
