@@ -1,7 +1,9 @@
 import carImage from "../../../assets/icons/car.";
 import { select } from "../../../callbacks/edit";
+// eslint-disable-next-line import/no-cycle
 import remove from "../../../callbacks/remove";
-import { Car, Elem } from "../../../types/type";
+import { startAnimation, stopAnimation } from "../../../callbacks/animation";
+import { Car } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
 
@@ -32,11 +34,16 @@ const createDriveButtonsCont = (): HTMLElement => {
     tag: "div",
     className: ["track__drive"],
   });
-  const startEngine: Elem["callback"] = () => {};
-  const startButton = createButton(["button", "start"], "Start", startEngine);
+  // const startEngine: Elem["callback"] = () => {};
+  const startButton = createButton(
+    ["button", "start"],
+    "Start",
+    startAnimation,
+  );
 
-  const stopEngine: Elem["callback"] = () => {};
-  const stopButton = createButton(["button", "stop"], "Stop", stopEngine);
+  // const stopEngine: Elem["callback"] = () => {};
+  const stopButton = createButton(["button", "stop"], "Stop", stopAnimation);
+  stopButton.disabled = true;
   cont.append(startButton, stopButton);
   return cont;
 };
