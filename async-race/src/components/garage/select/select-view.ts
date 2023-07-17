@@ -1,6 +1,8 @@
 import createCallback from "../../../callbacks/create";
 import { updateCallback } from "../../../callbacks/edit";
 import generateCallback from "../../../callbacks/generate";
+import startRace from "../../../callbacks/race";
+import resetRace from "../../../callbacks/reset";
 import { Elem } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
@@ -37,11 +39,13 @@ function createButtonsLine(place: HTMLElement): HTMLElement {
     className: ["select__line"],
   });
 
-  const race: Elem["callback"] = () => {};
-  const raceButton = createButton(["button", "race-btn"], "race", race);
+  // const race: Elem["callback"] = () => {};
+  const raceButton = createButton(["button", "race-btn"], "race", startRace);
 
-  const reset: Elem["callback"] = () => {};
-  const resetButton = createButton(["button", "reset-btn"], "reset", reset);
+  // const reset: Elem["callback"] = () => {};
+  const resetButton = createButton(["button", "reset-btn"], "reset", (e) =>
+    resetRace(e, place),
+  );
 
   // const generate: Elem["callback"] = () => {};
   const generateButton = createButton(
