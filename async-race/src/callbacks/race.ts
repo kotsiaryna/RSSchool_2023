@@ -1,5 +1,6 @@
 import getPage from "../api/getPage";
 import startEngine from "../api/startEngine";
+import addWinMessage from "../components/message/message-view";
 import { Car } from "../types/type";
 import { startDrive } from "./animation";
 
@@ -20,5 +21,6 @@ export default async function startRace(e: Event): Promise<Car> {
   const winnerParams = carParams.find((param) => param.id === winnerID);
   const winner = { ...winnerCar, ...winnerParams };
   console.log(winner);
+  addWinMessage(winner);
   return winner;
 }

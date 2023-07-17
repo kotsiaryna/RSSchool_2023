@@ -17,6 +17,11 @@ export default async function resetRace(
     elem.style.left = `20px`;
   });
 
+  const winMessage = [...document.body.children].find((el) =>
+    el.classList.contains("message"),
+  );
+  if (winMessage) winMessage.remove();
+
   const IDs = tracks.map((track) => +track.id);
   IDs.forEach((id) => stopEngine(id));
 }
