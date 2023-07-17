@@ -1,5 +1,5 @@
 import { Car } from "../types/type";
-import { BASEURL, url } from "./urls";
+import { BASEURL, endPoint } from "./urls";
 
 export default async function createCar(car: Omit<Car, "id">): Promise<Car> {
   const options = {
@@ -10,7 +10,7 @@ export default async function createCar(car: Omit<Car, "id">): Promise<Car> {
     body: JSON.stringify(car),
   };
 
-  const response = await fetch(`${BASEURL}${url.garage}`, options);
+  const response = await fetch(`${BASEURL}${endPoint.garage}`, options);
   const createdCar = await response.json();
   console.log(createdCar);
   return createdCar;
