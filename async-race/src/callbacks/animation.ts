@@ -1,15 +1,18 @@
 import driveModeOn from "../api/drive";
 import startEngine from "../api/startEngine";
 import stopEngine from "../api/stopEngine";
-import { Car } from "../types/type";
+import { AnimationKeys, Car } from "../types/type";
 
-const animationID = { id: 1 };
+const animationIDs: AnimationKeys[] = [];
+const animationID = {
+  id: 1,
+};
 
 export const startDrive = async (
   params: Pick<Car, "id" | "velocity" | "distance">,
   place?: Element,
 ): Promise<Car["id"]> => {
-  const timeMSec = params.distance / params.velocity;
+  const timeMSec = Math.round(params.distance / params.velocity);
   const timeSec = timeMSec / 1000;
   const times = timeSec * 60;
   const { innerWidth } = window;
@@ -22,7 +25,8 @@ export const startDrive = async (
     const way = parseFloat(car.style.left);
     car.style.left = `${way + step}px`;
     if (way < distance) {
-      animationID.id = requestAnimationFrame(moveLeft);
+      const id = requestAnimationFrame(moveLeft);
+      animationIDs[params.id] = { animationId: id };
     } else {
       console.log(way);
     }
@@ -30,7 +34,7 @@ export const startDrive = async (
   moveLeft();
   const status = await driveModeOn(params.id);
   if (status === 500) {
-    cancelAnimationFrame(animationID.id);
+    cancelAnimationFrame(animationIDs[params.id].animationId);
     return Promise.reject();
   }
   return params.id;

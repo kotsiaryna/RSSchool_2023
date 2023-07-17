@@ -16,7 +16,9 @@ export default async function startRace(e: Event): Promise<Car> {
     startDrive(params, garage),
   );
   const winnerID = await Promise.any(promisedCarParams);
-  const winner = currentCars.find((el) => el.id === winnerID);
+  const winnerCar = currentCars.find((el) => el.id === winnerID);
+  const winnerParams = carParams.find((param) => param.id === winnerID);
+  const winner = { ...winnerCar, ...winnerParams };
   console.log(winner);
   return winner;
 }
