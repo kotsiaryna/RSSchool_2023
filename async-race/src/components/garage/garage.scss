@@ -76,6 +76,10 @@
   flex-direction: column;
   gap: 10px;
 
+  background-image: url('../../assets/icons/flagsvg.svg');
+  background-repeat: no-repeat;
+  background-position: right 100px bottom;
+  
   &__controls {
     display: flex;
     gap: 15px;
