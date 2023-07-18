@@ -1,4 +1,4 @@
-import { Elem } from "../../types/type";
+import { nextCallback, prevCallback } from "../../callbacks/winnerPagination";
 import createButton from "../../utils/createButton";
 import createElement from "../../utils/createElement";
 import createWinnersTable from "./winners-table";
@@ -38,17 +38,22 @@ function createPageView(): HTMLElement {
   return pageHeading;
 }
 
-function createPagination(): HTMLElement {
+function createPagination(
+  winners: HTMLElement,
+  heading: HTMLElement,
+): HTMLElement {
   const paginCont = createElement({
     tag: "div",
     className: ["winners__pagination"],
   });
-  const prevCallback: Elem["callback"] = () => {};
-  const prevBtn = createButton(["button", "prev"], "prev", prevCallback);
+  const prevBtn = createButton(["button", "prev"], "prev", (e) =>
+    prevCallback(e, winners),
+  );
   prevBtn.disabled = true;
 
-  const nextCallback: Elem["callback"] = () => {};
-  const nextBtn = createButton(["button", "next"], "next", nextCallback);
+  const nextBtn = createButton(["button", "next"], "next", (e) =>
+    nextCallback(e, winners, heading),
+  );
 
   paginCont.append(prevBtn, nextBtn);
   return paginCont;
@@ -61,7 +66,7 @@ function createWinners(): HTMLElement {
   });
   const heading = createHeading();
   const pages = createPageView();
-  const paginCont = createPagination();
+  const paginCont = createPagination(winners, heading);
   const table = createWinnersTable();
   winners.append(heading, pages, paginCont, table);
 
