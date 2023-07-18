@@ -1,3 +1,4 @@
+// import winner from "../components/winner/winners";
 import { Car, Winner } from "../types/type";
 import { BASEURL, endPoint } from "./urls";
 
@@ -8,18 +9,25 @@ export async function getCars(): Promise<Car[]> {
 }
 
 export async function getWinners(): Promise<Winner[]> {
-  const cars = await getCars();
-
   const resp = await fetch(`${BASEURL}${endPoint.winners}`);
   const winners: Winner[] = await resp.json();
-  const editWinners = winners
+  return winners;
+}
+
+export async function editWinners(
+  winners: Pick<Winner, "id" | "wins" | "time">[],
+): Promise<Winner[]> {
+  const cars = await getCars();
+  const editedWinners = winners
     .filter((winner) => cars.find((car) => car.id === winner.id))
     .map((winner) => {
       const currentCar = cars.find((car) => car.id === winner.id);
-      const editWinner = { ...winner };
-      editWinner.color = currentCar.color;
-      editWinner.name = currentCar.name;
-      return editWinner;
+      const editedWinner = {
+        ...winner,
+        color: currentCar.color,
+        name: currentCar.name,
+      };
+      return editedWinner;
     });
-  return editWinners;
+  return editedWinners;
 }
