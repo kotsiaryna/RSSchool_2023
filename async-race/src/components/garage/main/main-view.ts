@@ -1,5 +1,5 @@
 import { getCars } from "../../../api/getData";
-import getPage from "../../../api/getPage";
+import { getGaragePage } from "../../../api/getPage";
 import { next, prev } from "../../../callbacks/pagination";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
@@ -67,7 +67,7 @@ export default function createGarageView(): HTMLElement {
 }
 
 export async function addTracks(placeToAppend: Element): Promise<void> {
-  const cars = await getPage(1);
+  const cars = await getGaragePage(1);
   const allCars = await getCars();
   const carsAmount = allCars.length;
   const heading = placeToAppend.firstElementChild.firstElementChild;

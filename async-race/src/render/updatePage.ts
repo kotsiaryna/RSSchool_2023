@@ -1,4 +1,4 @@
-import getPage from "../api/getPage";
+import { getGaragePage } from "../api/getPage";
 // eslint-disable-next-line import/no-cycle
 import createTrack from "../components/garage/main/track";
 
@@ -6,7 +6,7 @@ export default async function updatePage(
   n: number,
   place: Element,
 ): Promise<void> {
-  const actualCars = await getPage(n);
+  const actualCars = await getGaragePage(n);
   console.log(actualCars);
 
   const currentCars = [...place.children].filter((elem) =>
