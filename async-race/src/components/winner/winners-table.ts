@@ -1,4 +1,5 @@
-import { getWinners } from "../../api/getData";
+import { editWinners } from "../../api/getData";
+import { getWinnersPage } from "../../api/getPage";
 import carImage from "../../assets/icons/car.";
 import createElement from "../../utils/createElement";
 
@@ -35,11 +36,15 @@ export default function createWinnersTable(): HTMLElement {
   return table;
 }
 
-export async function addWinners(placeToAppend: Element): Promise<void> {
-  const winners = await getWinners();
+export async function addWinners(
+  placeToAppend: Element,
+  pageNumber = 1,
+): Promise<void> {
+  const winners = await getWinnersPage(pageNumber);
+  const editedWinners = await editWinners(winners);
 
   let n = 1;
-  winners.forEach((winner) => {
+  editedWinners.forEach((winner) => {
     const row = createElement({ tag: "tr" });
     row.setAttribute("data-id", `${winner.id}`);
     const numberTD = createElement({
@@ -67,6 +72,6 @@ export async function addWinners(placeToAppend: Element): Promise<void> {
     row.append(numberTD, carTD, nameTD, winsTD, timeTd);
     placeToAppend.append(row);
   });
-  const heading = placeToAppend.closest(".winners").firstElementChild;
-  heading.firstElementChild.textContent = `(${winners.length})`;
+  // const heading = placeToAppend.closest(".winners").firstElementChild;
+  // heading.firstElementChild.textContent = `(${winners.length})`;
 }

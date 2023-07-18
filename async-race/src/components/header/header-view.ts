@@ -1,10 +1,10 @@
+import updateWinnerTable from "../../render/updateWinnerTable";
 import { Elem } from "../../types/type";
 import createButton from "../../utils/createButton";
 import createElement from "../../utils/createElement";
 import garage from "../garage/garage-view";
 import winner from "../winner/winners";
 // import { garage } from "../view";
-// import winners from "../winner/winners";
 import "./header.scss";
 
 const garageCallback: Elem["callback"] = () => {
@@ -20,6 +20,7 @@ const garageButton = createButton(
 const winnersCallback: Elem["callback"] = () => {
   winner.classList.remove("hidden");
   garage.classList.add("hidden");
+  updateWinnerTable();
 };
 const winnersButton = createButton(
   ["button", "winners-btn"],
