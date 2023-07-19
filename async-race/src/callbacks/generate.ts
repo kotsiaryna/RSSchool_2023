@@ -6,8 +6,30 @@ const randomColor = (): string => {
   const color = `#${Math.random().toString(16).slice(3, 9)}`;
   return color;
 };
-const firstName: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-const lastName: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+const firstName: string[] = [
+  "Ferrari",
+  "Bugatti",
+  "Porsche",
+  "Toyota",
+  "Audi",
+  "Mercedes",
+  "Eagle",
+  "BMW",
+  "Honda",
+  "Subaru",
+];
+const lastName: string[] = [
+  "Model_1",
+  "Model_2",
+  "Model_3",
+  "Model_4",
+  "Model_5",
+  "Model_6",
+  "Model_7",
+  "Model_8",
+  "Model_9",
+  "Model_10",
+];
 
 const getRandomName = (array: string[]): string => {
   const randomNumber = Math.floor(Math.random() * array.length);
