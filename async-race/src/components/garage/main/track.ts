@@ -1,11 +1,12 @@
 import carImage from "../../../assets/icons/car.";
 import { select } from "../../../callbacks/edit";
-// eslint-disable-next-line import/no-cycle
-import remove from "../../../callbacks/remove";
 import { startAnimation, stopAnimation } from "../../../callbacks/animation";
 import { Car } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
+import remove from "../../../callbacks/remove";
+// eslint-disable-next-line import/no-cycle
+import updateTracks from "../../../render/updateTracks";
 
 function createButtonCont(carName: Car["name"]): HTMLElement {
   const cont = createElement({
@@ -13,11 +14,18 @@ function createButtonCont(carName: Car["name"]): HTMLElement {
     className: ["track__controls"],
   });
 
-  // const selectCar: Elem["callback"] = () => {};
   const selectButton = createButton(["button", "select-btn"], "select", select);
 
-  // const removeCar: Elem["callback"] = () => {};
-  const removeButton = createButton(["button", "remove-btn"], "remove", remove);
+  const removeCallback = (e: Event): void => {
+    const data = remove(e);
+    updateTracks(...data);
+  };
+
+  const removeButton = createButton(
+    ["button", "remove-btn"],
+    "remove",
+    removeCallback,
+  );
 
   const name = createElement({
     tag: "span",
@@ -34,14 +42,12 @@ const createDriveButtonsCont = (): HTMLElement => {
     tag: "div",
     className: ["track__drive"],
   });
-  // const startEngine: Elem["callback"] = () => {};
   const startButton = createButton(
     ["button", "start"],
     "Start",
     startAnimation,
   );
 
-  // const stopEngine: Elem["callback"] = () => {};
   const stopButton = createButton(["button", "stop"], "Stop", stopAnimation);
   stopButton.disabled = true;
   cont.append(startButton, stopButton);

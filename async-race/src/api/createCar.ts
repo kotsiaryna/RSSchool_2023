@@ -12,6 +12,5 @@ export default async function createCar(car: Omit<Car, "id">): Promise<Car> {
 
   const response = await fetch(`${BASEURL}${endPoint.garage}`, options);
   const createdCar = await response.json();
-  console.log(createdCar);
   return createdCar;
 }

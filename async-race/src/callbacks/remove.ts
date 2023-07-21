@@ -16,14 +16,16 @@ const removeFromWinners = async (id: Car["id"]): Promise<void> => {
   if (isWinner) removeWinner(id);
 };
 
-export default function remove(e: Event): void {
+export default function remove(e: Event): [number, HTMLElement] {
   const { target } = e;
   const btn = target as HTMLElement;
   const track = btn.closest(".track");
   const { id } = track;
+  const garage: HTMLElement = track.closest(".garage");
+  const page = +garage.children[1].firstElementChild.textContent.slice(1);
   removeFromWinners(+id);
   removeCar(+id);
-  updateAmount(track.closest(".garage").firstElementChild);
+  updateAmount(garage.firstElementChild);
   const row = [...winner.children[2].children[1].children].find(
     (el) => el.id === id,
   );
@@ -31,4 +33,5 @@ export default function remove(e: Event): void {
     row.remove();
   }
   track.remove();
+  return [page, garage];
 }

@@ -1,5 +1,5 @@
 import createCar from "../api/createCar";
-import updatePage from "../render/updatePage";
+import updateTracks from "../render/updateTracks";
 import { Car } from "../types/type";
 
 const randomColor = (): string => {
@@ -56,8 +56,6 @@ const create100Cars = async (
   return createdCars;
 };
 
-// const car = await createCar(carParams);
-
 const generateCallback = (e: Event, place: HTMLElement): void => {
   create100Cars(generateCarParams());
 
@@ -68,7 +66,7 @@ const generateCallback = (e: Event, place: HTMLElement): void => {
 
   const pageSpan = place.children[1].firstElementChild;
   const page = +pageSpan.textContent.slice(1);
-  updatePage(page, place);
+  updateTracks(page, place);
 };
 
 export default generateCallback;
