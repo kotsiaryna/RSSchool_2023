@@ -8,8 +8,10 @@ $color-dark:#2c4a52;
 $color-light:#f4ebdb;
 
 body {
+  width: 100vw;
   background-color:$color-dark;
   color: $color-light;
+  overflow-x: hidden;
 }
 
 .winners.hidden,
@@ -33,5 +35,8 @@ body {
 
   &:hover {
     cursor: pointer;
+  }
+  &:disabled {
+    cursor: default;
   }
 }
