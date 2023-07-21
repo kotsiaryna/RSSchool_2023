@@ -9,6 +9,8 @@ export interface Car {
   name: string;
   color: string;
   id: number;
+  velocity?: number;
+  distance?: number;
 }
 export interface DriveParams {
   velocity: number;
@@ -17,8 +19,15 @@ export interface DriveParams {
 
 export interface Winner {
   id: number;
-  color: string;
-  name: string;
+  color?: string;
+  name?: string;
   wins: number;
   time: number;
 }
+export type AnimationKeys = {
+  animationId: number;
+};
+
+export type SortOrder = "ASC" | "DESC";
+
+export type ColumnToSort = "wins" | "time";
