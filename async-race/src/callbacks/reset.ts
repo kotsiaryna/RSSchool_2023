@@ -4,6 +4,9 @@ export default async function resetRace(
   e: Event,
   garage: Element,
 ): Promise<void> {
+  const resetBtn = e.target as HTMLButtonElement;
+  const raceBtn = resetBtn.previousElementSibling as HTMLButtonElement;
+  raceBtn.disabled = false;
   const tracks = [...garage.children].filter((el) =>
     el.classList.contains("track"),
   );
