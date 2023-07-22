@@ -10,7 +10,7 @@ export default async function makeView(): Promise<void> {
 
   const totalCarsAmount = await addTracks(garage.children[1]);
   if (totalCarsAmount < 8) {
-    const nextBtn = garage.lastElementChild.children[2]
+    const nextBtn = garage.children[1].children[2]
       .lastElementChild as HTMLButtonElement;
     nextBtn.disabled = true;
   }
@@ -22,7 +22,7 @@ export default async function makeView(): Promise<void> {
   await addWinners(table.children[1]);
 
   document.body.append(header, garage, winner);
-  document.body.addEventListener("click", () => {
+  garage.addEventListener("click", () => {
     message.textContent = "";
   });
 }
