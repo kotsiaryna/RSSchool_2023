@@ -66,6 +66,8 @@ const generateCallback = (e: Event, place: HTMLElement): void => {
 
   const pageSpan = place.children[1].firstElementChild;
   const page = +pageSpan.textContent.slice(1);
+  const nextBtn = place.children[2].lastElementChild as HTMLButtonElement;
+  nextBtn.disabled = false;
   updateTracks(page, place);
 };
 

@@ -7,8 +7,18 @@ import { addWinners } from "./winner/winners-table";
 export default async function makeView(): Promise<void> {
   const header = createHeader();
 
-  addTracks(garage.children[1]);
-  addWinners(winner.children[2].children[1]);
+  const totalCarsAmount = await addTracks(garage.children[1]);
+  if (totalCarsAmount < 8) {
+    const nextBtn = garage.lastElementChild.children[2]
+      .lastElementChild as HTMLButtonElement;
+    nextBtn.disabled = true;
+  }
+
+  const table = [...winner.children].find((el) =>
+    el.classList.contains("winners__table"),
+  );
+
+  await addWinners(table.children[1]);
 
   document.body.append(header, garage, winner);
 }

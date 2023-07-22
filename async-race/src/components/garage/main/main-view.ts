@@ -36,16 +36,10 @@ function createHeading(): HTMLElement {
   heading.append(carsAmountView);
   return heading;
 }
-
-export default function createGarageView(): HTMLElement {
-  const garage = createElement({
-    tag: "section",
-    className: ["garage"],
-  });
-
-  const heading = createHeading();
-  const pages = createPageView();
-
+function createPagination(
+  garage: HTMLElement,
+  heading: HTMLElement,
+): HTMLElement {
   const pagination = createElement({
     tag: "div",
     className: ["garage__pagination"],
@@ -61,19 +55,32 @@ export default function createGarageView(): HTMLElement {
   );
 
   pagination.append(prevBtn, nextBtn);
+  return pagination;
+}
+
+export default function createGarageView(): HTMLElement {
+  const garage = createElement({
+    tag: "section",
+    className: ["garage"],
+  });
+
+  const heading = createHeading();
+  const pages = createPageView();
+  const pagination = createPagination(garage, heading);
 
   garage.append(heading, pages, pagination);
   return garage;
 }
 
-export async function addTracks(placeToAppend: Element): Promise<void> {
-  const cars = await getGaragePage(1);
+export async function addTracks(placeToAppend: Element): Promise<number> {
+  const currentCars = await getGaragePage(1);
   const allCars = await getCars();
   const carsAmount = allCars.length;
   const heading = placeToAppend.firstElementChild.firstElementChild;
   heading.textContent = `(${carsAmount})`;
-  cars.forEach((car) => {
+  currentCars.forEach((car) => {
     const track = createTrack(car);
     placeToAppend.append(track);
   });
+  return allCars.length;
 }

@@ -26,7 +26,6 @@ async function addSortedWinners(
 
 const changeTableContent = (place: HTMLElement, page: number): void => {
   const activeSort = checkActiveSort(place);
-  console.log(place);
   const tbody = [...place.children].find((el) =>
     el.classList.contains("winners__table"),
   ).lastElementChild;
