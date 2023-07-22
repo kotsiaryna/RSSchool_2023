@@ -14,7 +14,8 @@ export function select(e: Event): void {
   const colorInput = garage.firstElementChild.children[1]
     .children[1] as HTMLInputElement;
   const updateBtn = garage.firstElementChild.children[1]
-    .lastElementChild as HTMLElement;
+    .lastElementChild as HTMLButtonElement;
+  updateBtn.disabled = false;
   updateBtn.dataset.id = track.id;
 
   nameInput.value = name;
@@ -31,7 +32,7 @@ const updateWinnerRow = (car: Car, garage: HTMLElement): void => {
 };
 
 export function updateCallback(e: Event, garage: HTMLElement): void {
-  const btn = e.target as HTMLElement;
+  const btn = e.target as HTMLButtonElement;
   const { id } = btn.dataset;
 
   const track = garage.querySelector(`[id="${id}"]`);
@@ -58,4 +59,5 @@ export function updateCallback(e: Event, garage: HTMLElement): void {
   name.value = "";
   color.value = "black";
   btn.removeAttribute("data-id");
+  btn.disabled = true;
 }

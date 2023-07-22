@@ -28,6 +28,7 @@ function createSelectLine(
   const btn = createButton(["button", `${text}-button`], `${text}`, (e) =>
     callback(e, place),
   );
+  if (btn.classList.contains("update-button")) btn.disabled = true;
 
   selectLine.append(inputName, inputColor, btn);
   return selectLine;
