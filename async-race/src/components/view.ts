@@ -3,6 +3,7 @@ import garage from "./garage/garage-view";
 import createHeader from "./header/header-view";
 import winner from "./winner/winners";
 import { addWinners } from "./winner/winners-table";
+import { message } from "./message/message-view";
 
 export default async function makeView(): Promise<void> {
   const header = createHeader();
@@ -21,4 +22,7 @@ export default async function makeView(): Promise<void> {
   await addWinners(table.children[1]);
 
   document.body.append(header, garage, winner);
+  document.body.addEventListener("click", () => {
+    message.textContent = "";
+  });
 }
