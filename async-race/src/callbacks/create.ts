@@ -1,5 +1,4 @@
 import createCar from "../api/createCar";
-// import garage from "../components/garage/garage-view";
 import createTrack from "../components/garage/main/track";
 import { Car } from "../types/type";
 

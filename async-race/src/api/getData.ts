@@ -1,4 +1,3 @@
-// import winner from "../components/winner/winners";
 import { Car, Winner } from "../types/type";
 import { BASEURL, endPoint } from "./urls";
 

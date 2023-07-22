@@ -4,7 +4,6 @@ import createButton from "../../utils/createButton";
 import createElement from "../../utils/createElement";
 import garage from "../garage/garage-view";
 import winner from "../winner/winners";
-// import { garage } from "../view";
 import "./header.scss";
 
 const garageCallback: Elem["callback"] = () => {

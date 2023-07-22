@@ -40,15 +40,12 @@ function createButtonsLine(place: HTMLElement): HTMLElement {
     className: ["select__line"],
   });
 
-  // const race: Elem["callback"] = () => {};
   const raceButton = createButton(["button", "race-btn"], "race", startRace);
 
-  // const reset: Elem["callback"] = () => {};
   const resetButton = createButton(["button", "reset-btn"], "reset", (e) =>
     resetRace(e, place),
   );
 
-  // const generate: Elem["callback"] = () => {};
   const generateButton = createButton(
     ["button", "generate-btn"],
     "generate cars",

@@ -27,8 +27,6 @@ export const startDrive = async (
     if (way < distance) {
       const id = requestAnimationFrame(moveLeft);
       animationIDs[params.id] = { animationId: id };
-    } else {
-      console.log(way);
     }
   };
   moveLeft();
@@ -41,7 +39,6 @@ export const startDrive = async (
 };
 
 export async function startAnimation(e: Event): Promise<void> {
-  // const start = performance.now();
   const startBtn = e.target as HTMLButtonElement;
   const stopBtn = startBtn.nextElementSibling as HTMLButtonElement;
   stopBtn.disabled = false;
@@ -52,9 +49,7 @@ export async function startAnimation(e: Event): Promise<void> {
   const timeMSec = driveParams.distance / driveParams.velocity;
   const timeSec = timeMSec / 1000;
   const times = timeSec * 60;
-  // const { clientWidth } = document.documentElement;
   const { innerWidth } = window;
-  // const distance = clientWidth - 20 - 100;
   const distance = innerWidth - 20 - 100;
   const step = distance / times;
   const car = startBtn.parentElement.nextElementSibling as SVGAElement;
@@ -64,8 +59,6 @@ export async function startAnimation(e: Event): Promise<void> {
     car.style.left = `${way + step}px`;
     if (way < distance) {
       animationID.id = requestAnimationFrame(moveLeft);
-    } else {
-      console.log(way);
     }
   };
   moveLeft();
