@@ -1,6 +1,8 @@
 import { getCars } from "../../../api/getData";
 import { getGaragePage } from "../../../api/getPage";
 import { next, prev } from "../../../callbacks/pagination";
+import remove from "../../../callbacks/remove";
+import addLastTrack from "../../../render/addLastTrack";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
 import createTrack from "./track";
@@ -69,6 +71,13 @@ export default function createGarageView(): HTMLElement {
   const pagination = createPagination(garage, heading);
 
   garage.append(heading, pages, pagination);
+  garage.addEventListener("click", async (e) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains("remove-btn")) {
+      const data = await remove(e);
+      addLastTrack(...data);
+    }
+  });
   return garage;
 }
 

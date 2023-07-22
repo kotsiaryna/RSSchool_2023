@@ -16,15 +16,15 @@ const removeFromWinners = async (id: Car["id"]): Promise<void> => {
   if (isWinner) removeWinner(id);
 };
 
-export default function remove(e: Event): [number, HTMLElement] {
+export default async function remove(e: Event): Promise<[number, HTMLElement]> {
   const { target } = e;
   const btn = target as HTMLElement;
   const track = btn.closest(".track");
   const { id } = track;
   const garage: HTMLElement = track.closest(".garage");
   const page = +garage.children[1].firstElementChild.textContent.slice(1);
-  removeFromWinners(+id);
-  removeCar(+id);
+  await removeFromWinners(+id);
+  await removeCar(+id);
   updateAmount(garage.firstElementChild);
   const row = [...winner.children[2].children[1].children].find(
     (el) => el.id === id,

@@ -4,9 +4,6 @@ import { startAnimation, stopAnimation } from "../../../callbacks/animation";
 import { Car } from "../../../types/type";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
-import remove from "../../../callbacks/remove";
-// eslint-disable-next-line import/no-cycle
-import updateTracks from "../../../render/updateTracks";
 
 function createButtonCont(carName: Car["name"]): HTMLElement {
   const cont = createElement({
@@ -16,16 +13,7 @@ function createButtonCont(carName: Car["name"]): HTMLElement {
 
   const selectButton = createButton(["button", "select-btn"], "select", select);
 
-  const removeCallback = (e: Event): void => {
-    const data = remove(e);
-    updateTracks(...data);
-  };
-
-  const removeButton = createButton(
-    ["button", "remove-btn"],
-    "remove",
-    removeCallback,
-  );
+  const removeButton = createButton(["button", "remove-btn"], "remove");
 
   const name = createElement({
     tag: "span",
