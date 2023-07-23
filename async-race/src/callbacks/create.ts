@@ -1,4 +1,5 @@
 import createCar from "../api/createCar";
+import { carsAmountView } from "../components/garage/main/heading-view";
 import { pageCountView } from "../components/garage/main/page-view";
 import createTrack from "../components/garage/main/track";
 import { Car } from "../types/type";
@@ -17,11 +18,12 @@ const getCarParams = (e: Event): Omit<Car, "id"> => {
   return carParams;
 };
 
-const updateAmount = (heading: Element): number => {
-  const amountSpan = heading.firstElementChild;
-  const amount = +amountSpan.textContent.slice(1, -1);
-  amountSpan.textContent = `(${amount + 1})`;
-  return amount + 1;
+const updateAmount = (): number => {
+  // const amountSpan = heading.firstElementChild;
+  const amount = +carsAmountView.textContent.slice(1, -1);
+  const updatedAmount = amount + 1;
+  carsAmountView.textContent = `(${updatedAmount})`;
+  return updatedAmount;
 };
 
 // const getPageN = (place: Element): number => {
@@ -39,7 +41,7 @@ const createCallback = async (
 
   // const page = getPageN(placeToAppend);
   const page = +pageCountView.textContent.slice(1);
-  const amount = updateAmount(placeToAppend.firstElementChild);
+  const amount = updateAmount();
   if (page * 7 >= amount) {
     const track = createTrack(car);
     placeToAppend.append(track);

@@ -5,6 +5,7 @@ import remove from "../../../callbacks/remove";
 import addLastTrack from "../../../render/addLastTrack";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
+import { carsAmountView, heading } from "./heading-view";
 import { pageHeading } from "./page-view";
 import createTrack from "./track";
 
@@ -25,36 +26,33 @@ import createTrack from "./track";
 //   return pageHeading;
 // }
 
-function createHeading(): HTMLElement {
-  const heading = createElement({
-    tag: "h2",
-    className: ["heading", "garage__heading"],
-    text: "Garage ",
-  });
+// function createHeading(): HTMLElement {
+//   const heading = createElement({
+//     tag: "h2",
+//     className: ["heading", "garage__heading"],
+//     text: "Garage ",
+//   });
 
-  const carsAmountView = createElement({
-    tag: "span",
-    className: ["garage__count"],
-  });
-  heading.append(carsAmountView);
-  return heading;
-}
-function createPagination(
-  garage: HTMLElement,
-  heading: HTMLElement,
-): HTMLElement {
+//   const carsAmountView = createElement({
+//     tag: "span",
+//     className: ["garage__count"],
+//   });
+//   heading.append(carsAmountView);
+//   return heading;
+// }
+function createPagination(garage: HTMLElement): HTMLElement {
   const pagination = createElement({
     tag: "div",
     className: ["garage__pagination"],
   });
 
   const prevBtn = createButton(["button", "prev"], "prev", (e) =>
-    prev(e, garage, heading),
+    prev(e, garage),
   );
   prevBtn.disabled = true;
 
   const nextBtn = createButton(["button", "next"], "next", (e) =>
-    next(e, garage, heading),
+    next(e, garage),
   );
 
   pagination.append(prevBtn, nextBtn);
@@ -67,9 +65,9 @@ export default function createGarageView(): HTMLElement {
     className: ["garage"],
   });
 
-  const heading = createHeading();
+  // const heading = createHeading();
   // const pages = createPageView();
-  const pagination = createPagination(garage, heading);
+  const pagination = createPagination(garage);
 
   garage.append(heading, pageHeading, pagination);
   garage.addEventListener("click", async (e) => {
@@ -86,8 +84,8 @@ export async function addTracks(placeToAppend: Element): Promise<number> {
   const currentCars = await getGaragePage(1);
   const allCars = await getCars();
   const carsAmount = allCars.length;
-  const heading = placeToAppend.firstElementChild.firstElementChild;
-  heading.textContent = `(${carsAmount})`;
+  // const heading = placeToAppend.firstElementChild.firstElementChild;
+  carsAmountView.textContent = `(${carsAmount})`;
   currentCars.forEach((car) => {
     const track = createTrack(car);
     placeToAppend.append(track);

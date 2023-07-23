@@ -1,4 +1,5 @@
 import createCar from "../api/createCar";
+import { carsAmountView } from "../components/garage/main/heading-view";
 import { pageCountView } from "../components/garage/main/page-view";
 import updateTracks from "../render/updateTracks";
 import { Car } from "../types/type";
@@ -60,10 +61,10 @@ const create100Cars = async (
 const generateCallback = (e: Event, place: HTMLElement): void => {
   create100Cars(generateCarParams());
 
-  const heading = place.firstElementChild.firstElementChild;
-  const amount = +heading.textContent.slice(1, -1);
+  // const heading = place.firstElementChild.firstElementChild;
+  const amount = +carsAmountView.textContent.slice(1, -1);
   const newAmount = amount + 100;
-  heading.textContent = `(${newAmount})`;
+  carsAmountView.textContent = `(${newAmount})`;
 
   // const pageSpan = place.children[1].firstElementChild;
   const page = +pageCountView.textContent.slice(1);
