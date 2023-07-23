@@ -5,24 +5,25 @@ import remove from "../../../callbacks/remove";
 import addLastTrack from "../../../render/addLastTrack";
 import createButton from "../../../utils/createButton";
 import createElement from "../../../utils/createElement";
+import { pageHeading } from "./page-view";
 import createTrack from "./track";
 
-function createPageView(): HTMLElement {
-  const pageHeading = createElement({
-    tag: "h3",
-    className: ["garage__pages"],
-    text: "Page ",
-  });
+// function createPageView(): HTMLElement {
+//   const pageHeading = createElement({
+//     tag: "h3",
+//     className: ["garage__pages"],
+//     text: "Page ",
+//   });
 
-  const pageCount = 1;
-  const pageCountView = createElement({
-    tag: "span",
-    className: ["pages__count"],
-    text: `#${pageCount}`,
-  });
-  pageHeading.append(pageCountView);
-  return pageHeading;
-}
+//   const pageCount = 1;
+//   const pageCountView = createElement({
+//     tag: "span",
+//     className: ["pages__count"],
+//     text: `#${pageCount}`,
+//   });
+//   pageHeading.append(pageCountView);
+//   return pageHeading;
+// }
 
 function createHeading(): HTMLElement {
   const heading = createElement({
@@ -67,10 +68,10 @@ export default function createGarageView(): HTMLElement {
   });
 
   const heading = createHeading();
-  const pages = createPageView();
+  // const pages = createPageView();
   const pagination = createPagination(garage, heading);
 
-  garage.append(heading, pages, pagination);
+  garage.append(heading, pageHeading, pagination);
   garage.addEventListener("click", async (e) => {
     const target = e.target as HTMLElement;
     if (target.classList.contains("remove-btn")) {

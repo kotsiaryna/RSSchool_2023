@@ -1,3 +1,4 @@
+import { pageCountView } from "../components/garage/main/page-view";
 import updateTracks from "../render/updateTracks";
 import { Elem } from "../types/type";
 
@@ -5,11 +6,11 @@ export const next: Elem["callback"] = async (e, place, heading) => {
   const nextBtn = e.target as HTMLButtonElement;
   const prevBtn = nextBtn.previousElementSibling as HTMLButtonElement;
   prevBtn.disabled = false;
-  const pageSpan = place.children[1].firstElementChild;
+  // const pageSpan = place.children[1].firstElementChild;
 
-  const page = +pageSpan.textContent.slice(1);
+  const page = +pageCountView.textContent.slice(1);
   const nextPage = page + 1;
-  pageSpan.textContent = `#${nextPage}`;
+  pageCountView.textContent = `#${nextPage}`;
   const carsAmount = +heading.firstElementChild.textContent.slice(1, -1);
   if ((page + 1) * 7 >= carsAmount) {
     nextBtn.disabled = true;
@@ -22,10 +23,10 @@ export const prev: Elem["callback"] = async (e, place) => {
   const nextBtn = prevBtn.nextElementSibling as HTMLButtonElement;
   nextBtn.disabled = false;
 
-  const pageSpan = place.children[1].firstElementChild;
-  const page = +pageSpan.textContent.slice(1);
+  // const pageSpan = place.children[1].firstElementChild;
+  const page = +pageCountView.textContent.slice(1);
   const prevPage = page - 1;
-  pageSpan.textContent = `#${prevPage}`;
+  pageCountView.textContent = `#${prevPage}`;
   if (page === 2) prevBtn.disabled = true;
   updateTracks(prevPage, place);
 };

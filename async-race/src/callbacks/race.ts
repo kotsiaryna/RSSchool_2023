@@ -4,6 +4,7 @@ import addWinMessage, { message } from "../components/message/message-view";
 import { Car } from "../types/type";
 import addWinner from "../api/addWinner";
 import { startDrive } from "./animation";
+import { pageCountView } from "../components/garage/main/page-view";
 
 const disableButtons = (buttons: HTMLButtonElement[]): void => {
   buttons.forEach((button) => {
@@ -30,7 +31,7 @@ export default async function startRace(e: Event): Promise<Car> {
     ...garage.querySelectorAll("button"),
   ];
   disableButtons(buttons);
-  const page = +garage.children[1].firstElementChild.textContent.slice(1);
+  const page = +pageCountView.textContent.slice(1);
   const currentCars = await getGaragePage(page);
   const promisedCars = currentCars.map((car) => startEngine(car.id));
   const carParams = await Promise.all(promisedCars);

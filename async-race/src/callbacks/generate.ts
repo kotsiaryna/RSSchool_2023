@@ -1,4 +1,5 @@
 import createCar from "../api/createCar";
+import { pageCountView } from "../components/garage/main/page-view";
 import updateTracks from "../render/updateTracks";
 import { Car } from "../types/type";
 
@@ -64,8 +65,8 @@ const generateCallback = (e: Event, place: HTMLElement): void => {
   const newAmount = amount + 100;
   heading.textContent = `(${newAmount})`;
 
-  const pageSpan = place.children[1].firstElementChild;
-  const page = +pageSpan.textContent.slice(1);
+  // const pageSpan = place.children[1].firstElementChild;
+  const page = +pageCountView.textContent.slice(1);
   const nextBtn = place.children[2].lastElementChild as HTMLButtonElement;
   nextBtn.disabled = false;
   updateTracks(page, place);

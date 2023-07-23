@@ -1,4 +1,5 @@
 import createCar from "../api/createCar";
+import { pageCountView } from "../components/garage/main/page-view";
 import createTrack from "../components/garage/main/track";
 import { Car } from "../types/type";
 
@@ -23,11 +24,11 @@ const updateAmount = (heading: Element): number => {
   return amount + 1;
 };
 
-const getPageN = (place: Element): number => {
-  const pageSpan = place.children[1].firstElementChild;
-  const page = +pageSpan.textContent.slice(1);
-  return page;
-};
+// const getPageN = (place: Element): number => {
+//   const pageSpan = place.children[1].firstElementChild;
+//   const page = +pageSpan.textContent.slice(1);
+//   return page;
+// };
 
 const createCallback = async (
   e: Event,
@@ -36,7 +37,8 @@ const createCallback = async (
   const carParams = getCarParams(e);
   const car = await createCar(carParams);
 
-  const page = getPageN(placeToAppend);
+  // const page = getPageN(placeToAppend);
+  const page = +pageCountView.textContent.slice(1);
   const amount = updateAmount(placeToAppend.firstElementChild);
   if (page * 7 >= amount) {
     const track = createTrack(car);

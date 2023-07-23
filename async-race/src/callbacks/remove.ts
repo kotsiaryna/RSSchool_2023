@@ -1,6 +1,7 @@
 import { getWinners } from "../api/getData";
 import removeCar from "../api/removeCar";
 import removeWinner from "../api/removeWinner";
+import { pageCountView } from "../components/garage/main/page-view";
 import winner from "../components/winner/winners";
 import { Car } from "../types/type";
 
@@ -22,7 +23,7 @@ export default async function remove(e: Event): Promise<[number, HTMLElement]> {
   const track = btn.closest(".track");
   const { id } = track;
   const garage: HTMLElement = track.closest(".garage");
-  const page = +garage.children[1].firstElementChild.textContent.slice(1);
+  const page = +pageCountView.textContent.slice(1);
   await removeFromWinners(+id);
   await removeCar(+id);
   updateAmount(garage.firstElementChild);
