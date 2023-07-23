@@ -1,25 +1,26 @@
 import { nextCallback, prevCallback } from "../../callbacks/winnerPagination";
 import createButton from "../../utils/createButton";
 import createElement from "../../utils/createElement";
+import { heading } from "./heading-view";
 import createWinnersTable from "./winners-table";
 import "./winners.scss";
 
-function createHeading(): HTMLElement {
-  const heading = createElement({
-    tag: "h2",
-    className: ["heading", "winners__heading"],
-    text: "Winners ",
-  });
+// function createHeading(): HTMLElement {
+//   const heading = createElement({
+//     tag: "h2",
+//     className: ["heading", "winners__heading"],
+//     text: "Winners ",
+//   });
 
-  const winnersAmount = 0;
-  const winnersAmountView = createElement({
-    tag: "span",
-    className: ["winners__count"],
-    text: `(${winnersAmount})`,
-  });
-  heading.append(winnersAmountView);
-  return heading;
-}
+//   const winnersAmount = 0;
+//   const winnersAmountView = createElement({
+//     tag: "span",
+//     className: ["winners__count"],
+//     text: `(${winnersAmount})`,
+//   });
+//   heading.append(winnersAmountView);
+//   return heading;
+// }
 
 function createPageView(): HTMLElement {
   const pageHeading = createElement({
@@ -38,10 +39,7 @@ function createPageView(): HTMLElement {
   return pageHeading;
 }
 
-function createPagination(
-  winners: HTMLElement,
-  heading: HTMLElement,
-): HTMLElement {
+function createPagination(winners: HTMLElement): HTMLElement {
   const paginCont = createElement({
     tag: "div",
     className: ["winners__pagination"],
@@ -52,7 +50,7 @@ function createPagination(
   prevBtn.disabled = true;
 
   const nextBtn = createButton(["button", "next"], "next", (e) =>
-    nextCallback(e, winners, heading),
+    nextCallback(e, winners),
   );
 
   paginCont.append(prevBtn, nextBtn);
@@ -64,9 +62,9 @@ function createWinners(): HTMLElement {
     tag: "main",
     className: ["winners", "hidden"],
   });
-  const heading = createHeading();
+  // const heading = createHeading();
   const pages = createPageView();
-  const paginCont = createPagination(winners, heading);
+  const paginCont = createPagination(winners);
   const table = createWinnersTable();
   winners.append(heading, pages, paginCont, table);
 

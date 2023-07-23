@@ -1,7 +1,8 @@
+import { winnersAmountView } from "../components/winner/heading-view";
 import changeTableContent from "../render/changeTableContext";
 import { Elem } from "../types/type";
 
-export const nextCallback: Elem["callback"] = async (e, place, heading) => {
+export const nextCallback: Elem["callback"] = async (e, place) => {
   const nextBtn = e.target as HTMLButtonElement;
   const prevBtn = nextBtn.previousElementSibling as HTMLButtonElement;
   prevBtn.disabled = false;
@@ -10,7 +11,7 @@ export const nextCallback: Elem["callback"] = async (e, place, heading) => {
   const currentPage = +pageSpan.textContent.slice(1);
   const nextPage = currentPage + 1;
   pageSpan.textContent = `#${nextPage}`;
-  const amount = +heading.firstElementChild.textContent.slice(1, -1);
+  const amount = +winnersAmountView.textContent.slice(1, -1);
   if (nextPage * 10 >= amount) {
     nextBtn.disabled = true;
   }
