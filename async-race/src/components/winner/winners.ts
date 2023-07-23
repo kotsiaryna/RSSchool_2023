@@ -2,6 +2,7 @@ import { nextCallback, prevCallback } from "../../callbacks/winnerPagination";
 import createButton from "../../utils/createButton";
 import createElement from "../../utils/createElement";
 import { heading } from "./heading-view";
+import { pageHeading } from "./winner-page-view";
 import createWinnersTable from "./winners-table";
 import "./winners.scss";
 
@@ -22,22 +23,22 @@ import "./winners.scss";
 //   return heading;
 // }
 
-function createPageView(): HTMLElement {
-  const pageHeading = createElement({
-    tag: "h3",
-    className: ["winners__pages"],
-    text: "Page ",
-  });
+// function createPageView(): HTMLElement {
+//   const pageHeading = createElement({
+//     tag: "h3",
+//     className: ["winners__pages"],
+//     text: "Page ",
+//   });
 
-  const pageCount = 1;
-  const pageCountView = createElement({
-    tag: "span",
-    className: ["pages__count"],
-    text: `#${pageCount}`,
-  });
-  pageHeading.append(pageCountView);
-  return pageHeading;
-}
+//   const pageCount = 1;
+//   const pageCountView = createElement({
+//     tag: "span",
+//     className: ["pages__count"],
+//     text: `#${pageCount}`,
+//   });
+//   pageHeading.append(pageCountView);
+//   return pageHeading;
+// }
 
 function createPagination(winners: HTMLElement): HTMLElement {
   const paginCont = createElement({
@@ -63,10 +64,10 @@ function createWinners(): HTMLElement {
     className: ["winners", "hidden"],
   });
   // const heading = createHeading();
-  const pages = createPageView();
+  // const pages = createPageView();
   const paginCont = createPagination(winners);
   const table = createWinnersTable();
-  winners.append(heading, pages, paginCont, table);
+  winners.append(heading, pageHeading, paginCont, table);
 
   return winners;
 }
