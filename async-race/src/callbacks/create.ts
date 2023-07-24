@@ -19,18 +19,11 @@ const getCarParams = (e: Event): Omit<Car, "id"> => {
 };
 
 const updateAmount = (): number => {
-  // const amountSpan = heading.firstElementChild;
   const amount = +carsAmountView.textContent.slice(1, -1);
   const updatedAmount = amount + 1;
   carsAmountView.textContent = `(${updatedAmount})`;
   return updatedAmount;
 };
-
-// const getPageN = (place: Element): number => {
-//   const pageSpan = place.children[1].firstElementChild;
-//   const page = +pageSpan.textContent.slice(1);
-//   return page;
-// };
 
 const createCallback = async (
   e: Event,
@@ -39,7 +32,6 @@ const createCallback = async (
   const carParams = getCarParams(e);
   const car = await createCar(carParams);
 
-  // const page = getPageN(placeToAppend);
   const page = +pageCountView.textContent.slice(1);
   const amount = updateAmount();
   if (page * 7 >= amount) {

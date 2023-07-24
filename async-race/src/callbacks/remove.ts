@@ -7,7 +7,6 @@ import winner from "../components/winner/winners";
 import { Car } from "../types/type";
 
 const updateAmount = (): void => {
-  // const amountSpan = heading.firstElementChild;
   const amount = +carsAmountView.textContent.slice(1, -1);
   const updatedAmount = amount - 1;
   carsAmountView.textContent = `(${updatedAmount})`;

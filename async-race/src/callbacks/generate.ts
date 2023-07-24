@@ -61,12 +61,10 @@ const create100Cars = async (
 const generateCallback = (e: Event, place: HTMLElement): void => {
   create100Cars(generateCarParams());
 
-  // const heading = place.firstElementChild.firstElementChild;
   const amount = +carsAmountView.textContent.slice(1, -1);
   const newAmount = amount + 100;
   carsAmountView.textContent = `(${newAmount})`;
 
-  // const pageSpan = place.children[1].firstElementChild;
   const page = +pageCountView.textContent.slice(1);
   const nextBtn = place.children[2].lastElementChild as HTMLButtonElement;
   nextBtn.disabled = false;

@@ -9,37 +9,6 @@ import { carsAmountView, heading } from "./heading-view";
 import { pageHeading } from "./page-view";
 import createTrack from "./track";
 
-// function createPageView(): HTMLElement {
-//   const pageHeading = createElement({
-//     tag: "h3",
-//     className: ["garage__pages"],
-//     text: "Page ",
-//   });
-
-//   const pageCount = 1;
-//   const pageCountView = createElement({
-//     tag: "span",
-//     className: ["pages__count"],
-//     text: `#${pageCount}`,
-//   });
-//   pageHeading.append(pageCountView);
-//   return pageHeading;
-// }
-
-// function createHeading(): HTMLElement {
-//   const heading = createElement({
-//     tag: "h2",
-//     className: ["heading", "garage__heading"],
-//     text: "Garage ",
-//   });
-
-//   const carsAmountView = createElement({
-//     tag: "span",
-//     className: ["garage__count"],
-//   });
-//   heading.append(carsAmountView);
-//   return heading;
-// }
 function createPagination(garage: HTMLElement): HTMLElement {
   const pagination = createElement({
     tag: "div",
@@ -65,8 +34,6 @@ export default function createGarageView(): HTMLElement {
     className: ["garage"],
   });
 
-  // const heading = createHeading();
-  // const pages = createPageView();
   const pagination = createPagination(garage);
 
   garage.append(heading, pageHeading, pagination);
@@ -84,7 +51,6 @@ export async function addTracks(placeToAppend: Element): Promise<number> {
   const currentCars = await getGaragePage(1);
   const allCars = await getCars();
   const carsAmount = allCars.length;
-  // const heading = placeToAppend.firstElementChild.firstElementChild;
   carsAmountView.textContent = `(${carsAmount})`;
   currentCars.forEach((car) => {
     const track = createTrack(car);

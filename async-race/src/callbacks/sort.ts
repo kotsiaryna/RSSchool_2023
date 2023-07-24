@@ -3,13 +3,6 @@ import getSortedWinners from "../api/getSortedWinners";
 import { pageCountView } from "../components/winner/winner-page-view";
 import fillTable from "../render/fillTable";
 
-// const getPage = (table: Element): number => {
-//   const pageSpan =
-//     table.previousElementSibling.previousElementSibling.firstElementChild;
-//   const page = pageSpan.textContent.slice(1);
-//   return +page;
-// };
-
 const sortTable = async (e: Event): Promise<void> => {
   const btn = e.target as HTMLElement;
   const table = btn.closest(".winners__table");

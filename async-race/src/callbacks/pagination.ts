@@ -7,7 +7,6 @@ export const next: Elem["callback"] = async (e, place) => {
   const nextBtn = e.target as HTMLButtonElement;
   const prevBtn = nextBtn.previousElementSibling as HTMLButtonElement;
   prevBtn.disabled = false;
-  // const pageSpan = place.children[1].firstElementChild;
 
   const page = +pageCountView.textContent.slice(1);
   const nextPage = page + 1;
@@ -24,7 +23,6 @@ export const prev: Elem["callback"] = async (e, place) => {
   const nextBtn = prevBtn.nextElementSibling as HTMLButtonElement;
   nextBtn.disabled = false;
 
-  // const pageSpan = place.children[1].firstElementChild;
   const page = +pageCountView.textContent.slice(1);
   const prevPage = page - 1;
   pageCountView.textContent = `#${prevPage}`;
