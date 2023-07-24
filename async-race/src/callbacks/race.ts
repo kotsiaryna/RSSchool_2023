@@ -5,6 +5,7 @@ import { Car } from "../types/type";
 import addWinner from "../api/addWinner";
 import { startDrive } from "./animation";
 import { pageCountView } from "../components/garage/main/page-view";
+import { carsAmountView } from "../components/garage/main/heading-view";
 
 const disableButtons = (buttons: HTMLButtonElement[]): void => {
   buttons.forEach((button) => {
@@ -12,11 +13,14 @@ const disableButtons = (buttons: HTMLButtonElement[]): void => {
     el.disabled = true;
   });
 };
-const enableButtons = (buttons: HTMLButtonElement[]): void => {
+const enableButtons = (buttons: HTMLButtonElement[], page: number): void => {
   buttons.forEach((button) => {
     const el = button;
     if (!el.classList.contains("stop")) el.disabled = false;
   });
+  const nextBtn = buttons.find((el) => el.classList.contains("next"));
+  const carsAmount = +carsAmountView.textContent.slice(1, -1);
+  if (page * 7 >= carsAmount) nextBtn.disabled = true;
 };
 
 export default async function startRace(e: Event): Promise<Car> {
@@ -42,7 +46,7 @@ export default async function startRace(e: Event): Promise<Car> {
     ...carParams.map((car) => car.distance / car.velocity),
   );
   setTimeout(() => {
-    enableButtons(buttons);
+    enableButtons(buttons, page);
   }, maxTime);
   let winner: Car;
   try {
@@ -55,7 +59,7 @@ export default async function startRace(e: Event): Promise<Car> {
     addWinner(winner);
   } catch {
     message.textContent = "All cars have been broken";
-    enableButtons(buttons);
+    enableButtons(buttons, page);
   }
   return winner;
 }
