@@ -19,8 +19,10 @@ const enableButtons = (buttons: HTMLButtonElement[], page: number): void => {
     if (!el.classList.contains("stop")) el.disabled = false;
   });
   const nextBtn = buttons.find((el) => el.classList.contains("next"));
+  const prevBtn = buttons.find((el) => el.classList.contains("prev"));
   const carsAmount = +carsAmountView.textContent.slice(1, -1);
   if (page * 7 >= carsAmount) nextBtn.disabled = true;
+  if (page === 1) prevBtn.disabled = true;
 };
 
 export default async function startRace(e: Event): Promise<Car> {
