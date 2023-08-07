@@ -45,7 +45,10 @@ export async function updateWinner(
 export async function addWinner(winner: Car): Promise<void> {
   const winners = await getWinners();
   const winnerInWinners = winners.find((car) => car.id === winner.id);
-  const lastTime = +(winner.distance / winner.velocity / 1000).toFixed(2);
+  const MSEC_PER_SEC = 1000;
+  const lastTime = +(winner.distance / winner.velocity / MSEC_PER_SEC).toFixed(
+    2,
+  );
 
   if (!winnerInWinners) {
     const winnerToAdd = {

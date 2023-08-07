@@ -4,6 +4,7 @@ import { startDrive } from "./animation";
 import { pageCountView } from "../components/garage/main/page-view";
 import { carsAmountView } from "../components/garage/main/heading-view";
 import { getGaragePage, startEngine, addWinner } from "../api/api";
+import { CARS_PER_PAGE } from "./consts";
 
 const disableButtons = (buttons: HTMLButtonElement[]): void => {
   buttons.forEach((button) => {
@@ -19,7 +20,7 @@ const enableButtons = (buttons: HTMLButtonElement[], page: number): void => {
   const nextBtn = buttons.find((el) => el.classList.contains("next"));
   const prevBtn = buttons.find((el) => el.classList.contains("prev"));
   const carsAmount = +carsAmountView.textContent.slice(1, -1);
-  if (page * 7 >= carsAmount) nextBtn.disabled = true;
+  if (page * CARS_PER_PAGE >= carsAmount) nextBtn.disabled = true;
   if (page === 1) prevBtn.disabled = true;
 };
 

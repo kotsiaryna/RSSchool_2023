@@ -1,4 +1,5 @@
 import { stopEngine } from "../api/api";
+import { LEFT_PADDING } from "./consts";
 
 export default async function resetRace(
   e: Event,
@@ -17,7 +18,7 @@ export default async function resetRace(
 
   carsImg.forEach((car) => {
     const elem = car;
-    elem.style.left = `20px`;
+    elem.style.left = `${LEFT_PADDING}px`;
   });
 
   const winMessage = [...document.body.children].find((el) =>

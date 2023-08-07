@@ -1,4 +1,5 @@
 import carImage from "../assets/icons/car.";
+import { WINNERS_PER_PAGE } from "../callbacks/consts";
 import { Winner } from "../types/type";
 import createElement from "../utils/createElement";
 
@@ -7,7 +8,7 @@ export default function fillTable(
   page: number,
   placeToAppend: Element,
 ): void {
-  let n = (page - 1) * 10 + 1;
+  let n = (page - 1) * WINNERS_PER_PAGE + 1;
   winners.forEach((winner) => {
     const row = createElement({ tag: "tr" });
     row.setAttribute("data-id", `${winner.id}`);

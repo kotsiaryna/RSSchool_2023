@@ -2,6 +2,7 @@ import { winnersAmountView } from "../components/winner/heading-view";
 import { pageCountView } from "../components/winner/winner-page-view";
 import changeTableContent from "../render/changeTableContext";
 import { Elem } from "../types/type";
+import { WINNERS_PER_PAGE } from "./consts";
 
 export const nextCallback: Elem["callback"] = async (e, place) => {
   const nextBtn = e.target as HTMLButtonElement;
@@ -12,7 +13,7 @@ export const nextCallback: Elem["callback"] = async (e, place) => {
   const nextPage = currentPage + 1;
   pageCountView.textContent = `#${nextPage}`;
   const amount = +winnersAmountView.textContent.slice(1, -1);
-  if (nextPage * 10 >= amount) {
+  if (nextPage * WINNERS_PER_PAGE >= amount) {
     nextBtn.disabled = true;
   }
   changeTableContent(place, nextPage);

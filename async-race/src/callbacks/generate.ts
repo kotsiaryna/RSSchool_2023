@@ -3,6 +3,7 @@ import { carsAmountView } from "../components/garage/main/heading-view";
 import { pageCountView } from "../components/garage/main/page-view";
 import updateTracks from "../render/updateTracks";
 import { Car } from "../types/type";
+import { CAR_AMOUNT_TO_GENERATE } from "./consts";
 
 const randomColor = (): string => {
   const color = `#${Math.random().toString(16).slice(3, 9)}`;
@@ -40,7 +41,7 @@ const getRandomName = (array: string[]): string => {
 
 const generateCarParams = (): Omit<Car, "id">[] => {
   const carsOptions = [];
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < CAR_AMOUNT_TO_GENERATE; i += 1) {
     const carParams = {
       name: `${getRandomName(firstName)} ${getRandomName(lastName)}`,
       color: randomColor(),
@@ -62,7 +63,7 @@ const generateCallback = (e: Event, place: HTMLElement): void => {
   create100Cars(generateCarParams());
 
   const amount = +carsAmountView.textContent.slice(1, -1);
-  const newAmount = amount + 100;
+  const newAmount = amount + CAR_AMOUNT_TO_GENERATE;
   carsAmountView.textContent = `(${newAmount})`;
 
   const page = +pageCountView.textContent.slice(1);

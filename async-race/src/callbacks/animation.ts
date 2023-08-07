@@ -1,5 +1,12 @@
 import { driveModeOn, startEngine, stopEngine } from "../api/api";
 import { AnimationKeys, Car } from "../types/type";
+import {
+  MSEC_PER_SEC,
+  SEC_PER_MIN,
+  LEFT_PADDING,
+  RIGHT_PADDING,
+  ERROR_STATUS,
+} from "./consts";
 
 const animationIDs: AnimationKeys[] = [];
 const animationID = {
@@ -11,14 +18,14 @@ export const startDrive = async (
   place?: Element,
 ): Promise<Car["id"]> => {
   const timeMSec = Math.round(params.distance / params.velocity);
-  const timeSec = timeMSec / 1000;
-  const times = timeSec * 60;
+  const timeSec = timeMSec / MSEC_PER_SEC;
+  const times = timeSec * SEC_PER_MIN;
   const { innerWidth } = window;
-  const distance = innerWidth - 20 - 100;
+  const distance = innerWidth - LEFT_PADDING - RIGHT_PADDING;
   const step = distance / times;
   const car = [...place.children].find((el) => +el.id === params.id)
     .lastElementChild as SVGAElement;
-  car.style.left = `${20 - step}px`;
+  car.style.left = `${LEFT_PADDING - step}px`;
   const moveLeft = (): void => {
     const way = parseFloat(car.style.left);
     car.style.left = `${way + step}px`;
@@ -29,7 +36,7 @@ export const startDrive = async (
   };
   moveLeft();
   const status = await driveModeOn(params.id);
-  if (status === 500) {
+  if (status === ERROR_STATUS) {
     cancelAnimationFrame(animationIDs[params.id].animationId);
     return Promise.reject();
   }
@@ -45,13 +52,13 @@ export async function startAnimation(e: Event): Promise<void> {
   const driveParams = await startEngine(+id);
 
   const timeMSec = driveParams.distance / driveParams.velocity;
-  const timeSec = timeMSec / 1000;
-  const times = timeSec * 60;
+  const timeSec = timeMSec / MSEC_PER_SEC;
+  const times = timeSec * SEC_PER_MIN;
   const { innerWidth } = window;
-  const distance = innerWidth - 20 - 100;
+  const distance = innerWidth - LEFT_PADDING - RIGHT_PADDING;
   const step = distance / times;
   const car = startBtn.parentElement.nextElementSibling as SVGAElement;
-  car.style.left = `${20 - step}px`;
+  car.style.left = `${LEFT_PADDING - step}px`;
   const moveLeft = (): void => {
     const way = parseFloat(car.style.left);
     car.style.left = `${way + step}px`;
@@ -61,7 +68,7 @@ export async function startAnimation(e: Event): Promise<void> {
   };
   moveLeft();
   const status = await driveModeOn(+id);
-  if (status === 500) cancelAnimationFrame(animationID.id);
+  if (status === ERROR_STATUS) cancelAnimationFrame(animationID.id);
 }
 
 export async function stopAnimation(e: Event): Promise<void> {
@@ -73,5 +80,5 @@ export async function stopAnimation(e: Event): Promise<void> {
   await stopEngine(+id);
   cancelAnimationFrame(animationID.id);
   const car = stopBtn.parentElement.nextElementSibling as SVGAElement;
-  car.style.left = `20px`;
+  car.style.left = `${LEFT_PADDING}px`;
 }

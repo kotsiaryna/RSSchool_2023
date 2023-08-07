@@ -3,6 +3,7 @@ import { carsAmountView } from "../components/garage/main/heading-view";
 import { pageCountView } from "../components/garage/main/page-view";
 import createTrack from "../components/garage/main/track";
 import { Car } from "../types/type";
+import { CARS_PER_PAGE } from "./consts";
 
 const getCarParams = (e: Event): Omit<Car, "id"> => {
   const { target } = e;
@@ -34,13 +35,13 @@ const createCallback = async (
 
   const page = +pageCountView.textContent.slice(1);
   const amount = updateAmount();
-  if (page * 7 >= amount) {
+  if (page * CARS_PER_PAGE >= amount) {
     const track = createTrack(car);
     placeToAppend.append(track);
   }
   const nextBtn = placeToAppend.children[2]
     .lastElementChild as HTMLButtonElement;
-  if (amount > page * 7) {
+  if (amount > page * CARS_PER_PAGE) {
     nextBtn.disabled = false;
   }
 };
