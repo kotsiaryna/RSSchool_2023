@@ -1,5 +1,4 @@
-import { editWinners } from "../../api/getData";
-import { getWinnersPage } from "../../api/getPage";
+import { editWinners, getWinnersPage } from "../../api/api";
 import sortTable from "../../callbacks/sort";
 import fillTable from "../../render/fillTable";
 import createElement from "../../utils/createElement";

@@ -1,4 +1,4 @@
-import updateCar from "../api/updateCar";
+import { updateCar } from "../api/api";
 import { Car } from "../types/type";
 
 export function select(e: Event): void {

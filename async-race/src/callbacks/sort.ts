@@ -1,5 +1,4 @@
-import { editWinners } from "../api/getData";
-import getSortedWinners from "../api/getSortedWinners";
+import { editWinners, getSortedWinners } from "../api/api";
 import { pageCountView } from "../components/winner/winner-page-view";
 import fillTable from "../render/fillTable";
 

@@ -1,6 +1,4 @@
-import driveModeOn from "../api/drive";
-import startEngine from "../api/startEngine";
-import stopEngine from "../api/stopEngine";
+import { driveModeOn, startEngine, stopEngine } from "../api/api";
 import { AnimationKeys, Car } from "../types/type";
 
 const animationIDs: AnimationKeys[] = [];

@@ -1,4 +1,4 @@
-import { getGaragePage } from "../api/getPage";
+import { getGaragePage } from "../api/api";
 import createTrack from "../components/garage/main/track";
 
 const updateTracks = async (

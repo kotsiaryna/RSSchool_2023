@@ -1,4 +1,4 @@
-import stopEngine from "../api/stopEngine";
+import { stopEngine } from "../api/api";
 
 export default async function resetRace(
   e: Event,

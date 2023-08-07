@@ -1,5 +1,4 @@
-import { getCars } from "../../../api/getData";
-import { getGaragePage } from "../../../api/getPage";
+import { getGaragePage, getCars } from "../../../api/api";
 import { next, prev } from "../../../callbacks/pagination";
 import remove from "../../../callbacks/remove";
 import addLastTrack from "../../../render/addLastTrack";

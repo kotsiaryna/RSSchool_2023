@@ -1,4 +1,4 @@
-import createCar from "../api/createCar";
+import { createCar } from "../api/api";
 import { carsAmountView } from "../components/garage/main/heading-view";
 import { pageCountView } from "../components/garage/main/page-view";
 import createTrack from "../components/garage/main/track";

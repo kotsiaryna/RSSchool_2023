@@ -1,11 +1,9 @@
-import { getGaragePage } from "../api/getPage";
-import startEngine from "../api/startEngine";
 import addWinMessage, { message } from "../components/message/message-view";
 import { Car } from "../types/type";
-import addWinner from "../api/addWinner";
 import { startDrive } from "./animation";
 import { pageCountView } from "../components/garage/main/page-view";
 import { carsAmountView } from "../components/garage/main/heading-view";
+import { getGaragePage, startEngine, addWinner } from "../api/api";
 
 const disableButtons = (buttons: HTMLButtonElement[]): void => {
   buttons.forEach((button) => {

@@ -1,6 +1,4 @@
-import { getWinners } from "../api/getData";
-import removeCar from "../api/removeCar";
-import removeWinner from "../api/removeWinner";
+import { getWinners, removeWinner, removeCar } from "../api/api";
 import { carsAmountView } from "../components/garage/main/heading-view";
 import { pageCountView } from "../components/garage/main/page-view";
 import winner from "../components/winner/winners";

@@ -1,4 +1,4 @@
-import { getWinners } from "../api/getData";
+import { getWinners } from "../api/api";
 import { winnersAmountView } from "../components/winner/heading-view";
 import { pageCountView } from "../components/winner/winner-page-view";
 import winner from "../components/winner/winners";

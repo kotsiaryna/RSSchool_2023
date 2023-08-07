@@ -1,5 +1,4 @@
-import { editWinners } from "../api/getData";
-import getSortedWinners from "../api/getSortedWinners";
+import { editWinners, getSortedWinners } from "../api/api";
 import { addWinners } from "../components/winner/winners-table";
 import fillTable from "./fillTable";
 
