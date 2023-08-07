@@ -56,7 +56,6 @@ export default async function startRace(e: Event): Promise<Car> {
     const winnerCar = currentCars.find((el) => el.id === winnerID);
     const winnerParams = carParams.find((param) => param.id === winnerID);
     winner = { ...winnerCar, ...winnerParams };
-    console.log(winner);
     addWinMessage(winner);
     addWinner(winner);
   } catch {

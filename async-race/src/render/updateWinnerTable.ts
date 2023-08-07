@@ -7,8 +7,6 @@ import changeTableContent from "./changeTableContext";
 export default async function updateWinnerTable(): Promise<void> {
   const page = +pageCountView.textContent.slice(1);
   const winnersList = await getWinners();
-  console.log(page);
-  console.log(winnersList.length);
   const nextBtn = winner.children[2].lastElementChild as HTMLButtonElement;
   if (page * 10 >= winnersList.length) {
     nextBtn.disabled = true;

@@ -10,6 +10,5 @@ export default async function updateCar(car: Car): Promise<void> {
     },
     body: JSON.stringify(body),
   });
-  const result = await resp.json();
-  console.log(result);
+  await resp.json();
 }
