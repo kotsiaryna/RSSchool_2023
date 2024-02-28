@@ -8,11 +8,11 @@ Implementation of task from [RS School](https://rs.school/) JS / frontend course
 
 You can manage the collection of the cars, operate its engines, and see races statistics.
 
-## Backend
+### Backend
 
 Needs to be setup and start locally from [this server](https://github.com/kotsiaryna/async-race-api)
 
-## Features
+###Features
 
 * create, update and remove cars in garage
 * start and stop an individual car race
@@ -20,7 +20,7 @@ Needs to be setup and start locally from [this server](https://github.com/kotsia
 * generate random cars
 * winner table, sortable by wins and times
 
-## Deploy 
+### Deploy 
 [link](https://kotsiaryna.github.io/RSSchool_2023/async-race/) to deploy on gh-pages. 
 
 Note, that first you should start [this server](https://github.com/kotsiaryna/async-race-api) locally
